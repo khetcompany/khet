@@ -749,6 +749,61 @@
             background-color: #f8bfc9 !important;
         }
         /* ... existing code ... */
+        /* Section Title Redesign */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-align: center;
+            background: linear-gradient(90deg, #c1003b 0%, #ffe0b2 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+            padding: 0 1.5rem;
+            line-height: 1.1;
+            /* Viền trắng cho chữ gradient */
+            -webkit-text-stroke: 1.2px #fff;
+            text-shadow:
+                0 2px 16px rgba(193,0,59,0.18),
+                0 1px 0 #fff,
+                0 0 2px #fff,
+                0 0 8px #ffe0b2cc;
+            animation: shine-gradient 3s linear infinite, glow-text 2s ease-in-out infinite alternate;
+        }
+        .section-title-bar {
+            display: block;
+            width: 80px;
+            height: 6px;
+            margin: 0.5rem auto 1.5rem auto;
+            border-radius: 3px;
+            background: linear-gradient(90deg, #ffe0b2 0%, #c1003b 100%);
+            box-shadow: 0 2px 8px #c1003b33;
+        }
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.5rem;
+                padding: 0 0.5rem;
+            }
+            .section-title-bar {
+                width: 48px;
+                height: 4px;
+            }
+        }
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.1rem;
+                padding: 0 0.2rem;
+            }
+            .section-title-bar {
+                width: 32px;
+                height: 3px;
+            }
+        }
+        /* ... existing code ... */
     </style>
     <script type="application/ld+json">
     {
@@ -1050,9 +1105,10 @@
     <!-- Blog Posts Section -->
     <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white/90 to-gray-50/90 backdrop-blur-sm animate__animated animate__fadeInUp" id="blog" data-aos="zoom-in" data-aos-delay="300">
         <div class="container mx-auto max-w-7xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12" data-aos="zoom-in">
+            <h2 class="section-title" data-aos="zoom-in">
                 Bài đăng <span class="text-red-600">mới nhất</span> từ Khet Entertainment
             </h2>
+            <span class="section-title-bar"></span>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12" id="blog-posts-container">
                 <!-- Loading indicator -->
                 <div class="col-span-full flex justify-center items-center py-12">
@@ -1074,15 +1130,16 @@
     <!-- Ecosystem Section - Reverted to non-collapsible -->
     <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white/90 to-gray-50/90 backdrop-blur-sm animate__animated animate__fadeInUp" id="ecosystem" data-aos="fade-up" data-aos-delay="400">
         <div class="container mx-auto max-w-7xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12 flex items-center justify-center gap-3" data-aos="zoom-in">
-                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-layer-group"></i><span class="text-[#c1003b]"> Các kênh nổi bật</span>
+            <h2 class="section-title" data-aos="zoom-in">
+                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-layer-group"></i></span> Các kênh nổi bật
             </h2>
+            <span class="section-title-bar"></span>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Card 1: Khet News -->
                 <a href="https://www.facebook.com/khetnews" class="col" data-aos="fade-up">
                     <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-8 flex flex-col items-center justify-center h-full border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group">
-                        <div class="w-16 h-16 flex items-center justify-center rounded-full bg-[#c1003b]/10 mb-4 group-hover:bg-[#c1003b]/20 transition">
-                            <img src="media/page4/khetnews.jpg" alt="logo" class="w-10 h-10 md:w-12 md:h-12">
+                        <div class="w-14 h-14 flex items-center justify-center rounded-full bg-[#f8bfc9]/30 border border-[#c1003b]/20 shadow">
+                          <img src="media/page4/khetnews.jpg" alt="logo" class="w-8 h-8 rounded-full object-cover">
                         </div>
                         <h3 class="text-2xl font-bold text-gray-900 mb-2">Khet News</h3>
                         <p class="text-base text-gray-600 mb-2 text-center">Kênh tin tức & giải trí: sự kiện, phim ảnh, beauty queen, âm nhạc.</p>
@@ -1092,8 +1149,8 @@
                 <!-- Card 2: Khet Music -->
                 <a href="https://www.tiktok.com/@khetmusic_" class="col" data-aos="fade-up" data-aos-delay="100">
                     <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-8 flex flex-col items-center justify-center h-full border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group">
-                        <div class="w-16 h-16 flex items-center justify-center rounded-full bg-[#c1003b]/10 mb-4 group-hover:bg-[#c1003b]/20 transition">
-                            <img src="media/page4/khetmusic.jpg" alt="logo" class="w-10 h-10 md:w-12 md:h-12">
+                        <div class="w-14 h-14 flex items-center justify-center rounded-full bg-[#f8bfc9]/30 border border-[#c1003b]/20 shadow">
+                          <img src="media/page4/khetmusic.jpg" alt="logo" class="w-8 h-8 rounded-full object-cover">
                         </div>
                         <h3 class="text-2xl font-bold text-gray-900 mb-2">Khet Music</h3>
                         <p class="text-base text-gray-600 mb-2 text-center">Kênh nhạc số trending: KPOP, USUK, Vbiz, không voice, sự kiện âm nhạc.</p>
@@ -1103,8 +1160,8 @@
                 <!-- Card 3: Khet Showbiz -->
                 <a href="https://www.tiktok.com/@tintucshowbiz_24h" class="col" data-aos="fade-up" data-aos-delay="200">
                     <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-8 flex flex-col items-center justify-center h-full border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group">
-                        <div class="w-16 h-16 flex items-center justify-center rounded-full bg-[#c1003b]/10 mb-4 group-hover:bg-[#c1003b]/20 transition">
-                            <img src="media/page4/khetshowbiz.jpg" alt="logo" class="w-10 h-10 md:w-12 md:h-12">
+                        <div class="w-14 h-14 flex items-center justify-center rounded-full bg-[#f8bfc9]/30 border border-[#c1003b]/20 shadow">
+                          <img src="media/page4/khetshowbiz.jpg" alt="logo" class="w-8 h-8 rounded-full object-cover">
                         </div>
                         <h3 class="text-2xl font-bold text-gray-900 mb-2">Khet Showbiz</h3>
                         <p class="text-base text-gray-600 mb-2 text-center">Kênh tin tức Showbiz 24h.</p>
@@ -1118,96 +1175,79 @@
     <!-- Achievements Section - Reverted to non-collapsible -->
     <section class="section-padding px-4 sm:px-6 lg:px-8 bg-white/80 backdrop-blur-sm animate__animated animate__fadeInUp" id="achievements" data-aos="fade-up" data-aos-delay="500">
         <div class="container mx-auto max-w-7xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12 flex items-center justify-center gap-3" data-aos="zoom-in">
-                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-rocket"></i></span>
-                Các <span class="text-[#c1003b]">Dự Án</span>
+            <h2 class="section-title" data-aos="zoom-in">
+                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-rocket"></i></span> Các <span class="text-[#c1003b]">Dự Án</span>
             </h2>
+            <span class="section-title-bar"></span>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8" id="projects-grid">
                 <!-- Dự án 1 -->
                 <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10">
                     <img src="media/proj/pj (1).jpg" alt="Dự án 1" class="w-full rounded-xl mb-4 object-contain">
-                    <span class="text-lg font-bold text-[#c1003b]">Dự án 1</span>
                 </div>
                 <!-- Dự án 2 -->
                 <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10">
                     <img src="media/proj/pj (2).jpg" alt="Dự án 2" class="w-full rounded-xl mb-4 object-contain">
-                    <span class="text-lg font-bold text-[#c1003b]">Dự án 2</span>
                 </div>
                 <!-- Dự án 3 -->
                 <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10">
                     <img src="media/proj/pj (3).jpg" alt="Dự án 3" class="w-full rounded-xl mb-4 object-contain">
-                    <span class="text-lg font-bold text-[#c1003b]">Dự án 3</span>
                 </div>
                 <!-- Dự án 4 -->
                 <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10">
                     <img src="media/proj/pj (4).jpg" alt="Dự án 4" class="w-full rounded-xl mb-4 object-contain">
-                    <span class="text-lg font-bold text-[#c1003b]">Dự án 4</span>
                 </div>
                 <!-- Dự án 5 -->
                 <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10">
                     <img src="media/proj/pj (5).jpg" alt="Dự án 5" class="w-full rounded-xl mb-4 object-contain">
-                    <span class="text-lg font-bold text-[#c1003b]">Dự án 5</span>
                 </div>
                 <!-- 12 dự án còn lại, thêm class 'hidden' để ẩn ban đầu -->
                 <!-- Dự án 6 -->
                 <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hidden extra-project">
                     <img src="media/proj/pj (6).jpg" alt="Dự án 6" class="w-full rounded-xl mb-4 object-contain">
-                    <span class="text-lg font-bold text-[#c1003b]">Dự án 6</span>
                 </div>
                 <!-- Dự án 7 -->
                 <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hidden extra-project">
                     <img src="media/proj/pj (7).jpg" alt="Dự án 7" class="w-full rounded-xl mb-4 object-contain">
-                    <span class="text-lg font-bold text-[#c1003b]">Dự án 7</span>
                 </div>
                 <!-- Dự án 8 -->
                 <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hidden extra-project">
                     <img src="media/proj/pj (8).jpg" alt="Dự án 8" class="w-full rounded-xl mb-4 object-contain">
-                    <span class="text-lg font-bold text-[#c1003b]">Dự án 8</span>
                 </div>
                 <!-- Dự án 9 -->
                 <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hidden extra-project">
                     <img src="media/proj/pj (9).jpg" alt="Dự án 9" class="w-full rounded-xl mb-4 object-contain">
-                    <span class="text-lg font-bold text-[#c1003b]">Dự án 9</span>
                 </div>
                 <!-- Dự án 10 -->
                 <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hidden extra-project">
                     <img src="media/proj/pj (10).jpg" alt="Dự án 10" class="w-full rounded-xl mb-4 object-contain">
-                    <span class="text-lg font-bold text-[#c1003b]">Dự án 10</span>
                 </div>
                 <!-- Dự án 11 -->
                 <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hidden extra-project">
                     <img src="media/proj/pj (11).jpg" alt="Dự án 11" class="w-full rounded-xl mb-4 object-contain">
-                    <span class="text-lg font-bold text-[#c1003b]">Dự án 11</span>
                 </div>
                 <!-- Dự án 12 -->
                 <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hidden extra-project">
                     <img src="media/proj/pj (12).jpg" alt="Dự án 12" class="w-full rounded-xl mb-4 object-contain">
-                    <span class="text-lg font-bold text-[#c1003b]">Dự án 12</span>
                 </div>
                 <!-- Dự án 13 -->
                 <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hidden extra-project">
                     <img src="media/proj/pj (13).jpg" alt="Dự án 13" class="w-full rounded-xl mb-4 object-contain">
-                    <span class="text-lg font-bold text-[#c1003b]">Dự án 13</span>
                 </div>
                 <!-- Dự án 14 -->
                 <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hidden extra-project">
                     <img src="media/proj/pj (14).jpg" alt="Dự án 14" class="w-full rounded-xl mb-4 object-contain">
-                    <span class="text-lg font-bold text-[#c1003b]">Dự án 14</span>
                 </div>
                 <!-- Dự án 15 -->
                 <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hidden extra-project">
                     <img src="media/proj/pj (15).jpg" alt="Dự án 15" class="w-full rounded-xl mb-4 object-contain">
-                    <span class="text-lg font-bold text-[#c1003b]">Dự án 15</span>
                 </div>
                 <!-- Dự án 16 -->
                 <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hidden extra-project">
                     <img src="media/proj/pj (16).jpg" alt="Dự án 16" class="w-full rounded-xl mb-4 object-contain">
-                    <span class="text-lg font-bold text-[#c1003b]">Dự án 16</span>
                 </div>
                 <!-- Dự án 17 -->
                 <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hidden extra-project">
                     <img src="media/proj/pj (17).jpg" alt="Dự án 17" class="w-full rounded-xl mb-4 object-contain">
-                    <span class="text-lg font-bold text-[#c1003b]">Dự án 17</span>
                 </div>
             </div>
             <div class="text-center mt-6" id="show-more-projects-btn-wrap">
@@ -1222,10 +1262,10 @@
     <!-- Partners Section - Reverted to non-collapsible -->
     <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white/90 to-gray-50/90 backdrop-blur-sm animate__animated animate__fadeInUp" id="partners" data-aos="fade-up" data-aos-delay="600">
         <div class="container mx-auto max-w-7xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12 flex items-center justify-center gap-3" data-aos="zoom-in">
-                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><img src="media/logoc.png" alt="Khet Entertainment Logo" class="w-6 h-6 inline-block"></span>
-                Hệ Thống <span class="text-[#c1003b]">Kênh</span> của Khet Entertainment
+            <h2 class="section-title" data-aos="zoom-in">
+                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><img src="media/logoc.png" alt="Khet Entertainment Logo" class="w-6 h-6 inline-block"></span> Hệ Thống <span class="text-[#c1003b]">Kênh</span> của Khet Entertainment
             </h2>
+            <span class="section-title-bar"></span>
             
             <!-- Channel Grid -->
             <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6 mb-12">
@@ -1233,8 +1273,8 @@
                 <div class="bg-white/70 backdrop-blur-lg rounded-xl md:rounded-2xl shadow-xl p-3 md:p-6 border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group" data-aos="fade-up">
                     <a href="https://www.facebook.com/khetnews" class="block">
                         <div class="flex items-center gap-2 md:gap-4 mb-2 md:mb-4">
-                            <div class="w-8 h-8 md:w-12 md:h-12 bg-gradient-to-br from-[#c1003b] to-[#ff6a00] rounded-lg md:rounded-xl flex items-center justify-center">
-                                <img src="media/page6/icon-facebook.png" alt="logo" class="w-6 h-6 md:w-8 md:h-8">
+                            <div class="w-14 h-14 flex items-center justify-center rounded-full bg-[#f8bfc9]/30 border border-[#c1003b]/20 shadow">
+                              <img src="media/page4/khetnews.jpg" alt="logo" class="w-8 h-8 rounded-full object-cover">
                             </div>
                             <div class="flex-1 min-w-0">
                                 <h3 class="font-bold text-gray-900 group-hover:text-[#c1003b] transition text-xs md:text-base truncate">Page Khet News</h3>
@@ -1243,7 +1283,7 @@
                         </div>
                         <div class="flex items-center justify-between">
                             <span class="text-[#c1003b] font-bold text-sm md:text-lg">100K</span>
-                            <img src="media/page6/arrow.png" alt="logo" class="w-4 h-4 md:w-5 md:h-5">
+                            <img src="media/page6/icon-facebook.png" alt="logo" class="w-12 h-12 md:w-16 md:h-16 rounded-full shadow-lg object-cover">
                         </div>
                     </a>
                 </div>
@@ -1251,8 +1291,8 @@
                 <div class="bg-white/70 backdrop-blur-lg rounded-xl md:rounded-2xl shadow-xl p-3 md:p-6 border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="100">
                     <a href="https://www.tiktok.com/@tintucshowbiz_24h" class="block">
                         <div class="flex items-center gap-2 md:gap-4 mb-2 md:mb-4">
-                            <div class="w-8 h-8 md:w-12 md:h-12 bg-gradient-to-br from-[#c1003b] to-[#ff6a00] rounded-lg md:rounded-xl flex items-center justify-center">
-                                <img src="media/page6/icon-tiktok.png" alt="logo" class="w-6 h-6 md:w-8 md:h-8">
+                            <div class="w-14 h-14 flex items-center justify-center rounded-full bg-[#f8bfc9]/30 border border-[#c1003b]/20 shadow">
+                              <img src="media/page4/khetshowbiz.jpg" alt="logo" class="w-8 h-8 rounded-full object-cover">
                             </div>
                             <div class="flex-1 min-w-0">
                                 <h3 class="font-bold text-gray-900 group-hover:text-[#c1003b] transition text-xs md:text-base truncate">Khet Showbiz</h3>
@@ -1261,7 +1301,7 @@
                         </div>
                         <div class="flex items-center justify-between">
                             <span class="text-[#c1003b] font-bold text-sm md:text-lg">821K</span>
-                            <img src="media/page6/arrow.png" alt="logo" class="w-4 h-4 md:w-5 md:h-5">
+                            <img src="media/page6/icon-tiktok.png" alt="logo" class="w-12 h-12 md:w-16 md:h-16 rounded-full shadow-lg object-cover">
                         </div>
                     </a>
                 </div>
@@ -1269,8 +1309,8 @@
                 <div class="bg-white/70 backdrop-blur-lg rounded-xl md:rounded-2xl shadow-xl p-3 md:p-6 border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="200">
                     <a href="https://www.tiktok.com/@khetnews" class="block">
                         <div class="flex items-center gap-2 md:gap-4 mb-2 md:mb-4">
-                            <div class="w-8 h-8 md:w-12 md:h-12 bg-gradient-to-br from-[#c1003b] to-[#ff6a00] rounded-lg md:rounded-xl flex items-center justify-center">
-                                <img src="media/page6/icon-tiktok.png" alt="logo" class="w-6 h-6 md:w-8 md:h-8">
+                            <div class="w-14 h-14 flex items-center justify-center rounded-full bg-[#f8bfc9]/30 border border-[#c1003b]/20 shadow">
+                              <img src="media/page6/icon-tiktok.png" alt="logo" class="w-8 h-8 rounded-full object-cover">
                             </div>
                             <div class="flex-1 min-w-0">
                                 <h3 class="font-bold text-gray-900 group-hover:text-[#c1003b] transition text-xs md:text-base truncate">Khet News</h3>
@@ -1279,7 +1319,7 @@
                         </div>
                         <div class="flex items-center justify-between">
                             <span class="text-[#c1003b] font-bold text-sm md:text-lg">400K</span>
-                            <img src="media/page6/arrow.png" alt="logo" class="w-4 h-4 md:w-5 md:h-5">
+                            <img src="media/page6/icon-tiktok.png" alt="logo" class="w-12 h-12 md:w-16 md:h-16 rounded-full shadow-lg object-cover">
                         </div>
                     </a>
                 </div>
@@ -1287,8 +1327,8 @@
                 <div class="bg-white/70 backdrop-blur-lg rounded-xl md:rounded-2xl shadow-xl p-3 md:p-6 border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="300">
                     <a href="https://www.tiktok.com/@canhbuomnews" class="block">
                         <div class="flex items-center gap-2 md:gap-4 mb-2 md:mb-4">
-                            <div class="w-8 h-8 md:w-12 md:h-12 bg-gradient-to-br from-[#c1003b] to-[#ff6a00] rounded-lg md:rounded-xl flex items-center justify-center">
-                                <img src="media/page6/icon-tiktok.png" alt="logo" class="w-6 h-6 md:w-8 md:h-8">
+                            <div class="w-14 h-14 flex items-center justify-center rounded-full bg-[#f8bfc9]/30 border border-[#c1003b]/20 shadow">
+                              <img src="media/page4/kheteneter.jpg" alt="logo" class="w-8 h-8 rounded-full object-cover">
                             </div>
                             <div class="flex-1 min-w-0">
                                 <h3 class="font-bold text-gray-900 group-hover:text-[#c1003b] transition text-xs md:text-base truncate">Khet Entertainment</h3>
@@ -1297,7 +1337,7 @@
                         </div>
                         <div class="flex items-center justify-between">
                             <span class="text-[#c1003b] font-bold text-sm md:text-lg">101K</span>
-                            <img src="media/page6/arrow.png" alt="logo" class="w-4 h-4 md:w-5 md:h-5">
+                            <img src="media/page6/icon-tiktok.png" alt="logo" class="w-12 h-12 md:w-16 md:h-16 rounded-full shadow-lg object-cover">
                         </div>
                     </a>
                 </div>
@@ -1306,8 +1346,8 @@
                 <div class="bg-white/70 backdrop-blur-lg rounded-xl md:rounded-2xl shadow-xl p-3 md:p-6 border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="400">
                     <a href="https://www.tiktok.com/@khetsobosobich" class="block">
                         <div class="flex items-center gap-2 md:gap-4 mb-2 md:mb-4">
-                            <div class="w-8 h-8 md:w-12 md:h-12 bg-gradient-to-br from-[#c1003b] to-[#ff6a00] rounded-lg md:rounded-xl flex items-center justify-center">
-                                <img src="media/page6/icon-tiktok.png" alt="logo" class="w-6 h-6 md:w-8 md:h-8">
+                            <div class="w-14 h-14 flex items-center justify-center rounded-full bg-[#f8bfc9]/30 border border-[#c1003b]/20 shadow">
+                              <img src="media/page4/khetsobo.jpg" alt="logo" class="w-8 h-8 rounded-full object-cover">
                             </div>
                             <div class="flex-1 min-w-0">
                                 <h3 class="font-bold text-gray-900 group-hover:text-[#c1003b] transition text-xs md:text-base truncate">Khet Sô Bồ</h3>
@@ -1316,7 +1356,7 @@
                         </div>
                         <div class="flex items-center justify-between">
                             <span class="text-[#c1003b] font-bold text-sm md:text-lg">100K</span>
-                            <img src="media/page6/arrow.png" alt="logo" class="w-4 h-4 md:w-5 md:h-5">
+                            <img src="media/page6/icon-tiktok.png" alt="logo" class="w-12 h-12 md:w-16 md:h-16 rounded-full shadow-lg object-cover">
                         </div>
                     </a>
                 </div>
@@ -1325,8 +1365,8 @@
                 <div class="bg-white/70 backdrop-blur-lg rounded-xl md:rounded-2xl shadow-xl p-3 md:p-6 border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="500">
                     <a href="https://www.tiktok.com/@khetmusic_" class="block">
                         <div class="flex items-center gap-2 md:gap-4 mb-2 md:mb-4">
-                            <div class="w-8 h-8 md:w-12 md:h-12 bg-gradient-to-br from-[#c1003b] to-[#ff6a00] rounded-lg md:rounded-xl flex items-center justify-center">
-                                <img src="media/page6/icon-tiktok.png" alt="logo" class="w-6 h-6 md:w-8 md:h-8">
+                            <div class="w-14 h-14 flex items-center justify-center rounded-full bg-[#f8bfc9]/30 border border-[#c1003b]/20 shadow">
+                              <img src="media/page4/khetmusic.jpg" alt="logo" class="w-8 h-8 rounded-full object-cover">
                             </div>
                             <div class="flex-1 min-w-0">
                                 <h3 class="font-bold text-gray-900 group-hover:text-[#c1003b] transition text-xs md:text-base truncate">Khet Music</h3>
@@ -1335,7 +1375,7 @@
                         </div>
                         <div class="flex items-center justify-between">
                             <span class="text-[#c1003b] font-bold text-sm md:text-lg">100K</span>
-                            <img src="media/page6/arrow.png" alt="logo" class="w-4 h-4 md:w-5 md:h-5">
+                            <img src="media/page6/icon-tiktok.png" alt="logo" class="w-12 h-12 md:w-16 md:h-16 rounded-full shadow-lg object-cover">
                         </div>
                     </a>
                 </div>
@@ -1344,8 +1384,8 @@
                 <div class="bg-white/70 backdrop-blur-lg rounded-xl md:rounded-2xl shadow-xl p-3 md:p-6 border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="800">
                     <a href="https://www.tiktok.com/@gapsaongoaidoi" class="block">
                         <div class="flex items-center gap-2 md:gap-4 mb-2 md:mb-4">
-                            <div class="w-8 h-8 md:w-12 md:h-12 bg-gradient-to-br from-[#c1003b] to-[#ff6a00] rounded-lg md:rounded-xl flex items-center justify-center">
-                                <img src="media/page6/icon-tiktok.png" alt="logo" class="w-6 h-6 md:w-8 md:h-8">
+                            <div class="w-14 h-14 flex items-center justify-center rounded-full bg-[#f8bfc9]/30 border border-[#c1003b]/20 shadow">
+                              <img src="media/page4/gapsao.jpeg" alt="logo" class="w-8 h-8 rounded-full object-cover">
                             </div>
                             <div class="flex-1 min-w-0">
                                 <h3 class="font-bold text-gray-900 group-hover:text-[#c1003b] transition text-xs md:text-base truncate">Gặp Sao Ngoài Đời</h3>
@@ -1354,7 +1394,7 @@
                         </div>
                         <div class="flex items-center justify-between">
                             <span class="text-[#c1003b] font-bold text-sm md:text-lg">3K</span>
-                            <img src="media/page6/arrow.png" alt="logo" class="w-4 h-4 md:w-5 md:h-5">
+                            <img src="media/page6/icon-tiktok.png" alt="logo" class="w-12 h-12 md:w-16 md:h-16 rounded-full shadow-lg object-cover">
                         </div>
                     </a>
                 </div>
@@ -1364,9 +1404,10 @@
     <!-- Team Section - Reverted to non-collapsible -->
     <section class="section-padding px-4 sm:px-6 lg:px-8 bg-white/80 backdrop-blur-sm animate__animated animate__fadeInUp" id="team" data-aos="fade-up" data-aos-delay="700">
         <div class="container mx-auto max-w-7xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12 flex items-center justify-center gap-3" data-aos="zoom-in">
-                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-users"></i> <span class="text-[#c1003b]">Team</span> Khet Entertainment
+            <h2 class="section-title" data-aos="zoom-in">
+                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-users"></i></span> <span class="text-[#c1003b]">Team</span> Khet Entertainment
             </h2>
+            <span class="section-title-bar"></span>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
                 <!-- Team Member 1 -->
                 <div class="col text-center" data-aos="zoom-in-up">
@@ -1437,15 +1478,15 @@
     <!-- Partners Company Section (NEW) -->
     <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white/90 to-gray-50/90 backdrop-blur-sm animate__animated animate__fadeInUp" id="partners-company" data-aos="fade-up" data-aos-delay="750">
         <div class="container mx-auto max-w-7xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-8 flex items-center justify-center gap-3" data-aos="zoom-in">
-                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-handshake"></i></span>
-                Đối tác <span class="text-[#c1003b]">Công ty</span>
+            <h2 class="section-title" data-aos="zoom-in">
+                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-handshake"></i></span> Đối tác <span class="text-[#c1003b]">Công ty</span>
             </h2>
+            <span class="section-title-bar"></span>
             <p class="text-center text-lg text-gray-600 mb-10 max-w-2xl mx-auto">Khet Entertainment tự hào hợp tác cùng các công ty, thương hiệu lớn trong lĩnh vực truyền thông, giải trí, công nghệ và nhiều ngành nghề khác.</p>
             <!-- Đối tác chính nổi bật -->
             <div class="flex flex-col items-center justify-center mb-10" data-aos="zoom-in">
                 <div class="bg-white rounded-3xl shadow-2xl p-8 flex flex-col items-center border-4 border-[#c1003b]/30">
-                    <img src="https://placehold.co/200x100/eee/333?text=Logo+1" alt="Đối tác chính - Công ty A" class="mb-4 w-48 h-24 object-contain">
+                    <img src="media/ino.jpg" alt="Đối tác chính - Công ty A" class="mb-4 w-48 h-24 object-contain">
                     <span class="text-xl md:text-2xl font-bold text-[#c1003b] mb-2">Công ty A</span>
                     <span class="text-base text-gray-700 text-center">Đối tác chiến lược hàng đầu trong lĩnh vực truyền thông & giải trí.</span>
                 </div>
