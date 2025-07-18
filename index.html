@@ -751,28 +751,30 @@
         /* ... existing code ... */
         /* Section Title Redesign */
         .section-title {
-            font-size: 2.5rem;
-            font-weight: 900;
+            font-size: 1.3rem;
+            font-weight: 700;
             text-align: center;
-            background: linear-gradient(90deg, #c1003b 0%, #ffe0b2 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: 1.5px;
+            color: #c1003b;
+            font-family: 'Playfair Display', 'Inter', sans-serif !important;
+            letter-spacing: 1px;
             margin-bottom: 0.5rem;
             position: relative;
             display: inline-block;
-            padding: 0 1.5rem;
+            padding: 0 1rem;
             line-height: 1.1;
-            /* Viền trắng cho chữ gradient */
-            -webkit-text-stroke: 1.2px #fff;
-            text-shadow:
-                0 2px 16px rgba(193,0,59,0.18),
-                0 1px 0 #fff,
-                0 0 2px #fff,
-                0 0 8px #ffe0b2cc;
-            animation: shine-gradient 3s linear infinite, glow-text 2s ease-in-out infinite alternate;
+            /* Bỏ gradient, animation, text-shadow, stroke */
+        }
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1rem;
+                padding: 0 0.5rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 0.9rem;
+                padding: 0 0.2rem;
+            }
         }
         .section-title-bar {
             display: block;
@@ -784,23 +786,97 @@
             box-shadow: 0 2px 8px #c1003b33;
         }
         @media (max-width: 768px) {
-            .section-title {
-                font-size: 1.5rem;
-                padding: 0 0.5rem;
-            }
             .section-title-bar {
                 width: 48px;
                 height: 4px;
             }
         }
         @media (max-width: 480px) {
-            .section-title {
-                font-size: 1.1rem;
-                padding: 0 0.2rem;
-            }
             .section-title-bar {
                 width: 32px;
                 height: 3px;
+            }
+        }
+        /* ... existing code ... */
+        /* --- ĐỒNG BỘ HÓA STYLE TOÀN TRANG --- */
+        /* Card, box, nút, input đều border-radius lớn, shadow, màu sắc đồng bộ */
+        .card, .box, .blog-post-card, .col, .stats-card, .team-member, .contact, .bg-white\/70, .bg-white\/80, .rounded-2xl, .rounded-xl, .rounded-3xl, .rounded-full {
+            border-radius: 2.5rem !important;
+            box-shadow: 0 12px 40px 0 rgba(193,0,59,0.14), 0 2px 12px 0 rgba(255,224,178,0.12);
+            background: rgba(255,255,255,0.80);
+            backdrop-filter: blur(12px);
+            transition: all 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.5s;
+        }
+        .card:hover, .box:hover, .blog-post-card:hover, .col:hover, .stats-card:hover, .team-member:hover, .contact:hover, .bg-white\/70:hover, .bg-white\/80:hover {
+            transform: scale(1.08) rotate(-1.5deg);
+            box-shadow: 0 24px 64px 0 rgba(193,0,59,0.22), 0 4px 24px 0 rgba(255,224,178,0.22);
+            z-index: 3;
+        }
+        input, textarea, button, .form-control {
+            border-radius: 1.2rem !important;
+            box-shadow: 0 2px 8px 0 rgba(193,0,59,0.10);
+            font-family: 'Inter', sans-serif;
+        }
+        input:focus, textarea:focus, button:focus {
+            outline: none;
+            border-color: #c1003b;
+            box-shadow: 0 0 0 2px #ffe0b2, 0 2px 8px 0 rgba(193,0,59,0.18);
+        }
+        /* Nút đồng bộ màu, hiệu ứng */
+        .button, .cta-glow, button, a.cta-glow, a.button {
+            background: linear-gradient(90deg, #f8bfc9 0%, #ffe0b2 100%);
+            color: #c1003b;
+            border: 2px solid #c1003b;
+            font-weight: 700;
+            border-radius: 1.2rem !important;
+            box-shadow: 0 2px 8px 0 rgba(193,0,59,0.10);
+            transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+        }
+        .button:hover, .cta-glow:hover, button:hover, a.cta-glow:hover, a.button:hover {
+            background: #c1003b !important;
+            color: #fff !important;
+            box-shadow: 0 6px 24px 0 rgba(193,0,59,0.18);
+            transform: scale(1.04) translateY(-2px);
+        }
+        /* Font chữ toàn trang */
+        body, h1, h2, h3, h4, h5, h6, p, a, span, button, input, textarea {
+            font-family: 'Inter', sans-serif !important;
+        }
+        /* Màu chữ đồng bộ */
+        h1, h2, h3, h4, h5, h6, .section-title {
+            color: #c1003b !important;
+            font-weight: 900;
+        }
+        p, span, a, li, .text-gray-600, .text-gray-700, .text-gray-900 {
+            color: #333 !important;
+        }
+        /* Hiệu ứng hover cho icon */
+        .fab, .fas, .fa, .icon {
+            transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
+        }
+        .fab:hover, .fas:hover, .fa:hover, .icon:hover {
+            color: #ffe0b2 !important;
+            text-shadow: 0 0 12px #c1003b, 0 0 24px #ffe0b2;
+            transform: scale(1.18) rotate(-8deg);
+        }
+        /* Khoảng cách section đồng bộ */
+        .section-padding {
+            padding-top: 3rem !important;
+            padding-bottom: 3rem !important;
+        }
+        @media (max-width: 768px) {
+            .section-padding {
+                padding-top: 1.2rem !important;
+                padding-bottom: 1.2rem !important;
+            }
+        }
+        /* Responsive card/grid đồng bộ */
+        .grid, .grid-cols-1, .grid-cols-2, .grid-cols-3, .grid-cols-4 {
+            gap: 1.5rem !important;
+        }
+        @media (max-width: 768px) {
+            .grid, .grid-cols-1, .grid-cols-2, .grid-cols-3, .grid-cols-4 {
+                gap: 0.7rem !important;
             }
         }
         /* ... existing code ... */
@@ -1179,77 +1255,146 @@
                 <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-rocket"></i></span> Các <span class="text-[#c1003b]">Dự Án</span>
             </h2>
             <span class="section-title-bar"></span>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8" id="projects-grid">
-                <!-- Dự án 1 -->
-                <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10">
+            <!-- Dự án 1 -->
+            <!-- ... XÓA TOÀN BỘ GRID CŨ CỦA DỰ ÁN ... -->
+            <div class="relative w-full max-w-5xl mx-auto">
+              <button id="project-prev" class="absolute left-0 top-1/2 -translate-y-1/2 bg-[#c1003b] text-white rounded-full p-3 shadow-lg hover:bg-[#a00030] transition z-10">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <div id="project-carousel" class="overflow-hidden">
+                <div id="project-slides" class="flex transition-transform duration-500 gap-8">
+                  <!-- Dự án 1 -->
+                  <div class="w-64 flex-shrink-0 flex flex-col items-center">
                     <img src="media/proj/pj (1).jpg" alt="Dự án 1" class="w-full rounded-xl mb-4 object-contain">
-                </div>
-                <!-- Dự án 2 -->
-                <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10">
+                  </div>
+                  <!-- Dự án 2 -->
+                  <div class="w-64 flex-shrink-0 flex flex-col items-center">
                     <img src="media/proj/pj (2).jpg" alt="Dự án 2" class="w-full rounded-xl mb-4 object-contain">
-                </div>
-                <!-- Dự án 3 -->
-                <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10">
+                  </div>
+                  <!-- Dự án 3 -->
+                  <div class="w-64 flex-shrink-0 flex flex-col items-center">
                     <img src="media/proj/pj (3).jpg" alt="Dự án 3" class="w-full rounded-xl mb-4 object-contain">
-                </div>
-                <!-- Dự án 4 -->
-                <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10">
+                  </div>
+                  <!-- Dự án 4 -->
+                  <div class="w-64 flex-shrink-0 flex flex-col items-center">
                     <img src="media/proj/pj (4).jpg" alt="Dự án 4" class="w-full rounded-xl mb-4 object-contain">
-                </div>
-                <!-- Dự án 5 -->
-                <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10">
+                  </div>
+                  <!-- Dự án 5 -->
+                  <div class="w-64 flex-shrink-0 flex flex-col items-center">
                     <img src="media/proj/pj (5).jpg" alt="Dự án 5" class="w-full rounded-xl mb-4 object-contain">
-                </div>
-                <!-- 12 dự án còn lại, thêm class 'hidden' để ẩn ban đầu -->
-                <!-- Dự án 6 -->
-                <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hidden extra-project">
+                  </div>
+                  <!-- Dự án 6 -->
+                  <div class="w-64 flex-shrink-0 flex flex-col items-center">
                     <img src="media/proj/pj (6).jpg" alt="Dự án 6" class="w-full rounded-xl mb-4 object-contain">
-                </div>
-                <!-- Dự án 7 -->
-                <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hidden extra-project">
+                  </div>
+                  <!-- Dự án 7 -->
+                  <div class="w-64 flex-shrink-0 flex flex-col items-center">
                     <img src="media/proj/pj (7).jpg" alt="Dự án 7" class="w-full rounded-xl mb-4 object-contain">
-                </div>
-                <!-- Dự án 8 -->
-                <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hidden extra-project">
+                  </div>
+                  <!-- Dự án 8 -->
+                  <div class="w-64 flex-shrink-0 flex flex-col items-center">
                     <img src="media/proj/pj (8).jpg" alt="Dự án 8" class="w-full rounded-xl mb-4 object-contain">
-                </div>
-                <!-- Dự án 9 -->
-                <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hidden extra-project">
+                  </div>
+                  <!-- Dự án 9 -->
+                  <div class="w-64 flex-shrink-0 flex flex-col items-center">
                     <img src="media/proj/pj (9).jpg" alt="Dự án 9" class="w-full rounded-xl mb-4 object-contain">
-                </div>
-                <!-- Dự án 10 -->
-                <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hidden extra-project">
+                  </div>
+                  <!-- Dự án 10 -->
+                  <div class="w-64 flex-shrink-0 flex flex-col items-center">
                     <img src="media/proj/pj (10).jpg" alt="Dự án 10" class="w-full rounded-xl mb-4 object-contain">
-                </div>
-                <!-- Dự án 11 -->
-                <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hidden extra-project">
+                  </div>
+                  <!-- Dự án 11 -->
+                  <div class="w-64 flex-shrink-0 flex flex-col items-center">
                     <img src="media/proj/pj (11).jpg" alt="Dự án 11" class="w-full rounded-xl mb-4 object-contain">
-                </div>
-                <!-- Dự án 12 -->
-                <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hidden extra-project">
+                  </div>
+                  <!-- Dự án 12 -->
+                  <div class="w-64 flex-shrink-0 flex flex-col items-center">
                     <img src="media/proj/pj (12).jpg" alt="Dự án 12" class="w-full rounded-xl mb-4 object-contain">
-                </div>
-                <!-- Dự án 13 -->
-                <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hidden extra-project">
+                  </div>
+                  <!-- Dự án 13 -->
+                  <div class="w-64 flex-shrink-0 flex flex-col items-center">
                     <img src="media/proj/pj (13).jpg" alt="Dự án 13" class="w-full rounded-xl mb-4 object-contain">
-                </div>
-                <!-- Dự án 14 -->
-                <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hidden extra-project">
+                  </div>
+                  <!-- Dự án 14 -->
+                  <div class="w-64 flex-shrink-0 flex flex-col items-center">
                     <img src="media/proj/pj (14).jpg" alt="Dự án 14" class="w-full rounded-xl mb-4 object-contain">
-                </div>
-                <!-- Dự án 15 -->
-                <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hidden extra-project">
+                  </div>
+                  <!-- Dự án 15 -->
+                  <div class="w-64 flex-shrink-0 flex flex-col items-center">
                     <img src="media/proj/pj (15).jpg" alt="Dự án 15" class="w-full rounded-xl mb-4 object-contain">
-                </div>
-                <!-- Dự án 16 -->
-                <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hidden extra-project">
+                  </div>
+                  <!-- Dự án 16 -->
+                  <div class="w-64 flex-shrink-0 flex flex-col items-center">
                     <img src="media/proj/pj (16).jpg" alt="Dự án 16" class="w-full rounded-xl mb-4 object-contain">
-                </div>
-                <!-- Dự án 17 -->
-                <div class="bg-white/80 rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hidden extra-project">
+                  </div>
+                  <!-- Dự án 17 -->
+                  <div class="w-64 flex-shrink-0 flex flex-col items-center">
                     <img src="media/proj/pj (17).jpg" alt="Dự án 17" class="w-full rounded-xl mb-4 object-contain">
+                  </div>
                 </div>
+              </div>
+              <button id="project-next" class="absolute right-0 top-1/2 -translate-y-1/2 bg-[#c1003b] text-white rounded-full p-3 shadow-lg hover:bg-[#a00030] transition z-10">
+                <i class="fas fa-chevron-right"></i>
+              </button>
             </div>
+            <style>
+              #project-carousel {
+                width: 100%;
+                overflow: hidden;
+              }
+              #project-slides {
+                display: flex;
+                transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+                will-change: transform;
+              }
+              #project-slides > div {
+                min-width: 256px;
+                max-width: 256px;
+                box-sizing: border-box;
+              }
+              @media (max-width: 900px) {
+                #project-slides > div {
+                  min-width: 180px;
+                  max-width: 180px;
+                }
+              }
+            </style>
+            <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              const slidesContainer = document.getElementById('project-slides');
+              const slides = slidesContainer.querySelectorAll('div');
+              function getSlideWidth() {
+                return slides[0].offsetWidth + 32; // 32 = gap-8 (2rem)
+              }
+              function getVisibleCount() {
+                return Math.floor(document.getElementById('project-carousel').offsetWidth / getSlideWidth());
+              }
+              let currentIndex = 0;
+
+              function showSlides(index) {
+                const visibleCount = getVisibleCount();
+                const maxIndex = slides.length - visibleCount;
+                if (index < 0) index = 0;
+                if (index > maxIndex) index = maxIndex;
+                slidesContainer.style.transform = `translateX(-${index * getSlideWidth()}px)`;
+                currentIndex = index;
+              }
+
+              document.getElementById('project-prev').onclick = function() {
+                showSlides(currentIndex - getVisibleCount());
+              };
+              document.getElementById('project-next').onclick = function() {
+                showSlides(currentIndex + getVisibleCount());
+              };
+
+              window.addEventListener('resize', function() {
+                showSlides(currentIndex);
+              });
+
+              showSlides(0);
+            });
+            </script>
+            <!-- END JS SLIDER NHIỀU HÌNH -->
             <div class="text-center mt-6" id="show-more-projects-btn-wrap">
                 <button id="show-more-projects-btn" class="inline-flex items-center px-8 py-3 bg-[#c1003b] text-white font-bold text-lg rounded-xl hover:bg-[#a00030] transition-all duration-300 shadow-lg">
                     Xem thêm dự án
@@ -1454,72 +1599,56 @@
     </section>
 
     <!-- FormSubmit Contact Method (NEW) -->
-    <section id="contact" class="section-padding px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white/90 to-gray-50/90 backdrop-blur-sm animate__animated animate__fadeInUp" data-aos="fade-up" data-aos-delay="800">
-        <div class="container mx-auto max-w-2xl">
-            <div class="bg-white/80 backdrop-blur-lg rounded-2xl p-8 shadow-xl border border-[#c1003b]/10 mb-8">
-                <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                    <span class="text-[#c1003b]"><i class="fas fa-paper-plane"></i></span>
-                    Gửi mail đến với chúng tôi 
-                </h3>
-                <form target="_blank" action="https://formsubmit.co/congtywebne@gmail.com" method="POST" class="space-y-5">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <input type="text" name="name" class="form-control w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-200 bg-white/80" placeholder="Họ và tên" required>
-                        <input type="email" name="email" class="form-control w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-200 bg-white/80" placeholder="Email" required>
-                    </div>
-                    <textarea placeholder="Nội dung liên hệ" class="form-control w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-200 bg-white/80" name="message" rows="6" required></textarea>
-                    <button type="submit" class="w-full bg-gray-900 text-white py-3 rounded-lg hover:bg-[#c1003b] transition-colors duration-300 font-bold text-lg shadow-md flex items-center justify-center gap-2">
-                        <i class="fas fa-paper-plane"></i> Gửi Ngay 
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
+    <!-- Đã xóa phần gửi mail đến với chúng tôi theo yêu cầu -->
 
     <!-- Partners Company Section (NEW) -->
-    <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white/90 to-gray-50/90 backdrop-blur-sm animate__animated animate__fadeInUp" id="partners-company" data-aos="fade-up" data-aos-delay="750">
-        <div class="container mx-auto max-w-7xl">
-            <h2 class="section-title" data-aos="zoom-in">
-                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-handshake"></i></span> Đối tác <span class="text-[#c1003b]">Công ty</span>
-            </h2>
-            <span class="section-title-bar"></span>
-            <p class="text-center text-lg text-gray-600 mb-10 max-w-2xl mx-auto">Khet Entertainment tự hào hợp tác cùng các công ty, thương hiệu lớn trong lĩnh vực truyền thông, giải trí, công nghệ và nhiều ngành nghề khác.</p>
-            <!-- Đối tác chính nổi bật -->
-            <div class="flex flex-col items-center justify-center mb-10" data-aos="zoom-in">
-                <div class="bg-white rounded-3xl shadow-2xl p-8 flex flex-col items-center border-4 border-[#c1003b]/30">
-                    <img src="media/ino.jpg" alt="Đối tác chính - Công ty A" class="mb-4 w-48 h-24 object-contain">
-                    <span class="text-xl md:text-2xl font-bold text-[#c1003b] mb-2">Công ty A</span>
-                    <span class="text-base text-gray-700 text-center">Đối tác chiến lược hàng đầu trong lĩnh vực truyền thông & giải trí.</span>
-                </div>
-            </div>
-            <!-- Grid các đối tác còn lại -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center justify-items-center">
-                <!-- Partner 2 -->
-                <div class="bg-white/80 rounded-xl shadow p-4 flex flex-col items-center border border-[#c1003b]/10">
-                    <img src="https://placehold.co/120x60/eee/333?text=Logo+2" alt="Đối tác 2" class="mb-2 w-24 h-12 object-contain">
-                    <span class="text-sm font-semibold text-gray-700">Công ty B</span>
-                </div>
-                <!-- Partner 3 -->
-                <div class="bg-white/80 rounded-xl shadow p-4 flex flex-col items-center border border-[#c1003b]/10">
-                    <img src="https://placehold.co/120x60/eee/333?text=Logo+3" alt="Đối tác 3" class="mb-2 w-24 h-12 object-contain">
-                    <span class="text-sm font-semibold text-gray-700">Công ty C</span>
-                </div>
-                <!-- Partner 4 -->
-                <div class="bg-white/80 rounded-xl shadow p-4 flex flex-col items-center border border-[#c1003b]/10">
-                    <img src="https://placehold.co/120x60/eee/333?text=Logo+4" alt="Đối tác 4" class="mb-2 w-24 h-12 object-contain">
-                    <span class="text-sm font-semibold text-gray-700">Công ty D</span>
-                </div>
-                <!-- Partner 5 -->
-                <div class="bg-white/80 rounded-xl shadow p-4 flex flex-col items-center border border-[#c1003b]/10">
-                    <img src="https://placehold.co/120x60/eee/333?text=Logo+5" alt="Đối tác 5" class="mb-2 w-24 h-12 object-contain">
-                    <span class="text-sm font-semibold text-gray-700">Công ty E</span>
-                </div>
-                <!-- Partner 6 -->
-                <div class="bg-white/80 rounded-xl shadow p-4 flex flex-col items-center border border-[#c1003b]/10">
-                    <img src="https://placehold.co/120x60/eee/333?text=Logo+6" alt="Đối tác 6" class="mb-2 w-24 h-12 object-contain">
-                    <span class="text-sm font-semibold text-gray-700">Công ty F</span>
-                </div>
-            </div>
+    <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white/90 via-[#f8bfc9]/30 to-[#ffe0b2]/40 backdrop-blur-xl animate__animated animate__fadeInUp" id="partners-company" data-aos="fade-up" data-aos-delay="750">
+      <div class="container mx-auto max-w-7xl">
+        <h2 class="section-title" data-aos="zoom-in">
+          <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-handshake"></i></span>
+          Đối tác <span class="text-[#c1003b]">Công ty</span>
+        </h2>
+        <span class="section-title-bar"></span>
+        <p class="text-center text-lg text-gray-600 mb-10 max-w-2xl mx-auto">Khet Entertainment tự hào hợp tác cùng các công ty, thương hiệu lớn trong lĩnh vực truyền thông, giải trí, công nghệ và nhiều ngành nghề khác.</p>
+        
+        <!-- Đối tác chính nổi bật -->
+        <div class="flex flex-col items-center justify-center mb-12" data-aos="zoom-in">
+          <div class="bg-white/80 backdrop-blur-2xl rounded-3xl shadow-2xl p-10 flex flex-col items-center border-4 border-[#c1003b]/30 hover:scale-105 transition-all duration-300" style="box-shadow: 0 12px 48px 0 rgba(193,0,59,0.18), 0 2px 12px 0 rgba(255,224,178,0.18);">
+            <img src="media/ino.jpg" alt="Đối tác chính - Công ty A" class="mb-6 w-72 h-36 object-contain rounded-3xl shadow-2xl border-4 border-[#ffe0b2]/80 ring-4 ring-[#c1003b]/20 transition-transform duration-300 hover:scale-105" style="background: white;" />
+            <span class="text-2xl md:text-3xl font-extrabold text-[#c1003b] mb-2 tracking-wide">Công ty A</span>
+            <span class="text-base text-gray-700 text-center">Đối tác chiến lược hàng đầu trong lĩnh vực truyền thông & giải trí.</span>
+          </div>
         </div>
+        
+        <!-- Grid các đối tác còn lại -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center">
+          <!-- Partner 2 -->
+          <div class="bg-white/70 backdrop-blur-xl rounded-2xl shadow-xl p-5 flex flex-col items-center border border-[#c1003b]/10 hover:scale-110 hover:shadow-2xl transition-all duration-300 group" data-aos="fade-up">
+            <img src="https://placehold.co/120x60/eee/333?text=Logo+2" alt="Đối tác 2" class="mb-3 w-24 h-12 object-contain rounded-xl shadow group-hover:shadow-lg border border-[#ffe0b2]/40">
+            <span class="text-base font-semibold text-gray-700 group-hover:text-[#c1003b] transition">Công ty B</span>
+          </div>
+          <!-- Partner 3 -->
+          <div class="bg-white/70 backdrop-blur-xl rounded-2xl shadow-xl p-5 flex flex-col items-center border border-[#c1003b]/10 hover:scale-110 hover:shadow-2xl transition-all duration-300 group" data-aos="fade-up" data-aos-delay="50">
+            <img src="https://placehold.co/120x60/eee/333?text=Logo+3" alt="Đối tác 3" class="mb-3 w-24 h-12 object-contain rounded-xl shadow group-hover:shadow-lg border border-[#ffe0b2]/40">
+            <span class="text-base font-semibold text-gray-700 group-hover:text-[#c1003b] transition">Công ty C</span>
+          </div>
+          <!-- Partner 4 -->
+          <div class="bg-white/70 backdrop-blur-xl rounded-2xl shadow-xl p-5 flex flex-col items-center border border-[#c1003b]/10 hover:scale-110 hover:shadow-2xl transition-all duration-300 group" data-aos="fade-up" data-aos-delay="100">
+            <img src="https://placehold.co/120x60/eee/333?text=Logo+4" alt="Đối tác 4" class="mb-3 w-24 h-12 object-contain rounded-xl shadow group-hover:shadow-lg border border-[#ffe0b2]/40">
+            <span class="text-base font-semibold text-gray-700 group-hover:text-[#c1003b] transition">Công ty D</span>
+          </div>
+          <!-- Partner 5 -->
+          <div class="bg-white/70 backdrop-blur-xl rounded-2xl shadow-xl p-5 flex flex-col items-center border border-[#c1003b]/10 hover:scale-110 hover:shadow-2xl transition-all duration-300 group" data-aos="fade-up" data-aos-delay="150">
+            <img src="https://placehold.co/120x60/eee/333?text=Logo+5" alt="Đối tác 5" class="mb-3 w-24 h-12 object-contain rounded-xl shadow group-hover:shadow-lg border border-[#ffe0b2]/40">
+            <span class="text-base font-semibold text-gray-700 group-hover:text-[#c1003b] transition">Công ty E</span>
+          </div>
+          <!-- Partner 6 -->
+          <div class="bg-white/70 backdrop-blur-xl rounded-2xl shadow-xl p-5 flex flex-col items-center border border-[#c1003b]/10 hover:scale-110 hover:shadow-2xl transition-all duration-300 group" data-aos="fade-up" data-aos-delay="200">
+            <img src="https://placehold.co/120x60/eee/333?text=Logo+6" alt="Đối tác 6" class="mb-3 w-24 h-12 object-contain rounded-xl shadow group-hover:shadow-lg border border-[#ffe0b2]/40">
+            <span class="text-base font-semibold text-gray-700 group-hover:text-[#c1003b] transition">Công ty F</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Projects Section (Slideshow) -->
