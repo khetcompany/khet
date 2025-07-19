@@ -30,6 +30,7 @@
     <meta name="twitter:image" content="khetentertainment.com/thumnel.jpg">
     <script src="https://cdn.tailwindcss.com?v=1.1"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -647,6 +648,18 @@
           }
           #mobile-menu {
               display: flex !important;
+              z-index: 999999 !important;
+          }
+          /* Đảm bảo nút menu mobile có thể click được */
+          #mobile-menu-btn {
+              z-index: 999999 !important;
+              pointer-events: auto !important;
+              position: relative !important;
+              cursor: pointer !important;
+          }
+          #mobile-menu-btn:hover {
+              background-color: rgba(193, 0, 59, 0.1) !important;
+              border-radius: 0.5rem !important;
           }
         }
         @media (max-width: 640px) {
@@ -764,6 +777,156 @@
             line-height: 1.1;
             /* Bỏ gradient, animation, text-shadow, stroke */
         }
+
+        /* Beautiful Handwritten Style Titles - Like "Hóa Nhật Anh" */
+        .beautiful-title {
+            font-family: 'Dancing Script', cursive !important;
+            font-weight: 600;
+            font-size: 2.5rem;
+            color: #333;
+            text-align: center;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .beautiful-title:hover {
+            transform: scale(1.02);
+            text-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .beautiful-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #f8bfc9, #c1003b, #ffe0b2);
+            border-radius: 2px;
+        }
+
+        .beautiful-title-alt {
+            font-family: 'Great Vibes', cursive !important;
+            font-weight: 400;
+            font-size: 2.8rem;
+            color: #c1003b;
+            text-align: center;
+            letter-spacing: 2px;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+            text-shadow: 0 3px 6px rgba(193,0,59,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .beautiful-title-alt:hover {
+            transform: scale(1.02);
+            text-shadow: 0 6px 12px rgba(193,0,59,0.3);
+        }
+
+        .beautiful-title-alt::before {
+            content: '❦';
+            position: absolute;
+            top: -15px;
+            left: -20px;
+            font-size: 1.5rem;
+            color: #f8bfc9;
+            transition: all 0.3s ease;
+        }
+
+        .beautiful-title-alt::after {
+            content: '❦';
+            position: absolute;
+            top: -15px;
+            right: -20px;
+            font-size: 1.5rem;
+            color: #f8bfc9;
+            transition: all 0.3s ease;
+        }
+
+        .beautiful-title-alt:hover::before {
+            transform: rotate(-15deg) scale(1.2);
+            color: #c1003b;
+        }
+
+        .beautiful-title-alt:hover::after {
+            transform: rotate(15deg) scale(1.2);
+            color: #c1003b;
+        }
+
+        .elegant-title {
+            font-family: 'Playfair Display', serif !important;
+            font-weight: 700;
+            font-size: 2.2rem;
+            color: #333;
+            text-align: center;
+            letter-spacing: 1.5px;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .elegant-title:hover {
+            transform: scale(1.02);
+            text-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .elegant-title::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #c1003b, transparent);
+        }
+
+        .elegant-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ffe0b2, transparent);
+        }
+
+        /* Responsive adjustments for beautiful titles */
+        @media (max-width: 768px) {
+            .beautiful-title {
+                font-size: 2rem;
+            }
+            .beautiful-title-alt {
+                font-size: 2.2rem;
+            }
+            .elegant-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .beautiful-title {
+                font-size: 1.6rem;
+            }
+            .beautiful-title-alt {
+                font-size: 1.8rem;
+            }
+            .elegant-title {
+                font-size: 1.5rem;
+            }
+        }
         @media (max-width: 768px) {
             .section-title {
                 font-size: 1rem;
@@ -880,6 +1043,259 @@
             }
         }
         /* ... existing code ... */
+        /* Header mobile dropdown solution */
+        @media (max-width: 768px) {
+          #main-header { display: none !important; }
+          .mobile-header { 
+            display: block !important; 
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            z-index: 999999 !important;
+          }
+          body {
+            padding-top: 80px !important;
+          }
+          .hero-section {
+            min-height: calc(100vh - 80px) !important;
+            padding-top: 0 !important;
+          }
+        }
+        @media (min-width: 769px) {
+          .mobile-header { display: none !important; }
+        }
+        .mobile-header nav {
+          transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+          overflow: hidden;
+          background: #ffffff;
+          box-shadow: 0 8px 32px rgba(193,0,59,0.15);
+          border-radius: 0 0 1.5rem 1.5rem;
+          border: 1px solid rgba(193,0,59,0.1);
+          border-top: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          z-index: 999998;
+        }
+        .mobile-header a {
+          color: #c1003b;
+          font-weight: 700;
+          padding: 1rem 1.5rem;
+          display: block;
+          border-bottom: 1px solid #f8bfc9;
+          text-decoration: none;
+          transition: background 0.2s, color 0.2s;
+        }
+        .mobile-header a:last-child { border-bottom: none; }
+        .mobile-header a:hover {
+          background: #ffe0b2;
+          color: #c1003b;
+        }
+        .mobile-header .mobile-header-bar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0.7rem 1.2rem;
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          box-shadow: 0 4px 20px rgba(193,0,59,0.15);
+          border-radius: 0 0 1.5rem 1.5rem;
+          border: 1px solid rgba(193,0,59,0.1);
+          transition: all 0.3s ease;
+        }
+        .mobile-header.scrolled .mobile-header-bar {
+          background: rgba(255, 255, 255, 0.98);
+          box-shadow: 0 8px 32px rgba(193,0,59,0.2);
+          border-radius: 0;
+        }
+        .mobile-header .mobile-logo-container {
+          transition: all 0.3s ease;
+        }
+        .mobile-header.scrolled .mobile-logo-container {
+          transform: scale(0.9);
+        }
+        .mobile-header .mobile-actions {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+        .mobile-header .search-btn {
+          background: rgba(193,0,59,0.1);
+          color: #c1003b;
+          border: none;
+          border-radius: 50%;
+          width: 2.5rem;
+          height: 2.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.3s ease;
+          cursor: pointer;
+        }
+        .mobile-header .search-btn:hover {
+          background: #c1003b;
+          color: white;
+          transform: scale(1.1);
+        }
+        .mobile-header .search-btn i {
+          font-size: 1rem;
+        }
+        .mobile-header .mobile-action-btn {
+          display: flex;
+          align-items: center;
+          gap: 0.3rem;
+          padding: 0.4rem 0.8rem;
+          text-decoration: none;
+          border-radius: 0.5rem;
+          font-size: 0.8rem;
+          font-weight: 600;
+          transition: all 0.3s ease;
+          box-shadow: 0 2px 8px rgba(193,0,59,0.2);
+        }
+        .mobile-header .fanpage-btn {
+          background: #c1003b;
+          color: white;
+        }
+        .mobile-header .fanpage-btn:hover {
+          background: #a00030;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 16px rgba(193,0,59,0.3);
+        }
+        .mobile-header .contact-btn {
+          background: white;
+          color: #c1003b;
+          border: 2px solid #c1003b;
+        }
+        .mobile-header .contact-btn:hover {
+          background: #c1003b;
+          color: white;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 16px rgba(193,0,59,0.3);
+        }
+                 .mobile-header .mobile-action-btn:active {
+           transform: translateY(0);
+         }
+        .mobile-header .mobile-action-btn i {
+          font-size: 0.9rem;
+        }
+        .mobile-header .mobile-action-btn span {
+          display: none;
+        }
+        @media (min-width: 480px) {
+          .mobile-header .mobile-action-btn span {
+            display: inline;
+          }
+        }
+        .mobile-header .logo {
+          height: 2.2rem;
+          transition: all 0.3s ease;
+          filter: drop-shadow(0 2px 8px rgba(193,0,59,0.2));
+        }
+        .mobile-header .logo:hover {
+          transform: scale(1.05);
+          filter: drop-shadow(0 4px 16px rgba(193,0,59,0.3));
+        }
+        .mobile-header .menu-btn {
+          font-size: 2rem;
+          color: #c1003b;
+          background: none;
+          border: none;
+          outline: none;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          padding: 0.5rem;
+          border-radius: 0.5rem;
+          position: relative;
+          overflow: hidden;
+        }
+        .mobile-header .menu-btn:hover {
+          background: linear-gradient(135deg, #ffe0b2, #f8bfc9);
+          color: #c1003b;
+          transform: scale(1.1);
+          box-shadow: 0 4px 12px rgba(193, 0, 59, 0.2);
+        }
+        .mobile-header .menu-btn:active {
+          transform: scale(0.95);
+        }
+        .mobile-header .menu-btn::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 0;
+          height: 0;
+          background: radial-gradient(circle, #ffe0b2 0%, #c1003b 100%);
+          opacity: 0.3;
+          transform: translate(-50%, -50%);
+          transition: width 0.4s, height 0.4s;
+          border-radius: 50%;
+          z-index: -1;
+        }
+        .mobile-header .menu-btn:hover::before {
+          width: 200%;
+          height: 200%;
+        }
+        .mobile-header .menu-btn i {
+          transition: transform 0.3s ease;
+        }
+        .mobile-header .menu-btn:hover i {
+          transform: rotate(90deg);
+        }
+        .mobile-header .menu-btn.active {
+          background: linear-gradient(135deg, #c1003b, #ff6a00);
+          color: white;
+          box-shadow: 0 6px 20px rgba(193, 0, 59, 0.3);
+        }
+        .mobile-header .menu-btn.active i {
+          transform: rotate(180deg);
+        }
+        .mobile-header nav a {
+          color: #c1003b;
+          font-weight: 700;
+          padding: 1.2rem 1.5rem;
+          display: flex;
+          align-items: center;
+          gap: 0.8rem;
+          border-bottom: 1px solid rgba(193,0,59,0.1);
+          text-decoration: none;
+          transition: all 0.3s ease;
+          position: relative;
+          overflow: hidden;
+        }
+        .mobile-header nav a i {
+          width: 1.2rem;
+          text-align: center;
+          font-size: 1.1rem;
+          transition: all 0.3s ease;
+        }
+        .mobile-header nav a:hover i {
+          transform: scale(1.2) rotate(5deg);
+          color: #ff6a00;
+        }
+        .mobile-header nav a:last-child { border-bottom: none; }
+        .mobile-header nav a:hover {
+          background: linear-gradient(135deg, #ffe0b2, #f8bfc9);
+          color: #c1003b;
+          transform: translateX(5px);
+          box-shadow: inset 4px 0 0 #c1003b;
+        }
+        .mobile-header nav a::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 0;
+          height: 100%;
+          background: linear-gradient(90deg, #c1003b, #ff6a00);
+          transition: width 0.3s ease;
+          z-index: -1;
+        }
+        .mobile-header nav a:hover::before {
+          width: 100%;
+        }
     </style>
     <script type="application/ld+json">
     {
@@ -915,6 +1331,40 @@
 </head>
 <body class="antialiased">
     <div id="particles-js" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-2;"></div>
+
+    <!-- Mobile Header Dropdown (only on mobile) -->
+    <header class="mobile-header" style="display:none;">
+      <div class="mobile-header-bar">
+        <div class="mobile-logo-container">
+          <img src="media/logoc.png" alt="Khet Entertainment Logo" class="logo">
+        </div>
+        <div class="mobile-actions">
+          <button class="mobile-action-btn search-btn" aria-label="Tìm kiếm">
+            <i class="fas fa-search"></i>
+          </button>
+          <a href="https://www.facebook.com/khetentertainment" class="mobile-action-btn fanpage-btn">
+            <i class="fab fa-facebook-f"></i>
+            <span>Fanpage</span>
+          </a>
+          <a href="mailto:khetnews@gmail.com" class="mobile-action-btn contact-btn">
+            <i class="fas fa-phone"></i>
+            <span>Liên hệ</span>
+          </a>
+          <button id="mobile-menu-btn" class="menu-btn" aria-label="Mở menu di động">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+      <nav id="mobile-dropdown" class="hidden flex-col w-full">
+        <a href="#about"><i class="fas fa-info-circle"></i> Giới Thiệu</a>
+        <a href="#blog"><i class="fas fa-newspaper"></i> BÀI ĐĂNG</a>
+        <a href="#ecosystem"><i class="fas fa-layer-group"></i> CÁC KÊNH NỔI BẬT</a>
+        <a href="#achievements"><i class="fas fa-trophy"></i> KẾ HOẠCH</a>
+        <a href="#partners"><i class="fas fa-share-alt"></i> KÊNH</a>
+        <a href="#team"><i class="fas fa-users"></i> THÀNH VIÊN</a>
+        <a href="mailto:khetnews@gmail.com"><i class="fas fa-envelope"></i> LIÊN HỆ</a>
+      </nav>
+    </header>
 
     <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl shadow-lg transition-all duration-300 ease-in-out rounded-b-2xl border-b border-white/20">
         <div class="container mx-auto flex flex-col md:space-y-0 md:flex-col">
@@ -971,7 +1421,7 @@
     </header>
 
     <!-- Mobile menu overlay -->
-    <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-white z-50 flex flex-col items-center justify-start pt-20 transition-transform duration-300 transform translate-x-full md:hidden">
+    <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-white z-[9999] flex flex-col items-center justify-start pt-20 transition-transform duration-300 transform translate-x-full md:hidden" style="pointer-events: auto;">
       <button id="close-mobile-menu" class="absolute top-4 right-4 text-3xl text-[#c1003b]" aria-label="Đóng menu di động"><i class="fas fa-times" aria-hidden="true"></i></button>
       <nav class="flex flex-col gap-6 mt-8 w-full items-center">
         <a href="#about" class="text-gray-800 font-bold text-lg">Giới Thiệu</a>
@@ -985,7 +1435,7 @@
         <a href="mailto:khetnews@gmail.com" class="border-2 border-[#c1003b] text-[#c1003b] px-6 py-2 rounded-lg font-semibold mt-2"><i class="fas fa-phone"></i> Liên hệ</a>
       </nav>
     </div>
-    <section class="hero-section h-screen flex items-center justify-center text-white overflow-hidden pt-20 animate__animated animate__fadeInDown" data-aos="fade-down" data-aos-delay="100">
+    <section class="hero-section h-screen flex items-center justify-center text-white overflow-hidden animate__animated animate__fadeInDown" data-aos="fade-down" data-aos-delay="100">
         <div class="container mx-auto max-w-7xl h-full hero-content-area">
             <div class="hero-text-container" data-aos="fade-right" data-aos-delay="200">
                 <p class="text-red-500 text-lg font-semibold mb-3 flex items-center animate-pulse">
@@ -1042,8 +1492,8 @@
         <div class="container mx-auto max-w-7xl">
             <!-- Section Header -->
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-extrabold text-[#c1003b] mb-4">
-                    Nâng tầm <span class="text-[#c1003b]">giá trị</span> giải trí cùng Khet Entertainment
+                <h2 class="beautiful-title">
+                    Nâng tầm <span style="color: #c1003b;">giá trị</span> giải trí cùng Khet Entertainment
                 </h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                     Khet Entertainment - Nền tảng truyền thông số hàng đầu, kết nối giới trẻ với thế giới nghệ thuật đầy sáng tạo và năng động
@@ -1180,10 +1630,9 @@
     <!-- Blog Posts Section -->
     <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white/90 to-gray-50/90 backdrop-blur-sm animate__animated animate__fadeInUp" id="blog" data-aos="zoom-in" data-aos-delay="300">
         <div class="container mx-auto max-w-7xl">
-            <h2 class="section-title" data-aos="zoom-in">
-                Bài đăng <span class="text-red-600">mới nhất</span> từ Khet Entertainment
+            <h2 class="beautiful-title-alt" data-aos="zoom-in">
+                Bài đăng <span style="color: #ffe0b2;">mới nhất</span> từ Khet Entertainment
             </h2>
-            <span class="section-title-bar"></span>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12" id="blog-posts-container">
                 <!-- Loading indicator -->
                 <div class="col-span-full flex justify-center items-center py-12">
@@ -1205,10 +1654,9 @@
     <!-- Ecosystem Section - Reverted to non-collapsible -->
     <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white/90 to-gray-50/90 backdrop-blur-sm animate__animated animate__fadeInUp" id="ecosystem" data-aos="fade-up" data-aos-delay="400">
         <div class="container mx-auto max-w-7xl">
-            <h2 class="section-title" data-aos="zoom-in">
+            <h2 class="elegant-title" data-aos="zoom-in">
                 <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-layer-group"></i></span> Các kênh nổi bật
             </h2>
-            <span class="section-title-bar"></span>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Card 1: Khet News -->
                 <a href="https://www.facebook.com/khetnews" class="col" data-aos="fade-up">
@@ -1250,10 +1698,9 @@
     <!-- Achievements Section - Reverted to non-collapsible -->
     <section class="section-padding px-4 sm:px-6 lg:px-8 bg-white/80 backdrop-blur-sm animate__animated animate__fadeInUp" id="achievements" data-aos="fade-up" data-aos-delay="500">
         <div class="container mx-auto max-w-7xl">
-            <h2 class="section-title" data-aos="zoom-in">
-                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-rocket"></i></span> Các <span class="text-[#c1003b]">Dự Án</span>
+            <h2 class="beautiful-title" data-aos="zoom-in">
+                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-rocket"></i></span> Các <span style="color: #c1003b;">Dự Án</span>
             </h2>
-            <span class="section-title-bar"></span>
             <!-- Dự án 1 -->
             <!-- ... XÓA TOÀN BỘ GRID CŨ CỦA DỰ ÁN ... -->
             <div class="relative w-full max-w-5xl mx-auto">
@@ -1406,10 +1853,9 @@
     <!-- Partners Section - Reverted to non-collapsible -->
     <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white/90 to-gray-50/90 backdrop-blur-sm animate__animated animate__fadeInUp" id="partners" data-aos="fade-up" data-aos-delay="600">
         <div class="container mx-auto max-w-7xl">
-            <h2 class="section-title" data-aos="zoom-in">
-                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><img src="media/logoc.png" alt="Khet Entertainment Logo" class="w-6 h-6 inline-block"></span> Hệ Thống <span class="text-[#c1003b]">Kênh</span> của Khet Entertainment
+            <h2 class="beautiful-title-alt" data-aos="zoom-in">
+                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><img src="media/logoc.png" alt="Khet Entertainment Logo" class="w-6 h-6 inline-block"></span> Hệ Thống <span style="color: #ffe0b2;">Kênh</span> của Khet Entertainment
             </h2>
-            <span class="section-title-bar"></span>
             
             <!-- Channel Grid -->
             <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6 mb-12">
@@ -1548,10 +1994,9 @@
     <!-- Team Section - Reverted to non-collapsible -->
     <section class="section-padding px-4 sm:px-6 lg:px-8 bg-white/80 backdrop-blur-sm animate__animated animate__fadeInUp" id="team" data-aos="fade-up" data-aos-delay="700">
         <div class="container mx-auto max-w-7xl">
-            <h2 class="section-title" data-aos="zoom-in">
-                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-users"></i></span> <span class="text-[#c1003b]">Team</span> Khet Entertainment
+            <h2 class="elegant-title" data-aos="zoom-in">
+                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-users"></i></span> <span style="color: #c1003b;">Team</span> Khet Entertainment
             </h2>
-            <span class="section-title-bar"></span>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
                 <!-- Team Member 1 -->
                 <div class="col text-center" data-aos="zoom-in-up">
@@ -1599,11 +2044,10 @@
     <!-- Partners Company Section (NEW) -->
     <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white/90 via-[#f8bfc9]/30 to-[#ffe0b2]/40 backdrop-blur-xl animate__animated animate__fadeInUp" id="partners-company" data-aos="fade-up" data-aos-delay="750">
       <div class="container mx-auto max-w-7xl">
-        <h2 class="section-title" data-aos="zoom-in">
+        <h2 class="beautiful-title" data-aos="zoom-in">
           <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-handshake"></i></span>
-          Đối tác <span class="text-[#c1003b]">Công ty</span>
+          Đối tác <span style="color: #c1003b;">Công ty</span>
         </h2>
-        <span class="section-title-bar"></span>
         <p class="text-center text-lg text-gray-600 mb-10 max-w-2xl mx-auto">Khet Entertainment tự hào hợp tác cùng các công ty, thương hiệu lớn trong lĩnh vực truyền thông, giải trí, công nghệ và nhiều ngành nghề khác.</p>
         
         <!-- Đối tác chính nổi bật -->
@@ -1761,57 +2205,47 @@
         });
     </script>
     <script>
-        // ... existing code ...
-        // JS cho menu mobile
-        document.addEventListener('DOMContentLoaded', function() {
-          var btn = document.getElementById('mobile-menu-btn');
-          var menu = document.getElementById('mobile-menu');
-          var closeBtn = document.getElementById('close-mobile-menu');
-          if (btn && menu && closeBtn) {
-            btn.addEventListener('click', function() {
-              menu.classList.remove('translate-x-full');
-            });
-            closeBtn.addEventListener('click', function() {
-              menu.classList.add('translate-x-full');
-            });
-          }
-        });
-        // ... existing code ...
-    </script>
-    <script>
+      // Mobile menu functionality - Single script to avoid conflicts
       document.addEventListener('DOMContentLoaded', function() {
         var btn = document.getElementById('mobile-menu-btn');
         var menu = document.getElementById('mobile-menu');
         var closeBtn = document.getElementById('close-mobile-menu');
-        if (btn && menu && closeBtn) {
-          btn.addEventListener('click', function() {
+        
+        // Ensure menu is hidden on page load
+        if (menu) {
+          menu.classList.add('translate-x-full');
+        }
+        
+        // Add click event for mobile menu button
+        if (btn && menu) {
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
             menu.classList.remove('translate-x-full');
+            console.log('Mobile menu opened'); // Debug log
           });
-          closeBtn.addEventListener('click', function() {
+        }
+        
+        // Add click event for close button
+        if (closeBtn && menu) {
+          closeBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
             menu.classList.add('translate-x-full');
+            console.log('Mobile menu closed'); // Debug log
+          });
+        }
+        
+        // Close menu when clicking outside
+        if (menu) {
+          menu.addEventListener('click', function(e) {
+            if (e.target === menu) {
+              menu.classList.add('translate-x-full');
+            }
           });
         }
       });
     </script>
-    <script>
-(function() {
-  function openMenu() {
-    var menu = document.getElementById('mobile-menu');
-    if (menu) menu.classList.remove('translate-x-full');
-  }
-  function closeMenu() {
-    var menu = document.getElementById('mobile-menu');
-    if (menu) menu.classList.add('translate-x-full');
-  }
-  window.addEventListener('DOMContentLoaded', function() {
-    var btn = document.getElementById('mobile-menu-btn');
-    var closeBtn = document.getElementById('close-mobile-menu');
-    if (btn) btn.onclick = openMenu;
-    if (closeBtn) closeBtn.onclick = closeMenu;
-    closeMenu();
-  });
-})();
-</script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         var btn = document.getElementById('show-more-projects-btn');
@@ -1821,6 +2255,47 @@
               el.classList.remove('hidden');
             });
             btn.parentElement.style.display = 'none';
+          });
+        }
+      });
+    </script>
+    <script>
+      // Mobile dropdown menu logic
+      document.addEventListener('DOMContentLoaded', function() {
+        var btn = document.getElementById('mobile-menu-btn');
+        var nav = document.getElementById('mobile-dropdown');
+        var mobileHeader = document.querySelector('.mobile-header');
+        var searchBtn = document.querySelector('.search-btn');
+        
+        // Menu toggle
+        if (btn && nav) {
+          btn.addEventListener('click', function() {
+            nav.classList.toggle('hidden');
+            btn.classList.toggle('active');
+          });
+          // Ẩn menu khi chọn 1 mục
+          nav.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+              nav.classList.add('hidden');
+              btn.classList.remove('active');
+            });
+          });
+        }
+        
+        // Scroll effect
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 50) {
+            mobileHeader.classList.add('scrolled');
+          } else {
+            mobileHeader.classList.remove('scrolled');
+          }
+        });
+        
+        // Search functionality
+        if (searchBtn) {
+          searchBtn.addEventListener('click', function() {
+            // Có thể thêm modal search hoặc redirect đến trang search
+            alert('Tính năng tìm kiếm sẽ được phát triển sau!');
           });
         }
       });
