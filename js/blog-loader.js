@@ -66,18 +66,12 @@ class BlogLoader {
         const excerpt = doc.querySelector('p')?.textContent || '';
         const date = doc.querySelector('p:last-child')?.textContent || '';
         
-        // Lấy thumbnail từ img tag đầu tiên có src thuộc media/img-post/ hoặc og:image meta tag
+        // Lấy thumbnail từ img tag đầu tiên hoặc og:image meta tag
         let thumbnail = '';
         const imgTags = doc.querySelectorAll('img');
         for (const img of imgTags) {
-            if (img.src && img.src.includes('media/img-post/')) {
-                // Chuyển về đường dẫn tương đối nếu là ảnh trong media/img-post/
-                const match = img.src.match(/(\/)?media\/img-post\/[\w\-\.]+/);
-                if (match) {
-                    thumbnail = match[0].startsWith('/') ? match[0] : '/' + match[0];
-                } else {
-                    thumbnail = img.src;
-                }
+            if (img.src) {
+                thumbnail = img.src;
                 break;
             }
         }
