@@ -89,7 +89,7 @@ class BlogLoader {
         }
         // Nếu vẫn không có thumbnail, dùng ảnh mặc định
         if (!thumbnail) {
-            thumbnail = 'media/img-post/img.png';
+            thumbnail = 'post/img-post/img.png';
         }
         
         return {
@@ -158,94 +158,51 @@ class BlogLoader {
                     </div>
                 </div>
             </div>
-        `).join('');
-
+        `);
         this.blogContainer.innerHTML = postsHTML;
-        
         // Reinitialize AOS for new elements
         if (typeof AOS !== 'undefined') {
             AOS.refresh();
         }
-        
         // Add click handlers for blog post cards
         this.addClickHandlers();
     }
 
-    formatDate(dateString) {
-        const date = new Date(dateString);
-        return date.toLocaleDateString('vi-VN', {
-            day: '2-digit',
-            month: '2-digit',
-            year: 'numeric'
-        });
-    }
+    // Placeholder for getPostUrl and addClickHandlers if they were defined elsewhere
+    // getPostUrl(filename) {
+    //     return `post/${filename}`;
+    // }
 
-    getPostUrl(filename) {
-        // Tạo URL cho bài viết dựa trên filename
-        return `post/${filename}`;
-    }
+    // addClickHandlers() {
+    //     document.querySelectorAll('.blog-post-card').forEach(card => {
+    //         card.addEventListener('click', () => {
+    //             const postUrl = card.dataset.postUrl;
+    //             if (postUrl) {
+    //                 window.location.href = postUrl;
+    //             }
+    //         });
+    //     });
+    // }
 
-    addClickHandlers() {
-        // Thêm event listener cho các card bài viết
-        const postCards = document.querySelectorAll('.blog-post-card');
-        postCards.forEach(card => {
-            card.addEventListener('click', (e) => {
-                // Không chuyển hướng nếu click vào link "Đọc thêm"
-                if (e.target.closest('.read-more-link')) {
-                    return;
-                }
-                
-                const postUrl = card.getAttribute('data-post-url');
-                if (postUrl) {
-                    // Thêm hiệu ứng loading
-                    card.style.transform = 'scale(0.98)';
-                    card.style.opacity = '0.8';
-                    
-                    // Mở bài viết trong tab mới
-                    setTimeout(() => {
-                        window.open(postUrl, '_blank');
-                        // Khôi phục trạng thái card
-                        card.style.transform = '';
-                        card.style.opacity = '';
-                    }, 150);
-                }
-            });
-        });
-    }
+    // Placeholder for showFallbackPosts if it was defined elsewhere
+    // showFallbackPosts() {
+    //     this.blogContainer.innerHTML = `
+    //         <div class="col-span-full text-center py-12">
+    //             <i class="fas fa-exclamation-triangle text-4xl text-yellow-500 mb-4"></i>
+    //             <p class="text-gray-600">Không thể tải bài đăng từ GitHub. Vui lòng thử lại sau.</p>
+    //         </div>
+    //     `;
+    // }
 
-    showFallbackPosts() {
-        if (!this.blogContainer) return;
-        
-        // Hiển thị bài đăng mặc định nếu không load được từ API
-        this.blogContainer.innerHTML = `
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300 cursor-pointer blog-post-card" data-aos="fade-up" data-post-url="post/bai-viet-1.html">
-                <div class="relative h-48 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=400&fit=crop" alt="Khet Entertainment Team" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
-                    <div class="absolute top-4 left-4">
-                        <span class="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm font-semibold">Tin tức</span>
-                    </div>
-                    <div class="absolute top-4 right-4">
-                        <span class="bg-black/50 text-white px-3 py-1 rounded-full text-sm">15/01/2025</span>
-                    </div>
-                </div>
-                <div class="p-6 pt-4">
-                    <h3 class="text-xl font-bold text-gray-800 mb-3 line-clamp-2">Khet Entertainment - Hành trình phát triển</h3>
-                    <p class="text-gray-600 mb-4 line-clamp-3">Với hơn 300 trang và kênh, 100+ kênh YouTube, 100+ tài khoản TikTok và 200+ sản phẩm, Khet Entertainment đã và đang khẳng định vị thế của mình trong ngành công nghiệp giải trí số.</p>
-                    <div class="flex items-center justify-between">
-                        <span class="text-red-600 font-semibold">Đọc thêm</span>
-                        <i class="fas fa-arrow-right text-red-600"></i>
-                    </div>
-                </div>
-            </div>
-        `;
-        
-        // Add click handlers for fallback post
-        this.addClickHandlers();
-    }
+    // Placeholder for formatDate if it was defined elsewhere
+    // formatDate(dateString) {
+    //     const date = new Date(dateString);
+    //     return date.toLocaleDateString();
+    // }
 }
 
 // Khởi tạo và load bài đăng khi trang web load xong
 document.addEventListener('DOMContentLoaded', function() {
     const blogLoader = new BlogLoader();
     blogLoader.loadPosts();
-}); 
+});
