@@ -112,7 +112,8 @@
 
   <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
   <script>
-    const REPO = 'khetcompany';
+    const REPO_OWNER = 'khetcompany';
+    const REPO_NAME = 'khet';
     const BRANCH = 'main';
 
     let uploadedThumbnailURL = '';
@@ -149,7 +150,10 @@
         }
         
         try {
-          const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${path}`, {
+          console.log('Đang upload ảnh...');
+          console.log('Image path:', path);
+          
+          const res = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}`, {
             method: "PUT",
             headers: {
               Authorization: `token ${githubToken}`,
@@ -162,15 +166,20 @@
             })
           });
 
+          console.log('Image upload response status:', res.status);
+
           if (res.ok) {
             const data = await res.json();
+            console.log('Image upload successful:', data);
             uploadedThumbnailURL = data.content.download_url;
             document.getElementById("preview-img").src = uploadedThumbnailURL;
           } else {
             const errorData = await res.json();
+            console.error('Image upload failed:', errorData);
             alert(`❌ Lỗi upload ảnh: ${errorData.message || 'Không xác định'}`);
           }
         } catch (error) {
+          console.error('Image upload network error:', error);
           alert(`❌ Lỗi kết nối khi upload ảnh: ${error.message}`);
         }
       };
@@ -245,7 +254,6 @@
   </div>
 </body>
 </html>`.trim();
-
       const base64 = btoa(unescape(encodeURIComponent(htmlContent)));
 
       const githubToken = document.getElementById('githubToken').value.trim();
@@ -254,8 +262,12 @@
         return;
       }
       
-      try {
-        const res = await fetch(`https://api.github.com/repos/${REPO}/contents/post/${slug}.html`, {
+                    try {
+        console.log('Đang đăng bài...');
+        console.log('Repository:', `${REPO_OWNER}/${REPO_NAME}`);
+        console.log('File path:', `post/${slug}.html`);
+        
+        const res = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/post/${slug}.html`, {
           method: "PUT",
           headers: {
             Authorization: `token ${githubToken}`,
@@ -268,14 +280,20 @@
           })
         });
 
+        console.log('Response status:', res.status);
+        
         if (res.ok) {
+          const result = await res.json();
+          console.log('Upload successful:', result);
           alert("🎉 Đăng bài thành công!");
           location.reload();
         } else {
           const errorData = await res.json();
+          console.error('Upload failed:', errorData);
           alert(`❌ Lỗi khi đăng bài: ${errorData.message || 'Không xác định'}`);
         }
       } catch (error) {
+        console.error('Network error:', error);
         alert(`❌ Lỗi kết nối: ${error.message}`);
       }
     }
