@@ -87,6 +87,10 @@ class BlogLoader {
                 thumbnail = ogImage.content;
             }
         }
+        // Nếu vẫn không có thumbnail, dùng ảnh mặc định
+        if (!thumbnail) {
+            thumbnail = 'media/img-post/img.png';
+        }
         
         return {
             title,
