@@ -30,7 +30,7 @@
     <meta name="twitter:image" content="khetentertainment.com/thumnel.jpg">
     <script src="https://cdn.tailwindcss.com?v=1.1"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -778,7 +778,7 @@
             /* Bỏ gradient, animation, text-shadow, stroke */
         }
 
-        /* Beautiful Handwritten Style Titles - Like "Hóa Nhật Anh" */
+        /* Unified Beautiful Title Style - Like "Hóa Nhật Anh" */
         .beautiful-title {
             font-family: 'Dancing Script', cursive !important;
             font-weight: 600;
@@ -811,96 +811,17 @@
             border-radius: 2px;
         }
 
-        .beautiful-title-alt {
-            font-family: 'Great Vibes', cursive !important;
-            font-weight: 400;
-            font-size: 2.8rem;
-            color: #c1003b;
-            text-align: center;
-            letter-spacing: 2px;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-            text-shadow: 0 3px 6px rgba(193,0,59,0.2);
-            transition: all 0.3s ease;
+        /* Responsive adjustments for beautiful titles */
+        @media (max-width: 768px) {
+            .beautiful-title {
+                font-size: 2rem;
+            }
         }
 
-        .beautiful-title-alt:hover {
-            transform: scale(1.02);
-            text-shadow: 0 6px 12px rgba(193,0,59,0.3);
-        }
-
-        .beautiful-title-alt::before {
-            content: '❦';
-            position: absolute;
-            top: -15px;
-            left: -20px;
-            font-size: 1.5rem;
-            color: #f8bfc9;
-            transition: all 0.3s ease;
-        }
-
-        .beautiful-title-alt::after {
-            content: '❦';
-            position: absolute;
-            top: -15px;
-            right: -20px;
-            font-size: 1.5rem;
-            color: #f8bfc9;
-            transition: all 0.3s ease;
-        }
-
-        .beautiful-title-alt:hover::before {
-            transform: rotate(-15deg) scale(1.2);
-            color: #c1003b;
-        }
-
-        .beautiful-title-alt:hover::after {
-            transform: rotate(15deg) scale(1.2);
-            color: #c1003b;
-        }
-
-        .elegant-title {
-            font-family: 'Playfair Display', serif !important;
-            font-weight: 700;
-            font-size: 2.2rem;
-            color: #333;
-            text-align: center;
-            letter-spacing: 1.5px;
-            line-height: 1.3;
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        .elegant-title:hover {
-            transform: scale(1.02);
-            text-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-
-        .elegant-title::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #c1003b, transparent);
-        }
-
-        .elegant-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #ffe0b2, transparent);
+        @media (max-width: 480px) {
+            .beautiful-title {
+                font-size: 1.6rem;
+            }
         }
 
         /* Responsive adjustments for beautiful titles */
@@ -1493,7 +1414,7 @@
             <!-- Section Header -->
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="beautiful-title">
-                    Nâng tầm <span style="color: #c1003b;">giá trị</span> giải trí cùng Khet Entertainment
+                    Nâng tầm Giá trị<span style="color: #c1003b;"></span> Giải trí cùng Khet Entertainment
                 </h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                     Khet Entertainment - Nền tảng truyền thông số hàng đầu, kết nối giới trẻ với thế giới nghệ thuật đầy sáng tạo và năng động
@@ -1630,8 +1551,8 @@
     <!-- Blog Posts Section -->
     <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white/90 to-gray-50/90 backdrop-blur-sm animate__animated animate__fadeInUp" id="blog" data-aos="zoom-in" data-aos-delay="300">
         <div class="container mx-auto max-w-7xl">
-            <h2 class="beautiful-title-alt" data-aos="zoom-in">
-                Bài đăng <span style="color: #ffe0b2;">mới nhất</span> từ Khet Entertainment
+            <h2 class="beautiful-title" data-aos="zoom-in">
+                Bài đăng mới nhất<span style="color: #c1003b;"></span> từ Khet Entertainment
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12" id="blog-posts-container">
                 <!-- Loading indicator -->
@@ -1654,7 +1575,7 @@
     <!-- Ecosystem Section - Reverted to non-collapsible -->
     <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white/90 to-gray-50/90 backdrop-blur-sm animate__animated animate__fadeInUp" id="ecosystem" data-aos="fade-up" data-aos-delay="400">
         <div class="container mx-auto max-w-7xl">
-            <h2 class="elegant-title" data-aos="zoom-in">
+            <h2 class="beautiful-title" data-aos="zoom-in">
                 <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-layer-group"></i></span> Các kênh nổi bật
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -1699,7 +1620,7 @@
     <section class="section-padding px-4 sm:px-6 lg:px-8 bg-white/80 backdrop-blur-sm animate__animated animate__fadeInUp" id="achievements" data-aos="fade-up" data-aos-delay="500">
         <div class="container mx-auto max-w-7xl">
             <h2 class="beautiful-title" data-aos="zoom-in">
-                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-rocket"></i></span> Các <span style="color: #c1003b;">Dự Án</span>
+                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-rocket"></i></span> Các dự án<span style="color: #c1003b;"></span>
             </h2>
             <!-- Dự án 1 -->
             <!-- ... XÓA TOÀN BỘ GRID CŨ CỦA DỰ ÁN ... -->
@@ -1853,8 +1774,8 @@
     <!-- Partners Section - Reverted to non-collapsible -->
     <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white/90 to-gray-50/90 backdrop-blur-sm animate__animated animate__fadeInUp" id="partners" data-aos="fade-up" data-aos-delay="600">
         <div class="container mx-auto max-w-7xl">
-            <h2 class="beautiful-title-alt" data-aos="zoom-in">
-                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><img src="media/logoc.png" alt="Khet Entertainment Logo" class="w-6 h-6 inline-block"></span> Hệ Thống <span style="color: #ffe0b2;">Kênh</span> của Khet Entertainment
+            <h2 class="beautiful-title" data-aos="zoom-in">
+                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><img src="media/logoc.png" alt="Khet Entertainment Logo" class="w-6 h-6 inline-block"></span> Hệ Thống kênh<span style="color: #c1003b;"></span> của Khet Entertainment
             </h2>
             
             <!-- Channel Grid -->
@@ -1994,8 +1915,8 @@
     <!-- Team Section - Reverted to non-collapsible -->
     <section class="section-padding px-4 sm:px-6 lg:px-8 bg-white/80 backdrop-blur-sm animate__animated animate__fadeInUp" id="team" data-aos="fade-up" data-aos-delay="700">
         <div class="container mx-auto max-w-7xl">
-            <h2 class="elegant-title" data-aos="zoom-in">
-                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-users"></i></span> <span style="color: #c1003b;">Team</span> Khet Entertainment
+            <h2 class="beautiful-title" data-aos="zoom-in">
+                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-users"></i></span> <span style="color: #c1003b;"></span>Team Khet Entertainment
             </h2>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
                 <!-- Team Member 1 -->
@@ -2041,43 +1962,110 @@
             </div>
         </div>
     </section>
-    <!-- Partners Company Section (NEW) -->
+    <!-- Partners Company Section -->
     <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white/90 via-[#f8bfc9]/30 to-[#ffe0b2]/40 backdrop-blur-xl animate__animated animate__fadeInUp" id="partners-company" data-aos="fade-up" data-aos-delay="750">
       <div class="container mx-auto max-w-7xl">
         <h2 class="beautiful-title" data-aos="zoom-in">
           <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-handshake"></i></span>
-          Đối tác <span style="color: #c1003b;">Công ty</span>
+          Đối tác công ty<span style="color: #c1003b;"></span>
         </h2>
-        <p class="text-center text-lg text-gray-600 mb-10 max-w-2xl mx-auto">Khet Entertainment tự hào hợp tác cùng các công ty, thương hiệu lớn trong lĩnh vực truyền thông, giải trí, công nghệ và nhiều ngành nghề khác.</p>
+        <p class="text-center text-lg text-gray-600 mb-12 max-w-3xl mx-auto">Khet Entertainment tự hào hợp tác cùng các công ty, thương hiệu lớn trong lĩnh vực truyền thông, giải trí, công nghệ và nhiều ngành nghề khác. Chúng tôi cam kết mang lại giá trị tối ưu cho đối tác.</p>
         
         <!-- Đối tác chính nổi bật -->
-        <div class="flex flex-col items-center justify-center mb-12" data-aos="zoom-in">
-          <div class="bg-white/80 backdrop-blur-2xl rounded-3xl shadow-2xl p-10 flex flex-col items-center border-4 border-[#c1003b]/30 hover:scale-105 transition-all duration-300" style="box-shadow: 0 12px 48px 0 rgba(193,0,59,0.18), 0 2px 12px 0 rgba(255,224,178,0.18);">
-            <img src="media/ino.jpg" alt="Đối tác chính" class="w-72 h-36 object-contain rounded-3xl shadow-2xl border-4 border-[#ffe0b2]/80 ring-4 ring-[#c1003b]/20 transition-transform duration-300 hover:scale-105" style="background: white;" />
+        <div class="flex flex-col items-center justify-center mb-16" data-aos="zoom-in">
+          <div class="bg-white/90 backdrop-blur-2xl rounded-3xl shadow-2xl p-8 md:p-12 flex flex-col items-center border-4 border-[#c1003b]/20 hover:scale-105 transition-all duration-500" style="box-shadow: 0 20px 60px 0 rgba(193,0,59,0.15), 0 4px 20px 0 rgba(255,224,178,0.2);">
+            <div class="text-center mb-6">
+              <h3 class="text-2xl md:text-3xl font-bold text-[#c1003b] mb-2">Đối tác chiến lược</h3>
+              <p class="text-gray-600 text-lg">Hợp tác lâu dài, phát triển bền vững</p>
+            </div>
+            <img src="media/ino.jpg" alt="Đối tác chiến lược" class="w-64 md:w-80 h-32 md:h-40 object-contain rounded-2xl shadow-xl border-2 border-[#ffe0b2]/60 ring-2 ring-[#c1003b]/30 transition-all duration-300 hover:scale-110 hover:shadow-2xl" style="background: linear-gradient(135deg, #fff 0%, #f8bfc9/20 100%);" />
           </div>
         </div>
         
-        <!-- Grid các đối tác còn lại -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center">
-          <!-- Partner 2 -->
-          <div class="bg-white/70 backdrop-blur-xl rounded-2xl shadow-xl p-5 flex flex-col items-center border border-[#c1003b]/10 hover:scale-110 hover:shadow-2xl transition-all duration-300 group" data-aos="fade-up">
-            <img src="https://placehold.co/120x60/eee/333?text=Logo+2" alt="Đối tác 2" class="w-24 h-12 object-contain rounded-xl shadow group-hover:shadow-lg border border-[#ffe0b2]/40">
+
+        
+        <!-- Grid các đối tác -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center justify-items-center">
+          <!-- Partner 1 - VTV -->
+          <div class="bg-white/90 backdrop-blur-xl rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hover:scale-110 hover:shadow-2xl transition-all duration-300 group" data-aos="fade-up">
+            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mb-3 shadow-lg">
+              <span class="text-white font-bold text-lg">VTV</span>
+            </div>
+            <p class="text-xs text-gray-600 text-center font-medium">Đài Truyền hình Việt Nam</p>
           </div>
-          <!-- Partner 3 -->
-          <div class="bg-white/70 backdrop-blur-xl rounded-2xl shadow-xl p-5 flex flex-col items-center border border-[#c1003b]/10 hover:scale-110 hover:shadow-2xl transition-all duration-300 group" data-aos="fade-up" data-aos-delay="50">
-            <img src="https://placehold.co/120x60/eee/333?text=Logo+3" alt="Đối tác 3" class="w-24 h-12 object-contain rounded-xl shadow group-hover:shadow-lg border border-[#ffe0b2]/40">
+          
+          <!-- Partner 2 - VTC -->
+          <div class="bg-white/90 backdrop-blur-xl rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hover:scale-110 hover:shadow-2xl transition-all duration-300 group" data-aos="fade-up" data-aos-delay="50">
+            <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mb-3 shadow-lg">
+              <span class="text-white font-bold text-lg">VTC</span>
+            </div>
+            <p class="text-xs text-gray-600 text-center font-medium">Tập đoàn VTC</p>
           </div>
-          <!-- Partner 4 -->
-          <div class="bg-white/70 backdrop-blur-xl rounded-2xl shadow-xl p-5 flex flex-col items-center border border-[#c1003b]/10 hover:scale-110 hover:shadow-2xl transition-all duration-300 group" data-aos="fade-up" data-aos-delay="100">
-            <img src="https://placehold.co/120x60/eee/333?text=Logo+4" alt="Đối tác 4" class="w-24 h-12 object-contain rounded-xl shadow group-hover:shadow-lg border border-[#ffe0b2]/40">
+          
+          <!-- Partner 3 - FPT -->
+          <div class="bg-white/90 backdrop-blur-xl rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hover:scale-110 hover:shadow-2xl transition-all duration-300 group" data-aos="fade-up" data-aos-delay="100">
+            <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mb-3 shadow-lg">
+              <span class="text-white font-bold text-lg">FPT</span>
+            </div>
+            <p class="text-xs text-gray-600 text-center font-medium">Tập đoàn FPT</p>
           </div>
-          <!-- Partner 5 -->
-          <div class="bg-white/70 backdrop-blur-xl rounded-2xl shadow-xl p-5 flex flex-col items-center border border-[#c1003b]/10 hover:scale-110 hover:shadow-2xl transition-all duration-300 group" data-aos="fade-up" data-aos-delay="150">
-            <img src="https://placehold.co/120x60/eee/333?text=Logo+5" alt="Đối tác 5" class="w-24 h-12 object-contain rounded-xl shadow group-hover:shadow-lg border border-[#ffe0b2]/40">
+          
+          <!-- Partner 4 - Viettel -->
+          <div class="bg-white/90 backdrop-blur-xl rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hover:scale-110 hover:shadow-2xl transition-all duration-300 group" data-aos="fade-up" data-aos-delay="150">
+            <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mb-3 shadow-lg">
+              <span class="text-white font-bold text-lg">VT</span>
+            </div>
+            <p class="text-xs text-gray-600 text-center font-medium">Tập đoàn Viettel</p>
           </div>
-          <!-- Partner 6 -->
-          <div class="bg-white/70 backdrop-blur-xl rounded-2xl shadow-xl p-5 flex flex-col items-center border border-[#c1003b]/10 hover:scale-110 hover:shadow-2xl transition-all duration-300 group" data-aos="fade-up" data-aos-delay="200">
-            <img src="https://placehold.co/120x60/eee/333?text=Logo+6" alt="Đối tác 6" class="w-24 h-12 object-contain rounded-xl shadow group-hover:shadow-lg border border-[#ffe0b2]/40">
+          
+          <!-- Partner 5 - Vingroup -->
+          <div class="bg-white/90 backdrop-blur-xl rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hover:scale-110 hover:shadow-2xl transition-all duration-300 group" data-aos="fade-up" data-aos-delay="200">
+            <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mb-3 shadow-lg">
+              <span class="text-white font-bold text-lg">VG</span>
+            </div>
+            <p class="text-xs text-gray-600 text-center font-medium">Tập đoàn Vingroup</p>
+          </div>
+          
+          <!-- Partner 6 - Samsung -->
+          <div class="bg-white/90 backdrop-blur-xl rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hover:scale-110 hover:shadow-2xl transition-all duration-300 group" data-aos="fade-up" data-aos-delay="250">
+            <div class="w-16 h-16 bg-blue-800 rounded-full flex items-center justify-center mb-3 shadow-lg">
+              <span class="text-white font-bold text-lg">SS</span>
+            </div>
+            <p class="text-xs text-gray-600 text-center font-medium">Samsung Việt Nam</p>
+          </div>
+          
+          <!-- Partner 7 - Coca Cola -->
+          <div class="bg-white/90 backdrop-blur-xl rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hover:scale-110 hover:shadow-2xl transition-all duration-300 group" data-aos="fade-up" data-aos-delay="300">
+            <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mb-3 shadow-lg">
+              <span class="text-white font-bold text-lg">CC</span>
+            </div>
+            <p class="text-xs text-gray-600 text-center font-medium">Coca Cola Việt Nam</p>
+          </div>
+          
+          <!-- Partner 8 - Unilever -->
+          <div class="bg-white/90 backdrop-blur-xl rounded-2xl shadow-xl p-4 flex flex-col items-center border border-[#c1003b]/10 hover:scale-110 hover:shadow-2xl transition-all duration-300 group" data-aos="fade-up" data-aos-delay="350">
+            <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mb-3 shadow-lg">
+              <span class="text-white font-bold text-lg">UL</span>
+            </div>
+            <p class="text-xs text-gray-600 text-center font-medium">Unilever Việt Nam</p>
+          </div>
+        </div>
+        
+        <!-- Call to Action -->
+        <div class="text-center mt-16" data-aos="fade-up" data-aos-delay="400">
+          <div class="bg-gradient-to-r from-[#c1003b]/10 to-[#ffe0b2]/20 rounded-3xl p-8 border-2 border-[#c1003b]/20">
+            <h3 class="text-2xl font-bold text-[#c1003b] mb-4">Trở thành đối tác của chúng tôi</h3>
+            <p class="text-gray-600 mb-6 max-w-2xl mx-auto">Hãy liên hệ với chúng tôi để khám phá cơ hội hợp tác và cùng phát triển trong lĩnh vực truyền thông số.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="mailto:khetnews@gmail.com" class="inline-flex items-center gap-2 px-8 py-3 bg-[#c1003b] text-white font-bold rounded-xl hover:bg-[#a00030] transition-all duration-300 shadow-lg hover:scale-105">
+                <i class="fas fa-envelope"></i>
+                Liên hệ hợp tác
+              </a>
+              <a href="tel:0899864943" class="inline-flex items-center gap-2 px-8 py-3 border-2 border-[#c1003b] text-[#c1003b] font-bold rounded-xl hover:bg-[#c1003b] hover:text-white transition-all duration-300">
+                <i class="fas fa-phone"></i>
+                0899 864 943
+              </a>
+            </div>
           </div>
         </div>
       </div>
