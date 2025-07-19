@@ -12,21 +12,23 @@ class BlogLoader {
         try {
             // Lấy danh sách file từ thư mục post
             const files = await this.getPostFiles();
-            
-            // Lọc và sắp xếp file theo thời gian tạo
-            const sortedFiles = this.sortFilesByDate(files);
-            
+            // Lấy ngày commit cuối cùng cho từng file
+            const filesWithDate = await Promise.all(
+                files.map(async file => {
+                    const commitDate = await this.getFileLastCommitDate(file.path);
+                    return { ...file, commitDate };
+                })
+            );
+            // Sắp xếp file theo ngày commit mới nhất
+            const sortedFiles = filesWithDate.sort((a, b) => new Date(b.commitDate) - new Date(a.commitDate));
             // Lấy 3 file mới nhất
             const latestFiles = sortedFiles.slice(0, this.maxPosts);
-            
             // Load nội dung của từng file
             const posts = await Promise.all(
-                latestFiles.map(file => this.loadPostContent(file))
+                latestFiles.map(file => this.loadPostContent(file, file.commitDate))
             );
-            
             // Hiển thị bài đăng
             this.displayPosts(posts);
-            
         } catch (error) {
             console.error('Error loading posts:', error);
             this.showFallbackPosts();
@@ -35,37 +37,36 @@ class BlogLoader {
 
     async getPostFiles() {
         const apiUrl = `https://api.github.com/repos/${this.repoOwner}/${this.repoName}/contents/${this.postsPath}`;
-        
         const response = await fetch(apiUrl);
         if (!response.ok) {
             throw new Error(`GitHub API error: ${response.status}`);
         }
-        
         const files = await response.json();
         return files.filter(file => file.type === 'file' && file.name.endsWith('.html'));
     }
 
-    sortFilesByDate(files) {
-        return files.sort((a, b) => {
-            const dateA = new Date(a.created_at);
-            const dateB = new Date(b.created_at);
-            return dateB - dateA; // Sắp xếp giảm dần (mới nhất trước)
-        });
+    // Lấy ngày commit cuối cùng của file
+    async getFileLastCommitDate(filePath) {
+        const apiUrl = `https://api.github.com/repos/${this.repoOwner}/${this.repoName}/commits?path=${filePath}&per_page=1`;
+        const response = await fetch(apiUrl);
+        if (!response.ok) return null;
+        const commits = await response.json();
+        if (commits.length > 0) {
+            return commits[0].commit.committer.date;
+        }
+        return null;
     }
 
-    async loadPostContent(file) {
+    async loadPostContent(file, commitDate) {
         const response = await fetch(file.download_url);
         const content = await response.text();
-        
         // Parse HTML content để lấy title, subtitle, excerpt, và thumbnail
         const parser = new DOMParser();
         const doc = parser.parseFromString(content, 'text/html');
-        
         const title = doc.querySelector('h1')?.textContent || 'Không có tiêu đề';
         const subtitle = doc.querySelector('h2')?.textContent || '';
         const excerpt = doc.querySelector('p')?.textContent || '';
         const date = doc.querySelector('p:last-child')?.textContent || '';
-        
         // Lấy thumbnail từ img tag đầu tiên hoặc og:image meta tag
         let thumbnail = '';
         const imgTags = doc.querySelectorAll('img');
@@ -85,7 +86,6 @@ class BlogLoader {
         if (!thumbnail) {
             thumbnail = 'post/img-post/img.png';
         }
-        
         return {
             title,
             subtitle,
@@ -93,7 +93,7 @@ class BlogLoader {
             date,
             thumbnail,
             filename: file.name,
-            created_at: file.created_at,
+            created_at: commitDate || '',
             category: this.getCategoryFromFilename(file.name)
         };
     }
@@ -112,7 +112,6 @@ class BlogLoader {
 
     displayPosts(posts) {
         if (!this.blogContainer) return;
-
         if (posts.length === 0) {
             this.blogContainer.innerHTML = `
                 <div class="col-span-full text-center py-12">
@@ -122,7 +121,6 @@ class BlogLoader {
             `;
             return;
         }
-
         const postsHTML = posts.map((post, index) => `
             <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300 cursor-pointer blog-post-card" data-aos="fade-up" data-aos-delay="${index * 100}" data-post-url="${this.getPostUrl(post.filename)}">
                 ${post.thumbnail ? `
