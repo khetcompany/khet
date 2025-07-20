@@ -1260,9 +1260,6 @@
           <img src="media/logoc.png" alt="Khet Entertainment Logo" class="logo">
         </div>
         <div class="mobile-actions">
-          <button class="mobile-action-btn search-btn" aria-label="Tìm kiếm">
-            <i class="fas fa-search"></i>
-          </button>
           <a href="https://www.facebook.com/khetentertainment" class="mobile-action-btn fanpage-btn">
             <i class="fab fa-facebook-f"></i>
             <span>Fanpage</span>
@@ -2259,87 +2256,5 @@
         }
       });
     </script>
-    <!-- Search Overlay -->
-    <div id="search-overlay" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-[10000] hidden">
-      <div class="bg-white rounded-2xl shadow-2xl p-6 w-full max-w-xs relative">
-        <button id="close-search-overlay" class="absolute top-3 right-3 text-2xl text-[#c1003b]"><i class="fas fa-times"></i></button>
-        <input type="text" id="quick-search-input" class="w-full border border-[#c1003b] rounded-xl px-4 py-2 focus:ring-2 focus:ring-[#c1003b]/30 text-lg" placeholder="Tìm mục trong trang...">
-        <ul id="quick-search-results" class="mt-4 space-y-2"></ul>
-      </div>
-    </div>
 </body>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Các mục/section chính trong trang
-  const sections = [
-    { id: "about", label: "Giới Thiệu" },
-    { id: "blog", label: "BÀI ĐĂNG" },
-    { id: "ecosystem", label: "CÁC KÊNH NỔI BẬT" },
-    { id: "achievements", label: "KẾ HOẠCH" },
-    { id: "partners", label: "KÊNH" },
-    { id: "team", label: "THÀNH VIÊN" },
-    { id: "partners-company", label: "Đối tác công ty" }
-  ];
-
-  var searchBtn = document.querySelector('.search-btn');
-  var overlay = document.getElementById('search-overlay');
-  var closeBtn = document.getElementById('close-search-overlay');
-  var input = document.getElementById('quick-search-input');
-  var results = document.getElementById('quick-search-results');
-
-  // Hiện overlay
-  if (searchBtn && overlay) {
-    searchBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      overlay.classList.remove('hidden');
-      input.value = '';
-      results.innerHTML = '';
-      input.focus();
-    });
-  }
-  // Đóng overlay
-  if (closeBtn && overlay) {
-    closeBtn.addEventListener('click', function() {
-      overlay.classList.add('hidden');
-    });
-  }
-  // Đóng khi click ra ngoài
-  if (overlay) {
-    overlay.addEventListener('click', function(e) {
-      if (e.target === overlay) {
-        overlay.classList.add('hidden');
-      }
-    });
-  }
-  // Lọc kết quả khi gõ
-  if (input) {
-    input.addEventListener('input', function() {
-      const keyword = input.value.trim().toLowerCase();
-      let filtered = sections.filter(s => s.label.toLowerCase().includes(keyword));
-      if (filtered.length === 0 && keyword) {
-        results.innerHTML = '<li class="text-gray-400 text-center">Không tìm thấy mục nào.</li>';
-        return;
-      }
-      results.innerHTML = filtered.map(s =>
-        `<li>\n          <a href="#${s.id}" class="block px-4 py-2 rounded-lg hover:bg-[#f8bfc9] text-[#c1003b] font-semibold transition">\n            ${s.label}\n          </a>\n        </li>`
-      ).join('');
-      // Đóng overlay khi chọn mục
-      results.querySelectorAll('a').forEach(a => {
-        a.addEventListener('click', function() {
-          overlay.classList.add('hidden');
-        });
-      });
-    });
-  }
-  // Enter chọn mục đầu tiên
-  input.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') {
-      const first = results.querySelector('a');
-      if (first) {
-        first.click();
-      }
-    }
-  });
-});
-</script>
 </html>
