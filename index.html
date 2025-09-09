@@ -1232,6 +1232,20 @@
         .mobile-header nav a:hover::before {
           width: 100%;
         }
+        /* Prevent hover scaling causing overlaps on small screens */
+        @media (max-width: 768px) {
+          .blog-post-card:hover,
+          .col:hover,
+          .stats-card:hover,
+          .team-member:hover,
+          .contact:hover,
+          .bg-white\/70:hover,
+          .bg-white\/80:hover {
+            transform: none !important;
+            box-shadow: 0 8px 24px 0 rgba(193,0,59,0.14), 0 2px 12px 0 rgba(255,224,178,0.12) !important;
+            z-index: auto !important;
+          }
+        }
     </style>
     <script type="application/ld+json">
     {
@@ -1440,7 +1454,7 @@
             <!-- Main Content Grid -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <!-- Left: Visual Content -->
-                <div class="relative" data-aos="fade-right">
+                <div class="relative order-2 lg:order-1" data-aos="fade-right">
                     <!-- Main Image Container -->
                     <div class="relative">
                         <div class="absolute -inset-4 bg-gradient-to-r from-[#c1003b]/20 to-[#ff6a00]/20 rounded-3xl blur-xl"></div>
@@ -1475,7 +1489,7 @@
                     </div>
                 </div>
                 <!-- Right: Content -->
-                <div class="space-y-8" data-aos="fade-left">
+                <div class="space-y-8 order-1 lg:order-2" data-aos="fade-left">
                     <!-- Company Overview -->
                     <div class="bg-white/80 backdrop-blur-lg rounded-2xl p-8 shadow-xl border border-[#c1003b]/10">
                         <div class="flex items-center gap-4 mb-6">
@@ -1561,6 +1575,30 @@
                     </div>
                 </div>
             </div>
+            <style>
+                /* Mobile optimizations for About section */
+                @media (max-width: 640px) {
+                    #about .beautiful-title {
+                        font-size: 1.5rem;
+                        line-height: 1.25;
+                        letter-spacing: -0.01em;
+                    }
+                    #about .text-xl {
+                        font-size: 1rem;
+                        line-height: 1.5;
+                    }
+                    #about .p-8 { padding: 1rem !important; }
+                    #about .p-6 { padding: 0.875rem !important; }
+                    #about .rounded-3xl { border-radius: 1rem; }
+                    #about .grid { gap: 1rem !important; }
+                    /* Hide floating stat cards on small screens */
+                    #about .absolute.-top-6,
+                    #about .absolute.-bottom-6 { display: none !important; }
+                    /* Slightly reduce icon containers */
+                    #about .w-16.h-16 { width: 2.75rem !important; height: 2.75rem !important; }
+                    #about .w-12.h-12 { width: 2.25rem !important; height: 2.25rem !important; }
+                }
+            </style>
         </div>
     </section>
     <!-- Quản lý nghệ sĩ Section -->
@@ -1571,7 +1609,7 @@
         </h2>
         <!-- Slider nghệ sĩ bắt đầu -->
         <div class="relative w-full">
-          <button id="qlns-prev" class="absolute left-2 top-1/2 -translate-y-1/2 bg-[#c1003b] text-white rounded-full p-4 shadow-lg hover:bg-[#a00030] transition z-10 text-2xl lg:text-3xl">
+          <button id="qlns-prev" class="absolute left-2 top-1/2 -translate-y-1/2 bg-[#c1003b] text-white rounded-full p-2 md:p-4 shadow-md md:shadow-lg hover:bg-[#a00030] transition z-10 text-xl md:text-2xl lg:text-3xl">
             <i class="fas fa-chevron-left"></i>
           </button>
           <div id="qlns-carousel" class="overflow-hidden w-full">
@@ -1621,7 +1659,7 @@
               </div>
             </div>
           </div>
-          <button id="qlns-next" class="absolute right-2 top-1/2 -translate-y-1/2 bg-[#c1003b] text-white rounded-full p-4 shadow-lg hover:bg-[#a00030] transition z-10 text-2xl lg:text-3xl">
+          <button id="qlns-next" class="absolute right-2 top-1/2 -translate-y-1/2 bg-[#c1003b] text-white rounded-full p-2 md:p-4 shadow-md md:shadow-lg hover:bg-[#a00030] transition z-10 text-xl md:text-2xl lg:text-3xl">
             <i class="fas fa-chevron-right"></i>
           </button>
         </div>
@@ -1652,11 +1690,37 @@
           }
           @media (max-width: 768px) {
             #qlns-prev, #qlns-next {
-              p-4: p-2;
-              text-2xl: text-xl;
+              padding: 0.5rem; /* p-2 */
+              font-size: 1.125rem; /* text-xl */
+              box-shadow: 0 2px 8px rgba(193,0,59,0.18);
             }
             #qlns-slides {
               gap: 4px;
+            }
+          }
+          /* Mobile-first refinements */
+          @media (max-width: 640px) {
+            /* make each slide full-width and tighten spacing */
+            #qlns-slides { gap: 6px; padding: 0 8px; }
+            #qlns-slides > div { min-width: 100%; max-width: 100%; }
+            /* friendlier buttons: dock near bottom on phones */
+            #qlns-prev, #qlns-next {
+              top: auto !important;
+              bottom: 10px !important;
+              transform: none !important;
+              width: 40px;
+              height: 40px;
+              padding: 0;
+              line-height: 40px;
+              backdrop-filter: blur(6px);
+              box-shadow: 0 6px 16px rgba(193,0,59,0.22) !important;
+            }
+            #qlns-prev { left: 12px !important; }
+            #qlns-next { right: 12px !important; }
+            /* soften image corners and shadows for small screens */
+            #qlns-slides img {
+              border-radius: 0.875rem !important;
+              box-shadow: 0 10px 24px rgba(0,0,0,0.12);
             }
           }
         </style>
@@ -1664,6 +1728,11 @@
         document.addEventListener('DOMContentLoaded', function() {
           const slidesContainer = document.getElementById('qlns-slides');
           const slides = slidesContainer.querySelectorAll('div');
+          /* performance: ensure lazy loading on these images */
+          document.querySelectorAll('#qlns img').forEach(function(img){
+            img.setAttribute('loading','lazy');
+            img.setAttribute('decoding','async');
+          });
           function getVisibleCount() {
             return window.innerWidth <= 768 ? 1 : 2;
           }
@@ -1688,13 +1757,33 @@
           window.addEventListener('resize', function() {
             showSlides(currentIndex);
           });
+          /* simple touch swipe for mobile */
+          const carouselViewport = document.getElementById('qlns-carousel');
+          let touchStartX = 0;
+          let touchEndX = 0;
+          carouselViewport.addEventListener('touchstart', function(e){
+            if (!e.changedTouches || !e.changedTouches.length) return;
+            touchStartX = e.changedTouches[0].clientX;
+          }, { passive: true });
+          carouselViewport.addEventListener('touchend', function(e){
+            if (!e.changedTouches || !e.changedTouches.length) return;
+            touchEndX = e.changedTouches[0].clientX;
+            const delta = touchEndX - touchStartX;
+            if (Math.abs(delta) > 40) {
+              if (delta < 0) {
+                showSlides(currentIndex + getVisibleCount());
+              } else {
+                showSlides(currentIndex - getVisibleCount());
+              }
+            }
+          }, { passive: true });
           showSlides(0);
         });
         </script>
         <!-- Slider nghệ sĩ kết thúc -->
       </div>
     </section>
-    <!-- Ecosystem Section - Reverted to non-collapsible -->
+    <!-- kênh nổi bật  -->
     <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white/90 to-gray-50/90 backdrop-blur-sm animate__animated animate__fadeInUp" id="ecosystem" data-aos="fade-up" data-aos-delay="400">
         <div class="container mx-auto max-w-7xl">
             <h2 class="beautiful-title" data-aos="zoom-in">
@@ -1735,6 +1824,45 @@
                     </div>
                 </a>
             </div>
+            <style>
+                /* Mobile optimizations for Featured Channels */
+                @media (max-width: 640px) {
+                    #ecosystem .beautiful-title {
+                        font-size: 1.375rem;
+                        line-height: 1.25;
+                        letter-spacing: -0.01em;
+                        text-align: center;
+                    }
+                    #ecosystem .grid {
+                        gap: 12px !important;
+                    }
+                    #ecosystem .p-8 { /* card padding */
+                        padding: 1rem !important;
+                    }
+                    #ecosystem h3 { /* card title */
+                        font-size: 1.125rem !important;
+                        margin-bottom: 0.25rem !important;
+                        text-align: center;
+                    }
+                    #ecosystem p { /* description */
+                        font-size: 0.9375rem !important;
+                        line-height: 1.4 !important;
+                        text-align: left;
+                        margin-bottom: 0.25rem !important;
+                    }
+                    #ecosystem .w-14.h-14 { /* logo circle */
+                        width: 2.5rem !important;
+                        height: 2.5rem !important;
+                    }
+                    #ecosystem .w-8.h-8 { /* inner logo */
+                        width: 1.5rem !important;
+                        height: 1.5rem !important;
+                    }
+                    #ecosystem .text-lg { /* follower row */
+                        font-size: 1rem !important;
+                    }
+                }
+            </style>
         </div>
     </section>
 
@@ -1747,7 +1875,7 @@
             <!-- Dự án 1 -->
             <!-- ... XÓA TOÀN BỘ GRID CŨ CỦA DỰ ÁN ... -->
             <div class="relative w-full max-w-5xl mx-auto">
-              <button id="project-prev" class="absolute left-0 top-1/2 -translate-y-1/2 bg-[#c1003b] text-white rounded-full p-3 shadow-lg hover:bg-[#a00030] transition z-10">
+              <button id="project-prev" class="absolute left-0 top-1/2 -translate-y-1/2 bg-[#c1003b] text-white rounded-full p-2 md:p-3 text-sm md:text-base shadow-md md:shadow-lg hover:bg-[#a00030] transition z-10">
                 <i class="fas fa-chevron-left"></i>
               </button>
               <div id="project-carousel" class="overflow-hidden">
@@ -1822,7 +1950,7 @@
                   </div>
                 </div>
               </div>
-              <button id="project-next" class="absolute right-0 top-1/2 -translate-y-1/2 bg-[#c1003b] text-white rounded-full p-3 shadow-lg hover:bg-[#a00030] transition z-10">
+              <button id="project-next" class="absolute right-0 top-1/2 -translate-y-1/2 bg-[#c1003b] text-white rounded-full p-2 md:p-3 text-sm md:text-base shadow-md md:shadow-lg hover:bg-[#a00030] transition z-10">
                 <i class="fas fa-chevron-right"></i>
               </button>
             </div>
@@ -1897,7 +2025,7 @@
     <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white/90 to-gray-50/90 backdrop-blur-sm animate__animated animate__fadeInUp" id="partners" data-aos="fade-up" data-aos-delay="600">
         <div class="container mx-auto max-w-7xl">
             <h2 class="beautiful-title" data-aos="zoom-in">
-                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><img src="media/logoc.png" alt="Khet Entertainment Logo" class="w-6 h-6 inline-block"></span> Hệ Thống kênh<span style="color: #c1003b;"></span> của Khet Entertainment
+                Hệ Thống kênh<span style="color: #c1003b;"></span> của Khet Entertainment
             </h2>
             
             <!-- Channel Grid -->
@@ -2082,6 +2210,49 @@
                     </div>
                 </div>
             </div>
+            <style>
+                /* Mobile optimizations for Partners (Channel System) */
+                @media (max-width: 480px) {
+                    #partners .grid { /* switch to single column on very small phones */
+                        grid-template-columns: 1fr !important;
+                        gap: 10px !important;
+                    }
+                    #partners .p-6 { /* tile padding */
+                        padding: 0.875rem !important;
+                    }
+                    #partners .rounded-2xl {
+                        border-radius: 0.875rem !important;
+                    }
+                    #partners .w-14.h-14 { /* avatar circle */
+                        width: 2.5rem !important;
+                        height: 2.5rem !important;
+                    }
+                    #partners .w-16.h-16 { /* platform icon size */
+                        width: 2.75rem !important;
+                        height: 2.75rem !important;
+                    }
+                    #partners h3 { /* channel name */
+                        font-size: 0.95rem !important;
+                    }
+                    #partners p { /* subtitle */
+                        font-size: 0.8125rem !important;
+                    }
+                    #partners .text-lg { /* follower count */
+                        font-size: 1rem !important;
+                    }
+                }
+                @media (max-width: 640px) {
+                    #partners .grid { /* tighter spacing on small screens */
+                        gap: 12px !important;
+                    }
+                    #partners .beautiful-title {
+                        font-size: 1.375rem;
+                        line-height: 1.25;
+                        letter-spacing: -0.01em;
+                        text-align: center;
+                    }
+                }
+            </style>
         </div>
     </section>
     <!-- Partners Company Section -->
