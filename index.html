@@ -24,10 +24,13 @@
     <meta property="og:url" content="https://khetentertainment.com/">
     <meta property="og:image" content="https://khetentertainment.com/media/thumnel.jpg">
     <meta property="og:site_name" content="Khet Entertainment">
+    <meta property="og:locale" content="vi_VN">
+    <link rel="alternate" href="https://khetentertainment.com/" hreflang="vi-vn">
+    <link rel="alternate" href="https://khetentertainment.com/" hreflang="x-default">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Khet Entertainment - Truyền thông & Giải trí">
     <meta name="twitter:description" content="Khet Entertainment - Kết nối giới trẻ với giải trí, showbiz, âm nhạc, phim ảnh.">
-    <meta name="twitter:image" content="khetentertainment.com/thumnel.jpg">
+    <meta name="twitter:image" content="https://khetentertainment.com/media/thumnel.jpg">
     <script src="https://cdn.tailwindcss.com?v=1.1"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -230,6 +233,18 @@
         img {
             max-width: 100%;
             height: auto;
+        }
+
+        /* Khet logo icons: subtle rounded corners + gentle softness for consistency */
+        #header-logo, .khet-logo, img[alt*="Khet"], img.logo, .site-logo {
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 16px rgba(193,0,59,0.12);
+            filter: blur(0.4px) brightness(0.99) saturate(0.98);
+            transition: filter 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
+        }
+        #header-logo:hover, .khet-logo:hover, img[alt*="Khet"]:hover, img.logo:hover, .site-logo:hover {
+            filter: blur(0px) brightness(1) saturate(1);
+            box-shadow: 0 8px 24px rgba(193,0,59,0.18);
         }
 
         /* General section padding */
@@ -1247,6 +1262,14 @@
         "availableLanguage": ["Vietnamese", "English"]
       }],
       "email": "khetnews@gmail.com"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Khet Entertainment",
+      "url": "https://khetentertainment.com/"
     }
     </script>
 </head>
