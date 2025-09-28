@@ -83,39 +83,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
     <style>
-        /* ===== OPTIMIZED CSS ===== */
-        :root {
-            --primary-color: #c1003b;
-            --secondary-color: #f8bfc9;
-            --accent-color: #ffe0b2;
-            --text-color: #333;
-            --bg-color: #ffffff;
-            --shadow-light: 0 4px 16px rgba(193,0,59,0.12);
-            --shadow-medium: 0 8px 24px rgba(193,0,59,0.18);
-            --shadow-heavy: 0 12px 40px rgba(193,0,59,0.22);
-            --border-radius: 1.5rem;
-            --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-        }
-
-        /* Base styles */
-        * {
-            box-sizing: border-box;
-        }
-
+        /* Custom CSS for finer control and overrides */
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--bg-color);
-            color: var(--text-color);
+            background: #ffffff; /* Pure white background */
+            color: #333;
             line-height: 1.6;
-            scroll-behavior: smooth;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
             position: relative;
             max-width: 100vw;
             overflow-x: hidden;
-            margin: 0;
-            padding: 0;
         }
 
-        /* Optimized background pattern */
+        /* Modern background pattern overlay */
         body::before {
             content: '';
             position: fixed;
@@ -123,16 +103,16 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                radial-gradient(circle at 25% 25%, rgba(248, 191, 201, 0.015) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(248, 191, 201, 0.015) 0%, transparent 50%);
-            background-size: 120px 120px, 180px 180px;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(248, 191, 201, 0.02) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(248, 191, 201, 0.02) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 48%, rgba(248, 191, 201, 0.01) 50%, transparent 52%);
+            background-size: 100px 100px, 150px 150px, 20px 20px;
             pointer-events: none;
             z-index: -1;
-            will-change: transform;
         }
 
-        /* Simplified grid pattern */
+        /* Subtle grid pattern for modern look */
         body::after {
             content: '';
             position: fixed;
@@ -141,20 +121,20 @@
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(rgba(248, 191, 201, 0.003) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(248, 191, 201, 0.003) 1px, transparent 1px);
-            background-size: 60px 60px;
+                linear-gradient(rgba(248, 191, 201, 0.005) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(248, 191, 201, 0.005) 1px, transparent 1px);
+            background-size: 50px 50px;
             pointer-events: none;
             z-index: -1;
-            animation: gridMove 30s linear infinite;
+            animation: gridMove 20s linear infinite;
         }
 
         @keyframes gridMove {
             0% { transform: translate(0, 0); }
-            100% { transform: translate(60px, 60px); }
+            100% { transform: translate(50px, 50px); }
         }
 
-        /* Optimized floating particles */
+        /* Floating particles effect */
         .floating-particles {
             position: fixed;
             top: 0;
@@ -168,165 +148,147 @@
 
         .particle {
             position: absolute;
-            width: 3px;
-            height: 3px;
-            background: rgba(248, 191, 201, 0.04);
+            width: 4px;
+            height: 4px;
+            background: rgba(248, 191, 201, 0.06);
             border-radius: 50%;
-            animation: float-particle 20s infinite linear;
-            will-change: transform;
+            animation: float-particle 15s infinite linear;
         }
 
-        .particle:nth-child(odd) { left: 10%; animation-delay: 0s; }
-        .particle:nth-child(even) { left: 90%; animation-delay: 10s; }
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 20%; animation-delay: 2s; }
+        .particle:nth-child(3) { left: 30%; animation-delay: 4s; }
+        .particle:nth-child(4) { left: 40%; animation-delay: 6s; }
+        .particle:nth-child(5) { left: 50%; animation-delay: 8s; }
+        .particle:nth-child(6) { left: 60%; animation-delay: 10s; }
+        .particle:nth-child(7) { left: 70%; animation-delay: 12s; }
+        .particle:nth-child(8) { left: 80%; animation-delay: 14s; }
 
         @keyframes float-particle {
             0% {
                 transform: translateY(100vh) rotate(0deg);
                 opacity: 0;
             }
-            5% {
+            10% {
                 opacity: 1;
             }
-            95% {
+            90% {
                 opacity: 1;
             }
             100% {
-                transform: translateY(-100px) rotate(180deg);
+                transform: translateY(-100px) rotate(360deg);
                 opacity: 0;
             }
         }
 
-        /* Custom scrollbar */
+        /* Custom scrollbar for a sleeker look */
         ::-webkit-scrollbar {
-            width: 6px;
+            width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #f8f9fa;
-            border-radius: 3px;
+            background: #f1f1f1;
+            border-radius: 10px;
         }
         ::-webkit-scrollbar-thumb {
-            background: var(--secondary-color);
-            border-radius: 3px;
-            transition: background 0.3s ease;
+            background: #f8bfc9;
+            border-radius: 10px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-color);
+            background: #e5738a;
         }
 
-        /* Hero section optimized */
+        /* Hero section specific styling for background image and overlay */
         .hero-section {
-            background: linear-gradient(135deg, #fff 0%, var(--secondary-color) 60%, var(--accent-color) 100%);
+            background: linear-gradient(135deg, #fff 0%, #f8bfc9 60%, #ffe0b2 100%);
             position: relative;
             overflow: hidden;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
         }
 
         .hero-content-area {
             position: relative;
-            z-index: 10;
+            z-index: 10; /* Ensure text and image are above background elements */
             display: flex;
             align-items: center;
             justify-content: space-between;
             height: 100%;
-            padding: 2rem;
-            gap: 2rem;
+            padding: 0 2rem; /* Add some padding */
         }
 
         .hero-text-container {
-            flex: 1;
-            max-width: 50%;
-            color: var(--text-color);
+            max-width: 50%; /* Adjust width for text content */
+            color: #333;
+            padding-right: 2rem; /* Space between text and image */
         }
 
         .hero-image-container {
-            flex: 1;
-            position: relative;
+            position: relative; /* For positioning icons relative to image */
+            width: 50%; /* Adjust width for image content */
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100%;
+            align-items: center; /* Center the image vertically */
+            height: 100%; /* Take full height of hero section */
         }
 
         .hero-main-image {
             max-height: 85%;
             max-width: 90%;
             object-fit: contain;
-            filter: drop-shadow(0 8px 32px rgba(193,0,59,0.2));
-            transition: var(--transition);
+            filter: drop-shadow(0 8px 32px #c1003b33) drop-shadow(0 2px 8px #ffe0b2cc);
+            transition: transform 0.7s cubic-bezier(0.4,0,0.2,1), filter 0.7s;
         }
 
-        .hero-image-container:hover .hero-main-image {
-            transform: scale(1.02) translateY(-5px);
-            filter: drop-shadow(0 12px 40px rgba(193,0,59,0.3));
-        }
-
-        /* Floating icons optimized */
+        /* Styles for small floating icons */
         .floating-icon {
             position: absolute;
-            background-color: rgba(248, 191, 201, 0.08);
+            background-color: rgba(248, 191, 201, 0.1);
             border-radius: 50%;
             padding: 0.75rem;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: var(--secondary-color);
-            box-shadow: var(--shadow-light);
-            backdrop-filter: blur(8px);
-            animation: float 4s ease-in-out infinite;
-            will-change: transform;
+            color: #f8bfc9;
+            box-shadow: 0 4px 15px rgba(248, 191, 201, 0.2);
+            backdrop-filter: blur(5px);
+            animation: float 3s ease-in-out infinite;
         }
 
         .floating-icon.icon-1 { top: 15%; left: 10%; animation-delay: 0s; }
-        .floating-icon.icon-2 { top: 40%; left: 5%; animation-delay: 1s; }
-        .floating-icon.icon-3 { top: 20%; right: 10%; animation-delay: 2s; }
-        .floating-icon.icon-4 { bottom: 20%; right: 5%; animation-delay: 3s; }
+        .floating-icon.icon-2 { top: 40%; left: 5%; animation-delay: 0.5s; }
+        .floating-icon.icon-3 { top: 20%; right: 10%; animation-delay: 1s; }
+        .floating-icon.icon-4 { bottom: 20%; right: 5%; animation-delay: 1.5s; }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
         }
 
-        /* Unified card styles */
-        .card, .blog-post-card, .col, .stats-card, .team-member, .contact, .bg-white\/70, .bg-white\/80 {
-            border-radius: var(--border-radius) !important;
-            box-shadow: var(--shadow-light);
-            background: rgba(255,255,255,0.85);
-            backdrop-filter: blur(12px);
-            transition: var(--transition);
-            border: 1px solid rgba(193,0,59,0.08);
+        /* Custom styling for stats to ensure consistent height */
+        .stats-card {
+            min-height: 180px; /* Ensure cards have a minimum height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
 
-        .card:hover, .blog-post-card:hover, .col:hover, .stats-card:hover, .team-member:hover, .contact:hover {
-            transform: scale(1.03) translateY(-2px);
-            box-shadow: var(--shadow-medium);
-            z-index: 2;
-        }
-
-        /* Image optimization */
+        /* Ensure images scale correctly within their containers */
         img {
             max-width: 100%;
             height: auto;
-            border-radius: 0.75rem;
-            transition: var(--transition);
         }
 
-        .card img:hover, .blog-post-card img:hover, .team-member img:hover {
-            transform: scale(1.05);
-            box-shadow: var(--shadow-light);
-        }
-
-        /* Section spacing */
+        /* General section padding */
         .section-padding {
-            padding: 3rem 0;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
         }
 
-        /* Text utilities with standard properties */
+        /* Line clamp utilities for text truncation */
         .line-clamp-2 {
             display: -webkit-box;
             -webkit-line-clamp: 2;
-            line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
@@ -334,159 +296,137 @@
         .line-clamp-3 {
             display: -webkit-box;
             -webkit-line-clamp: 3;
-            line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
 
-        /* Responsive design optimized */
+        /* Blog post card styles */
+        .blog-post-card, .col, .stats-card, .team-member, .contact, .bg-white\/70, .bg-white\/80 {
+            border-radius: 2.5rem !important;
+            box-shadow: 0 12px 40px 0 rgba(193,0,59,0.14), 0 2px 12px 0 rgba(255,224,178,0.12);
+            background: rgba(255,255,255,0.80);
+            backdrop-filter: blur(12px);
+            transition: all 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.5s;
+        }
+        .blog-post-card:hover, .col:hover, .stats-card:hover, .team-member:hover, .contact:hover, .bg-white\/70:hover, .bg-white\/80:hover {
+            transform: scale(1.08) rotate(-1.5deg);
+            box-shadow: 0 24px 64px 0 rgba(193,0,59,0.22), 0 4px 24px 0 rgba(255,224,178,0.22);
+            z-index: 3;
+        }
+        .blog-post-card .post-thumbnail, .col img, .team-member img, .contact img {
+            border-radius: 1.5rem !important;
+            box-shadow: 0 4px 16px 0 rgba(193,0,59,0.10);
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .blog-post-card:hover .post-thumbnail, .col:hover img, .team-member:hover img, .contact:hover img {
+            box-shadow: 0 8px 32px 0 rgba(193,0,59,0.18);
+            transform: scale(1.06) rotate(1deg);
+        }
+        .col .w-16, .col .w-14, .col .w-12, .col .w-8, .col .w-32, .team-member .w-32, .team-member .w-16, .team-member .w-12 {
+            background: linear-gradient(135deg, #f8bfc9 0%, #ffe0b2 100%);
+            box-shadow: 0 2px 8px #c1003b22;
+            border-radius: 1.5rem !important;
+        }
+        .col i, .team-member i, .stats-card i, .contact i {
+            transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
+        }
+        .col:hover i, .team-member:hover i, .stats-card:hover i, .contact:hover i {
+            color: #c1003b;
+            text-shadow: 0 0 8px #ffe0b2, 0 0 16px #c1003b44;
+            transform: scale(1.15) rotate(-6deg);
+        }
+
+        /* Responsive adjustments for hero section */
         @media (max-width: 768px) {
             .hero-content-area {
                 flex-direction: column;
+                justify-content: center;
                 text-align: center;
-                padding: 1rem;
-                gap: 1.5rem;
+                padding: 1rem 0.2rem;
+                height: auto;
                 min-height: 100vh;
+                gap: 1.2rem;
             }
-            
             .hero-text-container {
                 max-width: 100%;
+                padding-right: 0;
+                margin-bottom: 0;
                 order: 2;
-                padding: 0 1rem;
+                padding: 0 0.2rem;
             }
-            
             .hero-text-container h1 {
-                font-size: 1.5rem;
-                line-height: 1.3;
-                margin-bottom: 1rem;
+                font-size: 1.3rem;
+                line-height: 1.2;
+                margin-bottom: 0.7rem;
             }
-            
             .hero-text-container p {
-                font-size: 1rem;
+                font-size: 1.05rem;
                 line-height: 1.5;
-                margin-bottom: 1rem;
+                margin-bottom: 0.7rem;
             }
-            
+            .animated-gradient-text {
+                font-size: 1.2rem;
+                margin-top: 0.3rem;
+            }
             .hero-image-container {
                 width: 100%;
-                height: 40vh;
+                height: 32vh;
+                align-items: center;
                 order: 1;
-                padding: 1rem;
+                margin-top: 0.7rem;
+                margin-bottom: 0.2rem;
             }
-            
             .hero-main-image {
                 max-height: 90%;
                 max-width: 80%;
+                object-fit: contain;
             }
-            
             .floating-icon {
                 display: none;
             }
-            
-            .section-padding {
-                padding: 2rem 0;
-            }
-            
-            .card:hover, .blog-post-card:hover, .col:hover, .stats-card:hover, .team-member:hover, .contact:hover {
-                transform: none;
-                box-shadow: var(--shadow-light);
-            }
-            
-            /* Mobile button improvements */
             .hero-text-container .flex {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 0.5rem;
                 align-items: center;
             }
-            
             .hero-text-container .flex a {
                 width: 100%;
-                max-width: 280px;
-                padding: 0.75rem 1.5rem;
-                font-size: 1rem;
-                text-align: center;
+                max-width: 180px;
+                justify-content: center;
+                padding: 0.6rem 1rem;
+                font-size: 1.1rem;
             }
-            
-            /* Mobile header improvements */
-            .header-bottom {
-                padding: 0.5rem 1rem;
-                gap: 0.5rem;
+            #blog h2 {
+                font-size: 1.2rem;
             }
-            
-            .header-bottom .flex.items-center.gap-1 {
-                gap: 0.5rem;
+            .blog-post-card {
+                padding: 1rem 0.5rem;
+                border-radius: 1.2rem !important;
             }
-            
-            /* Mobile navigation improvements */
-            nav.flex-1.flex {
-                display: none;
+            .blog-post-card h3 {
+                font-size: 1.1rem;
             }
-            
-            #mobile-menu-btn {
-                display: flex;
-                padding: 0.5rem;
-                border-radius: 0.5rem;
+            .blog-post-card p, .blog-post-card span {
+                font-size: 1.05rem;
             }
-        }
-
-        @media (max-width: 480px) {
-            .hero-text-container h1 {
-                font-size: 1.25rem;
+            #blog-posts-container {
+                grid-template-columns: 1fr !important;
+                gap: 1.2rem !important;
             }
-            
-            .hero-text-container p {
-                font-size: 0.9rem;
-            }
-            
-            .hero-image-container {
-                height: 35vh;
-            }
-            
             .section-padding {
-                padding: 1.5rem 0;
+                padding-top: 1.2rem;
+                padding-bottom: 1.2rem;
             }
-        }
-
-        /* Typography and animations optimized */
-        .animated-gradient-text {
-            font-size: 2rem;
-            font-weight: 900;
-            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color), var(--primary-color) 80%);
-            background-size: 200% auto;
-            color: transparent;
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shine-gradient 4s linear infinite;
-            text-shadow: 0 2px 16px rgba(248,191,201,0.1);
-            letter-spacing: 0.5px;
-            display: inline-block;
-        }
-
-        @keyframes shine-gradient {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 200% 50%; }
-        }
-
-        /* Button styles unified */
-        .button, .cta-glow, button, a.cta-glow, a.button {
-            background: linear-gradient(90deg, var(--secondary-color) 0%, var(--accent-color) 100%);
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-            font-weight: 700;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-light);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .button:hover, .cta-glow:hover, button:hover, a.cta-glow:hover, a.button:hover {
-            background: var(--primary-color) !important;
-            color: #fff !important;
-            box-shadow: var(--shadow-medium);
-            transform: translateY(-2px);
-        }
+            .stats-card, .col, .team-member, .contact {
+                min-height: 100px;
+                padding: 0.7rem;
+            }
+            .stats-card .text-2xl, .col .text-2xl, .col .text-3xl, .col .text-4xl, .team-member .text-2xl, .team-member .text-3xl, .team-member .text-4xl, .contact .text-2xl, .contact .text-3xl, .contact .text-4xl {
+                font-size: 1.1rem !important;
+            }
+            .col h3, .team-member h3 {
+                font-size: 1.1rem;
+            }
             .col p, .team-member p {
                 font-size: 1.05rem;
             }
@@ -535,169 +475,119 @@
                 background: rgba(255,255,255,0.98);
                 backdrop-filter: blur(16px);
             }
-        @media (max-width: 768px) {
             #mobile-menu nav a {
                 padding: 1rem 0;
                 border-bottom: 1px solid #f8bfc9;
-                width: 100%;
+                width: 100vw;
                 text-align: center;
                 font-weight: 700;
                 color: #c1003b;
                 transition: background 0.2s, color 0.2s;
             }
-            
             #mobile-menu nav a:hover {
                 background: #ffe0b2;
                 color: #c1003b;
             }
-            
             #close-mobile-menu {
                 top: 18px;
                 right: 18px;
                 font-size: 2.2rem;
             }
         }
-        
-        /* Mobile optimizations */
         @media (max-width: 480px) {
             .hero-content-area {
-                flex-direction: column;
-                justify-content: center;
-                text-align: center;
-                padding: 0.5rem;
-                gap: 1rem;
+                padding: 0.1rem;
+                gap: 0.7rem;
             }
-            
             .hero-text-container {
-                max-width: 100%;
-                order: 2;
-                padding: 0 0.5rem;
+                padding: 0 0.1rem;
             }
-            
             .hero-text-container h1 {
-                font-size: 1.2rem;
-                line-height: 1.3;
-                margin-bottom: 0.8rem;
+                font-size: 1.05rem;
+                margin-bottom: 0.5rem;
             }
-            
             .hero-text-container p {
-                font-size: 0.95rem;
-                line-height: 1.4;
-                margin-bottom: 0.8rem;
+                font-size: 0.9rem;
+                margin-bottom: 0.5rem;
             }
-            
             .animated-gradient-text {
-                font-size: 1.1rem;
+                font-size: 0.98rem;
             }
-            
             .hero-image-container {
-                width: 100%;
-                height: 30vh;
-                order: 1;
-                padding: 0.5rem;
+                height: 22vh;
+                margin-top: 0.3rem;
+                margin-bottom: 0.1rem;
             }
-            
             .hero-main-image {
-                max-width: 85%;
-                max-height: 100%;
+                max-width: 70%;
             }
-            
-            .hero-text-container .flex {
-                flex-direction: column;
-                gap: 0.5rem;
-                align-items: center;
-            }
-            
             .hero-text-container .flex a {
-                width: 100%;
-                max-width: 200px;
-                padding: 0.6rem 1rem;
+                max-width: 120px;
+                padding: 0.4rem 0.5rem;
+                font-size: 0.95rem;
+            }
+            #blog h2 {
+                font-size: 1rem;
+            }
+            .blog-post-card h3 {
+                font-size: 0.98rem;
+            }
+            .blog-post-card p, .blog-post-card span {
                 font-size: 0.9rem;
             }
-            
             .section-padding {
-                padding: 1.5rem 0;
+                padding-top: 0.7rem;
+                padding-bottom: 0.7rem;
             }
-            
-            /* Mobile section improvements */
-            .container {
-                padding-left: 1rem;
-                padding-right: 1rem;
+            .stats-card, .col, .team-member, .contact {
+                min-height: 70px;
+                padding: 0.4rem;
             }
-            
-            .grid {
-                gap: 1rem;
+            .stats-card .text-2xl, .col .text-2xl, .col .text-3xl, .col .text-4xl, .team-member .text-2xl, .team-member .text-3xl, .team-member .text-4xl, .contact .text-2xl, .contact .text-3xl, .contact .text-4xl {
+                font-size: 0.98rem !important;
             }
-            
-            .grid-cols-1 {
-                grid-template-columns: 1fr;
+            .col h3, .team-member h3 {
+                font-size: 0.98rem;
             }
-            
-            .grid-cols-2 {
-                grid-template-columns: 1fr;
+            .col p, .team-member p {
+                font-size: 0.9rem;
             }
-            
-            .grid-cols-3 {
-                grid-template-columns: 1fr;
+            .team-member .w-32, .team-member .h-32 {
+                width: 40px !important;
+                height: 40px !important;
             }
-            
-            /* Mobile card improvements */
-            .card, .blog-post-card, .col, .stats-card, .team-member, .contact {
-                padding: 1rem;
-                margin-bottom: 1rem;
+            #partners .grid {
+                grid-template-columns: 1fr !important;
+                gap: 0.7rem !important;
             }
-            
-            /* Mobile text improvements */
-            .beautiful-title {
-                font-size: 1.5rem;
-                line-height: 1.3;
-                text-align: center;
+            footer {
+                font-size: 0.85rem;
+                padding: 0.7rem 0;
             }
-            
-            .beautiful-title-alt {
-                font-size: 1.3rem;
-                line-height: 1.3;
-                text-align: center;
+            #contact input, #contact textarea {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.4rem 0.4rem 0.7rem;
             }
-            
-            .elegant-title {
-                font-size: 1.2rem;
-                line-height: 1.3;
-                text-align: center;
+            #contact button {
+                font-size: 0.98rem;
+                padding: 0.4rem 0;
+            }
+            .header-bottom .text-lg, .header-bottom .text-xl, .header-bottom .text-2xl, .header-bottom .text-3xl, .header-bottom .text-4xl,
+            nav .text-lg, nav .text-xl, nav .text-2xl, nav .text-3xl, nav .text-4xl,
+            .hero-text-container i, .hero-image-container i, .blog-post-card i, .col i, .team-member i, .contact i {
+                font-size: 0.98rem !important;
             }
         }
-        /* Mobile menu optimized */
         #mobile-menu {
             transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
             will-change: transform;
             transform: translateX(100%);
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            z-index: 9999;
-            pointer-events: auto;
+            z-index: 9999 !important;
+            pointer-events: auto !important;
         }
-        
-        #mobile-menu.show {
-            transform: translateX(0);
-        }
-        
-        #mobile-menu-btn {
-            z-index: 10000;
-            pointer-events: auto;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        #mobile-menu-btn:hover {
-            background-color: rgba(193, 0, 59, 0.1);
-            border-radius: 0.5rem;
-        }
-        
-        #mobile-menu-btn:active {
-            transform: scale(0.95);
-        }
-
         @media (min-width: 768px) {
             #main-header {
                 padding-bottom: 0;
@@ -709,115 +599,115 @@
                 margin-top: 0;
             }
             #main-header.shrink .header-top {
-                display: none;
+                display: none !important;
             }
             #main-header.shrink .header-bottom {
-                padding: 0.5rem;
+                padding-top: 0.25rem;
+                padding-bottom: 0.25rem;
                 border-radius: 1.5rem;
-                box-shadow: var(--shadow-light);
+                box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08);
             }
             #main-header.shrink #header-logo {
-                height: 2.5rem;
+                height: 2.5rem !important;
                 max-width: 100px;
             }
         }
-        /* Icon hover effects */
-        .fab, .fas {
-            transition: var(--transition);
+        /* Hiệu ứng chữ gradient động cho hero */
+        .animated-gradient-text {
+            font-size: 2.2rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, #f8bfc9, #ffe0b2, #c1003b 80%);
+            background-size: 200% auto;
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine-gradient 3s linear infinite, glow-text 2s ease-in-out infinite alternate;
+            text-shadow: 0 2px 16px rgba(248,191,201,0.10), 0 1px 0 #fff;
+            letter-spacing: 1px;
+            display: inline-block;
         }
-        
-        .fab:hover, .fas:hover {
-            color: var(--accent-color) !important;
-            text-shadow: 0 0 12px var(--primary-color), 0 0 24px var(--accent-color);
-            transform: scale(1.1) rotate(-5deg);
+        @keyframes shine-gradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
         }
-
-        /* CTA glow effect */
+        @keyframes glow-text {
+            0% { text-shadow: 0 0 8px #ffe0b2, 0 0 16px #c1003b44; }
+            100% { text-shadow: 0 0 24px #ffe0b2, 0 0 32px #c1003b88; }
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #fff 0%, #f8bfc9 60%, #ffe0b2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-main-image {
+            max-height: 85%;
+            max-width: 90%;
+            object-fit: contain;
+            filter: drop-shadow(0 8px 32px #c1003b33) drop-shadow(0 2px 8px #ffe0b2cc);
+            transition: transform 0.7s cubic-bezier(0.4,0,0.2,1), filter 0.7s;
+        }
+        .hero-image-container:hover .hero-main-image {
+            transform: scale(1.04) translateY(-10px) rotate(-2deg);
+            filter: drop-shadow(0 16px 48px #c1003b66) drop-shadow(0 4px 16px #ffe0b2);
+        }
+        .parallax {
+            will-change: transform;
+            transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+        }
         .cta-glow {
-            box-shadow: 0 0 20px 4px rgba(255,224,178,0.6), 0 4px 16px rgba(193,0,59,0.4);
-            animation: cta-glow-pulse 2s infinite alternate;
+            box-shadow: 0 0 24px 4px #ffe0b2cc, 0 4px 16px #c1003bcc;
+            animation: cta-glow-anim 1.5s infinite alternate, cta-glow-strong 2.5s infinite alternate;
         }
-
-        @keyframes cta-glow-pulse {
-            0% { box-shadow: 0 0 20px 4px rgba(255,224,178,0.6), 0 4px 16px rgba(193,0,59,0.4); }
-            100% { box-shadow: 0 0 30px 8px rgba(255,224,178,0.8), 0 6px 24px rgba(193,0,59,0.6); }
-        }
-
-        .cta-glow:hover {
-            animation: cta-glow-pulse 0.5s infinite alternate;
-            filter: brightness(1.05);
+        @keyframes cta-glow-strong {
+            0% { box-shadow: 0 0 24px 4px #ffe0b2cc, 0 4px 16px #c1003bcc; }
+            100% { box-shadow: 0 0 48px 12px #ffe0b2cc, 0 8px 32px #c1003bcc; }
         }
         @media (max-width: 768px) {
           .hero-description-text {
             display: none !important;
           }
         }
-        /* Mobile header optimizations */
         @media (max-width: 768px) {
-            .header-top {
-                display: none;
-            }
-            
-            .header-bottom {
-                padding: 0.5rem 1rem;
-                border-radius: 1rem;
-                min-height: 44px;
-                gap: 0.5rem;
-            }
-            
-            #main-header .text-3xl {
-                display: none;
-            }
-            
-            #header-logo {
-                height: 2rem;
-                max-width: 80px;
-            }
-            
-            .header-bottom .flex.items-center.gap-1 {
-                gap: 0.5rem;
-            }
-            
-            .header-bottom .text-lg, .header-bottom .text-xl, .header-bottom .text-2xl {
-                font-size: 1.2rem;
-            }
-            
-            nav.flex-1.flex {
-                display: none;
-            }
-            
-            #mobile-menu {
-                display: flex;
-                z-index: 9999;
-            }
-            
-            #mobile-menu-btn {
-                z-index: 9999;
-                pointer-events: auto;
-                position: relative;
-                cursor: pointer;
-                padding: 0.5rem;
-                border-radius: 0.5rem;
-                transition: all 0.3s ease;
-            }
-            
-            #mobile-menu-btn:hover {
-                background-color: rgba(193, 0, 59, 0.1);
-            }
-            
-            #mobile-menu-btn:active {
-                transform: scale(0.95);
-            }
-            
-            /* Mobile button improvements */
-            .header-bottom a {
-                padding: 0.5rem 0.75rem;
-                font-size: 0.9rem;
-            }
-            
-            .header-bottom .w-px {
-                display: none;
-            }
+          .header-top {
+              display: none !important;
+          }
+          .header-bottom {
+              padding: 0.2rem 0.5rem !important;
+              border-radius: 1rem !important;
+              min-height: 44px !important;
+          }
+          #main-header .text-3xl {
+              display: none !important; /* Ẩn chữ Entertainment */
+          }
+          #header-logo {
+              height: 2rem !important;
+              max-width: 80px !important;
+          }
+          .header-bottom .flex.items-center.gap-1 {
+              gap: 0.5rem !important;
+          }
+          .header-bottom .text-lg, .header-bottom .text-xl, .header-bottom .text-2xl {
+              font-size: 1.3rem !important;
+          }
+          nav.flex-1.flex {
+              display: none !important;
+          }
+          #mobile-menu {
+              display: flex !important;
+              z-index: 999999 !important;
+          }
+          /* Đảm bảo nút menu mobile có thể click được */
+          #mobile-menu-btn {
+              z-index: 999999 !important;
+              pointer-events: auto !important;
+              position: relative !important;
+              cursor: pointer !important;
+          }
+          #mobile-menu-btn:hover {
+              background-color: rgba(193, 0, 59, 0.1) !important;
+              border-radius: 0.5rem !important;
+          }
         }
         @media (max-width: 640px) {
           #project-carousel img {
@@ -1374,20 +1264,6 @@
         .mobile-header nav a:hover::before {
           width: 100%;
         }
-        /* Prevent hover scaling causing overlaps on small screens */
-        @media (max-width: 768px) {
-          .blog-post-card:hover,
-          .col:hover,
-          .stats-card:hover,
-          .team-member:hover,
-          .contact:hover,
-          .bg-white\/70:hover,
-          .bg-white\/80:hover {
-            transform: none !important;
-            box-shadow: 0 8px 24px 0 rgba(193,0,59,0.14), 0 2px 12px 0 rgba(255,224,178,0.12) !important;
-            z-index: auto !important;
-          }
-        }
     </style>
     <script type="application/ld+json">
     {
@@ -1418,14 +1294,6 @@
         "availableLanguage": ["Vietnamese", "English"]
       }],
       "email": "khetnews@gmail.com"
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Khet Entertainment",
-      "url": "https://khetentertainment.com/"
     }
     </script>
 </head>
@@ -1518,24 +1386,16 @@
 
     <!-- Mobile menu overlay -->
     <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-white z-[9999] flex flex-col items-center justify-start pt-20 transition-transform duration-300 transform translate-x-full md:hidden" style="pointer-events: auto;">
-      <button id="close-mobile-menu" class="absolute top-4 right-4 text-3xl text-[#c1003b] hover:bg-gray-100 rounded-full p-2 transition-colors" aria-label="Đóng menu di động">
-        <i class="fas fa-times" aria-hidden="true"></i>
-      </button>
-      <nav class="flex flex-col gap-4 mt-8 w-full items-center px-4">
-        <a href="#about" class="text-gray-800 font-bold text-lg py-3 px-6 w-full text-center hover:bg-gray-100 rounded-lg transition-colors">Giới Thiệu</a>
-        <a href="#qlns" class="text-gray-800 font-bold text-lg py-3 px-6 w-full text-center hover:bg-gray-100 rounded-lg transition-colors">NGHỆ SĨ</a>
-        <a href="#ecosystem" class="text-gray-800 font-bold text-lg py-3 px-6 w-full text-center hover:bg-gray-100 rounded-lg transition-colors">KÊNH NỔI BẬT</a>
-        <a href="#partners" class="text-gray-800 font-bold text-lg py-3 px-6 w-full text-center hover:bg-gray-100 rounded-lg transition-colors">KÊNH</a>
-        <a href="#team" class="text-gray-800 font-bold text-lg py-3 px-6 w-full text-center hover:bg-gray-100 rounded-lg transition-colors">THÀNH VIÊN</a>
-        <a href="mailto:khetnews@gmail.com" class="text-gray-800 font-bold text-lg py-3 px-6 w-full text-center hover:bg-gray-100 rounded-lg transition-colors">LIÊN HỆ</a>
-        <div class="flex flex-col gap-3 mt-6 w-full px-4">
-          <a href="https://www.facebook.com/khetentertainment" class="bg-[#c1003b] text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-[#a00030] transition-colors">
-            <i class="fab fa-facebook-f mr-2"></i>Fanpage
-          </a>
-          <a href="mailto:khetnews@gmail.com" class="border-2 border-[#c1003b] text-[#c1003b] px-6 py-3 rounded-lg font-semibold text-center hover:bg-[#c1003b] hover:text-white transition-colors">
-            <i class="fas fa-phone mr-2"></i>Liên hệ
-          </a>
-        </div>
+      <button id="close-mobile-menu" class="absolute top-4 right-4 text-3xl text-[#c1003b]" aria-label="Đóng menu di động"><i class="fas fa-times" aria-hidden="true"></i></button>
+      <nav class="flex flex-col gap-6 mt-8 w-full items-center">
+        <a href="#about" class="text-gray-800 font-bold text-lg">Giới Thiệu</a>
+        <a href="#qlns" class="text-gray-800 font-bold text-lg">NGHỆ SĨ</a>
+        <a href="#ecosystem" class="text-gray-800 font-bold text-lg">KÊNH NỔI BẬT</a>
+        <a href="#partners" class="text-gray-800 font-bold text-lg">KÊNH</a>
+        <a href="#team" class="text-gray-800 font-bold text-lg">THÀNH VIÊN</a>
+        <a href="mailto:khetnews@gmail.com" class="text-gray-800 font-bold text-lg">LIÊN HỆ</a>
+        <a href="https://www.facebook.com/khetentertainment" class="bg-[#c1003b] text-white px-6 py-2 rounded-lg font-semibold mt-4">Fanpage</a>
+        <a href="mailto:khetnews@gmail.com" class="border-2 border-[#c1003b] text-[#c1003b] px-6 py-2 rounded-lg font-semibold mt-2"><i class="fas fa-phone"></i> Liên hệ</a>
       </nav>
     </div>
     <section class="hero-section h-screen flex items-center justify-center text-white overflow-hidden animate__animated animate__fadeInDown" data-aos="fade-down" data-aos-delay="100">
@@ -1565,7 +1425,7 @@
             </div>
 
             <div class="hero-image-container parallax" data-aos="fade-left" data-aos-delay="400">
-                <img src="media/page1/thumnel-page1.png" alt="Khet Entertainment Team - Đội ngũ truyền thông số chuyên nghiệp, giải trí, showbiz, âm nhạc, phim ảnh" class="hero-main-image object-cover" loading="lazy" decoding="async">
+                <img src="media/page1/thumnel-page1.png" alt="Khet Entertainment Team - Truyền thông số, giải trí, showbiz, âm nhạc, phim ảnh" class="hero-main-image object-cover">
 
                 <div class="floating-icon icon-1 text-2xl md:text-3xl lg:text-4xl" style="top: 15%; left: 10%;">
                     <i class="fas fa-bullhorn"></i>
@@ -1604,12 +1464,12 @@
             <!-- Main Content Grid -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <!-- Left: Visual Content -->
-                <div class="relative order-2 lg:order-1" data-aos="fade-right">
+                <div class="relative" data-aos="fade-right">
                     <!-- Main Image Container -->
                     <div class="relative">
                         <div class="absolute -inset-4 bg-gradient-to-r from-[#c1003b]/20 to-[#ff6a00]/20 rounded-3xl blur-xl"></div>
                         <div class="relative bg-white rounded-3xl p-8 shadow-2xl border border-[#c1003b]/10">
-                            <img src="media/page2/thumnel-page2.png" alt="Khet Entertainment Team - Đội ngũ truyền thông số, giải trí, showbiz, âm nhạc, phim ảnh" class="w-full h-auto rounded-2xl shadow-lg" loading="lazy" decoding="async">
+                            <img src="media/page2/thumnel-page2.png" alt="Khet Entertainment Team - Đội ngũ truyền thông số, giải trí, showbiz, âm nhạc, phim ảnh" class="w-full h-auto rounded-2xl shadow-lg">
                             
                             <!-- Floating Stats Cards -->
                             <div class="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-[#c1003b]/10">
@@ -1639,7 +1499,7 @@
                     </div>
                 </div>
                 <!-- Right: Content -->
-                <div class="space-y-8 order-1 lg:order-2" data-aos="fade-left">
+                <div class="space-y-8" data-aos="fade-left">
                     <!-- Company Overview -->
                     <div class="bg-white/80 backdrop-blur-lg rounded-2xl p-8 shadow-xl border border-[#c1003b]/10">
                         <div class="flex items-center gap-4 mb-6">
@@ -1725,30 +1585,6 @@
                     </div>
                 </div>
             </div>
-            <style>
-                /* Mobile optimizations for About section */
-                @media (max-width: 640px) {
-                    #about .beautiful-title {
-                        font-size: 1.5rem;
-                        line-height: 1.25;
-                        letter-spacing: -0.01em;
-                    }
-                    #about .text-xl {
-                        font-size: 1rem;
-                        line-height: 1.5;
-                    }
-                    #about .p-8 { padding: 1rem !important; }
-                    #about .p-6 { padding: 0.875rem !important; }
-                    #about .rounded-3xl { border-radius: 1rem; }
-                    #about .grid { gap: 1rem !important; }
-                    /* Hide floating stat cards on small screens */
-                    #about .absolute.-top-6,
-                    #about .absolute.-bottom-6 { display: none !important; }
-                    /* Slightly reduce icon containers */
-                    #about .w-16.h-16 { width: 2.75rem !important; height: 2.75rem !important; }
-                    #about .w-12.h-12 { width: 2.25rem !important; height: 2.25rem !important; }
-                }
-            </style>
         </div>
     </section>
     <!-- Quản lý nghệ sĩ Section -->
@@ -1759,7 +1595,7 @@
         </h2>
         <!-- Slider nghệ sĩ bắt đầu -->
         <div class="relative w-full">
-          <button id="qlns-prev" class="absolute left-2 top-1/2 -translate-y-1/2 bg-[#c1003b] text-white rounded-full p-2 md:p-4 shadow-md md:shadow-lg hover:bg-[#a00030] transition z-10 text-xl md:text-2xl lg:text-3xl">
+          <button id="qlns-prev" class="absolute left-2 top-1/2 -translate-y-1/2 bg-[#c1003b] text-white rounded-full p-4 shadow-lg hover:bg-[#a00030] transition z-10 text-2xl lg:text-3xl">
             <i class="fas fa-chevron-left"></i>
           </button>
           <div id="qlns-carousel" class="overflow-hidden w-full">
@@ -1809,7 +1645,7 @@
               </div>
             </div>
           </div>
-          <button id="qlns-next" class="absolute right-2 top-1/2 -translate-y-1/2 bg-[#c1003b] text-white rounded-full p-2 md:p-4 shadow-md md:shadow-lg hover:bg-[#a00030] transition z-10 text-xl md:text-2xl lg:text-3xl">
+          <button id="qlns-next" class="absolute right-2 top-1/2 -translate-y-1/2 bg-[#c1003b] text-white rounded-full p-4 shadow-lg hover:bg-[#a00030] transition z-10 text-2xl lg:text-3xl">
             <i class="fas fa-chevron-right"></i>
           </button>
         </div>
@@ -1840,37 +1676,11 @@
           }
           @media (max-width: 768px) {
             #qlns-prev, #qlns-next {
-              padding: 0.5rem; /* p-2 */
-              font-size: 1.125rem; /* text-xl */
-              box-shadow: 0 2px 8px rgba(193,0,59,0.18);
+              p-4: p-2;
+              text-2xl: text-xl;
             }
             #qlns-slides {
               gap: 4px;
-            }
-          }
-          /* Mobile-first refinements */
-          @media (max-width: 640px) {
-            /* make each slide full-width and tighten spacing */
-            #qlns-slides { gap: 6px; padding: 0 8px; }
-            #qlns-slides > div { min-width: 100%; max-width: 100%; }
-            /* friendlier buttons: dock near bottom on phones */
-            #qlns-prev, #qlns-next {
-              top: auto !important;
-              bottom: 10px !important;
-              transform: none !important;
-              width: 40px;
-              height: 40px;
-              padding: 0;
-              line-height: 40px;
-              backdrop-filter: blur(6px);
-              box-shadow: 0 6px 16px rgba(193,0,59,0.22) !important;
-            }
-            #qlns-prev { left: 12px !important; }
-            #qlns-next { right: 12px !important; }
-            /* soften image corners and shadows for small screens */
-            #qlns-slides img {
-              border-radius: 0.875rem !important;
-              box-shadow: 0 10px 24px rgba(0,0,0,0.12);
             }
           }
         </style>
@@ -1878,11 +1688,6 @@
         document.addEventListener('DOMContentLoaded', function() {
           const slidesContainer = document.getElementById('qlns-slides');
           const slides = slidesContainer.querySelectorAll('div');
-          /* performance: ensure lazy loading on these images */
-          document.querySelectorAll('#qlns img').forEach(function(img){
-            img.setAttribute('loading','lazy');
-            img.setAttribute('decoding','async');
-          });
           function getVisibleCount() {
             return window.innerWidth <= 768 ? 1 : 2;
           }
@@ -1907,33 +1712,13 @@
           window.addEventListener('resize', function() {
             showSlides(currentIndex);
           });
-          /* simple touch swipe for mobile */
-          const carouselViewport = document.getElementById('qlns-carousel');
-          let touchStartX = 0;
-          let touchEndX = 0;
-          carouselViewport.addEventListener('touchstart', function(e){
-            if (!e.changedTouches || !e.changedTouches.length) return;
-            touchStartX = e.changedTouches[0].clientX;
-          }, { passive: true });
-          carouselViewport.addEventListener('touchend', function(e){
-            if (!e.changedTouches || !e.changedTouches.length) return;
-            touchEndX = e.changedTouches[0].clientX;
-            const delta = touchEndX - touchStartX;
-            if (Math.abs(delta) > 40) {
-              if (delta < 0) {
-                showSlides(currentIndex + getVisibleCount());
-              } else {
-                showSlides(currentIndex - getVisibleCount());
-              }
-            }
-          }, { passive: true });
           showSlides(0);
         });
         </script>
         <!-- Slider nghệ sĩ kết thúc -->
       </div>
     </section>
-    <!-- kênh nổi bật  -->
+    <!-- Ecosystem Section - Reverted to non-collapsible -->
     <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white/90 to-gray-50/90 backdrop-blur-sm animate__animated animate__fadeInUp" id="ecosystem" data-aos="fade-up" data-aos-delay="400">
         <div class="container mx-auto max-w-7xl">
             <h2 class="beautiful-title" data-aos="zoom-in">
@@ -1944,7 +1729,7 @@
                 <a href="https://www.facebook.com/khetnews" class="col" data-aos="fade-up">
                     <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-8 flex flex-col items-center justify-center h-full border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group">
                         <div class="w-14 h-14 flex items-center justify-center rounded-full bg-[#f8bfc9]/30 border border-[#c1003b]/20 shadow">
-                          <img alt="Khet News Logo - Kênh tin tức và giải trí hàng đầu" loading="lazy" decoding="async" loading="lazy" decoding="async" class="w-8 h-8 rounded-full object-cover">
+                          <img src="media/page4/khetnews.jpg" alt="logo" class="w-8 h-8 rounded-full object-cover">
                         </div>
                         <h3 class="text-2xl font-bold text-gray-900 mb-2">Khet News</h3>
                         <p class="text-base text-gray-600 mb-2 text-center">Kênh tin tức & giải trí: sự kiện, phim ảnh, beauty queen, âm nhạc.</p>
@@ -1955,7 +1740,7 @@
                 <a href="https://www.tiktok.com/@khetmusic_" class="col" data-aos="fade-up" data-aos-delay="100">
                     <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-8 flex flex-col items-center justify-center h-full border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group">
                         <div class="w-14 h-14 flex items-center justify-center rounded-full bg-[#f8bfc9]/30 border border-[#c1003b]/20 shadow">
-                          <img alt="Khet Music Logo - Kênh nhạc số trending" loading="lazy" decoding="async" loading="lazy" decoding="async" class="w-8 h-8 rounded-full object-cover">
+                          <img src="media/page4/khetmusic.jpg" alt="logo" class="w-8 h-8 rounded-full object-cover">
                         </div>
                         <h3 class="text-2xl font-bold text-gray-900 mb-2">Khet Music</h3>
                         <p class="text-base text-gray-600 mb-2 text-center">Kênh nhạc số trending: KPOP, USUK, Vbiz, không voice, sự kiện âm nhạc.</p>
@@ -1966,7 +1751,7 @@
                 <a href="https://www.tiktok.com/@tintucshowbiz_24h" class="col" data-aos="fade-up" data-aos-delay="200">
                     <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-8 flex flex-col items-center justify-center h-full border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group">
                         <div class="w-14 h-14 flex items-center justify-center rounded-full bg-[#f8bfc9]/30 border border-[#c1003b]/20 shadow">
-                          <img alt="Khet Showbiz Logo - Kênh tin tức Showbiz 24h" loading="lazy" decoding="async" loading="lazy" decoding="async" class="w-8 h-8 rounded-full object-cover">
+                          <img src="media/page4/khetshowbiz.jpg" alt="logo" class="w-8 h-8 rounded-full object-cover">
                         </div>
                         <h3 class="text-2xl font-bold text-gray-900 mb-2">Khet Showbiz</h3>
                         <p class="text-base text-gray-600 mb-2 text-center">Kênh tin tức Showbiz 24h.</p>
@@ -1974,45 +1759,6 @@
                     </div>
                 </a>
             </div>
-            <style>
-                /* Mobile optimizations for Featured Channels */
-                @media (max-width: 640px) {
-                    #ecosystem .beautiful-title {
-                        font-size: 1.375rem;
-                        line-height: 1.25;
-                        letter-spacing: -0.01em;
-                        text-align: center;
-                    }
-                    #ecosystem .grid {
-                        gap: 12px !important;
-                    }
-                    #ecosystem .p-8 { /* card padding */
-                        padding: 1rem !important;
-                    }
-                    #ecosystem h3 { /* card title */
-                        font-size: 1.125rem !important;
-                        margin-bottom: 0.25rem !important;
-                        text-align: center;
-                    }
-                    #ecosystem p { /* description */
-                        font-size: 0.9375rem !important;
-                        line-height: 1.4 !important;
-                        text-align: left;
-                        margin-bottom: 0.25rem !important;
-                    }
-                    #ecosystem .w-14.h-14 { /* logo circle */
-                        width: 2.5rem !important;
-                        height: 2.5rem !important;
-                    }
-                    #ecosystem .w-8.h-8 { /* inner logo */
-                        width: 1.5rem !important;
-                        height: 1.5rem !important;
-                    }
-                    #ecosystem .text-lg { /* follower row */
-                        font-size: 1rem !important;
-                    }
-                }
-            </style>
         </div>
     </section>
 
@@ -2025,82 +1771,82 @@
             <!-- Dự án 1 -->
             <!-- ... XÓA TOÀN BỘ GRID CŨ CỦA DỰ ÁN ... -->
             <div class="relative w-full max-w-5xl mx-auto">
-              <button id="project-prev" class="absolute left-0 top-1/2 -translate-y-1/2 bg-[#c1003b] text-white rounded-full p-2 md:p-3 text-sm md:text-base shadow-md md:shadow-lg hover:bg-[#a00030] transition z-10">
+              <button id="project-prev" class="absolute left-0 top-1/2 -translate-y-1/2 bg-[#c1003b] text-white rounded-full p-3 shadow-lg hover:bg-[#a00030] transition z-10">
                 <i class="fas fa-chevron-left"></i>
               </button>
               <div id="project-carousel" class="overflow-hidden">
                 <div id="project-slides" class="flex transition-transform duration-500 gap-8">
                   <!-- Dự án 1 -->
                   <div class="w-64 flex-shrink-0 flex flex-col items-center">
-                    <img src="media/proj/pj (1).jpg" alt="Dự án Khet Entertainment 1 - Sản phẩm truyền thông số" class="w-full rounded-xl mb-4 object-contain" loading="lazy" decoding="async">
+                    <img src="media/proj/pj (1).jpg" alt="Dự án 1" class="w-full rounded-xl mb-4 object-contain">
                   </div>
                   <!-- Dự án 2 -->
                   <div class="w-64 flex-shrink-0 flex flex-col items-center">
-                    <img src="media/proj/pj (2).jpg" alt="Dự án Khet Entertainment 2 - Sản phẩm truyền thông số" class="w-full rounded-xl mb-4 object-contain" loading="lazy" decoding="async">
+                    <img src="media/proj/pj (2).jpg" alt="Dự án 2" class="w-full rounded-xl mb-4 object-contain">
                   </div>
                   <!-- Dự án 3 -->
                   <div class="w-64 flex-shrink-0 flex flex-col items-center">
-                    <img src="media/proj/pj (3).jpg" alt="Dự án Khet Entertainment 3 - Sản phẩm truyền thông số" class="w-full rounded-xl mb-4 object-contain" loading="lazy" decoding="async">
+                    <img src="media/proj/pj (3).jpg" alt="Dự án 3" class="w-full rounded-xl mb-4 object-contain">
                   </div>
                   <!-- Dự án 4 -->
                   <div class="w-64 flex-shrink-0 flex flex-col items-center">
-                    <img src="media/proj/pj (4).jpg" alt="Dự án Khet Entertainment 4 - Sản phẩm truyền thông số" loading="lazy" decoding="async" class="w-full rounded-xl mb-4 object-contain">
+                    <img src="media/proj/pj (4).jpg" alt="Dự án 4" class="w-full rounded-xl mb-4 object-contain">
                   </div>
                   <!-- Dự án 5 -->
                   <div class="w-64 flex-shrink-0 flex flex-col items-center">
-                    <img src="media/proj/pj (5).jpg" alt="Dự án Khet Entertainment 5 - Sản phẩm truyền thông số" loading="lazy" decoding="async" class="w-full rounded-xl mb-4 object-contain">
+                    <img src="media/proj/pj (5).jpg" alt="Dự án 5" class="w-full rounded-xl mb-4 object-contain">
                   </div>
                   <!-- Dự án 6 -->
                   <div class="w-64 flex-shrink-0 flex flex-col items-center">
-                    <img src="media/proj/pj (6).jpg" alt="Dự án Khet Entertainment 6 - Sản phẩm truyền thông số" loading="lazy" decoding="async" class="w-full rounded-xl mb-4 object-contain">
+                    <img src="media/proj/pj (6).jpg" alt="Dự án 6" class="w-full rounded-xl mb-4 object-contain">
                   </div>
                   <!-- Dự án 7 -->
                   <div class="w-64 flex-shrink-0 flex flex-col items-center">
-                    <img src="media/proj/pj (7).jpg" alt="Dự án Khet Entertainment" loading="lazy" decoding="async" class="w-full rounded-xl mb-4 object-contain">
+                    <img src="media/proj/pj (7).jpg" alt="Dự án 7" class="w-full rounded-xl mb-4 object-contain">
                   </div>
                   <!-- Dự án 8 -->
                   <div class="w-64 flex-shrink-0 flex flex-col items-center">
-                    <img src="media/proj/pj (8).jpg" alt="Dự án Khet Entertainment" loading="lazy" decoding="async" class="w-full rounded-xl mb-4 object-contain">
+                    <img src="media/proj/pj (8).jpg" alt="Dự án 8" class="w-full rounded-xl mb-4 object-contain">
                   </div>
                   <!-- Dự án 9 -->
                   <div class="w-64 flex-shrink-0 flex flex-col items-center">
-                    <img src="media/proj/pj (9).jpg" alt="Dự án Khet Entertainment" loading="lazy" decoding="async" class="w-full rounded-xl mb-4 object-contain">
+                    <img src="media/proj/pj (9).jpg" alt="Dự án 9" class="w-full rounded-xl mb-4 object-contain">
                   </div>
                   <!-- Dự án 10 -->
                   <div class="w-64 flex-shrink-0 flex flex-col items-center">
-                    <img src="media/proj/pj (10).jpg" alt="Dự án Khet Entertainment" loading="lazy" decoding="async" class="w-full rounded-xl mb-4 object-contain">
+                    <img src="media/proj/pj (10).jpg" alt="Dự án 10" class="w-full rounded-xl mb-4 object-contain">
                   </div>
                   <!-- Dự án 11 -->
                   <div class="w-64 flex-shrink-0 flex flex-col items-center">
-                    <img src="media/proj/pj (11).jpg" alt="Dự án Khet Entertainment" loading="lazy" decoding="async" class="w-full rounded-xl mb-4 object-contain">
+                    <img src="media/proj/pj (11).jpg" alt="Dự án 11" class="w-full rounded-xl mb-4 object-contain">
                   </div>
                   <!-- Dự án 12 -->
                   <div class="w-64 flex-shrink-0 flex flex-col items-center">
-                    <img src="media/proj/pj (12).jpg" alt="Dự án Khet Entertainment" loading="lazy" decoding="async" class="w-full rounded-xl mb-4 object-contain">
+                    <img src="media/proj/pj (12).jpg" alt="Dự án 12" class="w-full rounded-xl mb-4 object-contain">
                   </div>
                   <!-- Dự án 13 -->
                   <div class="w-64 flex-shrink-0 flex flex-col items-center">
-                    <img src="media/proj/pj (13).jpg" alt="Dự án Khet Entertainment" loading="lazy" decoding="async" class="w-full rounded-xl mb-4 object-contain">
+                    <img src="media/proj/pj (13).jpg" alt="Dự án 13" class="w-full rounded-xl mb-4 object-contain">
                   </div>
                   <!-- Dự án 14 -->
                   <div class="w-64 flex-shrink-0 flex flex-col items-center">
-                    <img src="media/proj/pj (14).jpg" alt="Dự án Khet Entertainment" loading="lazy" decoding="async" class="w-full rounded-xl mb-4 object-contain">
+                    <img src="media/proj/pj (14).jpg" alt="Dự án 14" class="w-full rounded-xl mb-4 object-contain">
                   </div>
                   <!-- Dự án 15 -->
                   <div class="w-64 flex-shrink-0 flex flex-col items-center">
-                    <img src="media/proj/pj (15).jpg" alt="Dự án Khet Entertainment" loading="lazy" decoding="async" class="w-full rounded-xl mb-4 object-contain">
+                    <img src="media/proj/pj (15).jpg" alt="Dự án 15" class="w-full rounded-xl mb-4 object-contain">
                   </div>
                   <!-- Dự án 16 -->
                   <div class="w-64 flex-shrink-0 flex flex-col items-center">
-                    <img src="media/proj/pj (16).jpg" alt="Dự án Khet Entertainment" loading="lazy" decoding="async" class="w-full rounded-xl mb-4 object-contain">
+                    <img src="media/proj/pj (16).jpg" alt="Dự án 16" class="w-full rounded-xl mb-4 object-contain">
                   </div>
                   <!-- Dự án 17 -->
                   <div class="w-64 flex-shrink-0 flex flex-col items-center">
-                    <img src="media/proj/pj (17).jpg" alt="Dự án Khet Entertainment" loading="lazy" decoding="async" class="w-full rounded-xl mb-4 object-contain">
+                    <img src="media/proj/pj (17).jpg" alt="Dự án 17" class="w-full rounded-xl mb-4 object-contain">
                   </div>
                 </div>
               </div>
-              <button id="project-next" class="absolute right-0 top-1/2 -translate-y-1/2 bg-[#c1003b] text-white rounded-full p-2 md:p-3 text-sm md:text-base shadow-md md:shadow-lg hover:bg-[#a00030] transition z-10">
+              <button id="project-next" class="absolute right-0 top-1/2 -translate-y-1/2 bg-[#c1003b] text-white rounded-full p-3 shadow-lg hover:bg-[#a00030] transition z-10">
                 <i class="fas fa-chevron-right"></i>
               </button>
             </div>
@@ -2175,7 +1921,7 @@
     <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white/90 to-gray-50/90 backdrop-blur-sm animate__animated animate__fadeInUp" id="partners" data-aos="fade-up" data-aos-delay="600">
         <div class="container mx-auto max-w-7xl">
             <h2 class="beautiful-title" data-aos="zoom-in">
-                Hệ Thống kênh<span style="color: #c1003b;"></span> của Khet Entertainment
+                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><img src="media/logoc.png" alt="Khet Entertainment Logo" class="w-6 h-6 inline-block"></span> Hệ Thống kênh<span style="color: #c1003b;"></span> của Khet Entertainment
             </h2>
             
             <!-- Channel Grid -->
@@ -2185,7 +1931,7 @@
                     <a href="https://www.facebook.com/khetnews" class="block">
                         <div class="flex items-center gap-2 md:gap-4 mb-2 md:mb-4">
                             <div class="w-14 h-14 flex items-center justify-center rounded-full bg-[#f8bfc9]/30 border border-[#c1003b]/20 shadow">
-                              <img alt="Khet News Logo - Kênh tin tức và giải trí hàng đầu" loading="lazy" decoding="async" loading="lazy" decoding="async" class="w-8 h-8 rounded-full object-cover">
+                              <img src="media/page4/khetnews.jpg" alt="logo" class="w-8 h-8 rounded-full object-cover">
                             </div>
                             <div class="flex-1 min-w-0">
                                 <h3 class="font-bold text-gray-900 group-hover:text-[#c1003b] transition text-xs md:text-base truncate">Page Khet News</h3>
@@ -2194,7 +1940,7 @@
                         </div>
                         <div class="flex items-center justify-between">
                             <span class="text-[#c1003b] font-bold text-sm md:text-lg">100K</span>
-                            <img src="media/page6/icon-facebook.png" loading="lazy" decoding="async" class="w-12 h-12 md:w-16 md:h-16 rounded-full shadow-lg object-cover">
+                            <img src="media/page6/icon-facebook.png" alt="logo" class="w-12 h-12 md:w-16 md:h-16 rounded-full shadow-lg object-cover">
                         </div>
                     </a>
                 </div>
@@ -2203,7 +1949,7 @@
                     <a href="https://www.tiktok.com/@tintucshowbiz_24h" class="block">
                         <div class="flex items-center gap-2 md:gap-4 mb-2 md:mb-4">
                             <div class="w-14 h-14 flex items-center justify-center rounded-full bg-[#f8bfc9]/30 border border-[#c1003b]/20 shadow">
-                              <img alt="Khet Showbiz Logo - Kênh tin tức Showbiz 24h" loading="lazy" decoding="async" loading="lazy" decoding="async" class="w-8 h-8 rounded-full object-cover">
+                              <img src="media/page4/khetshowbiz.jpg" alt="logo" class="w-8 h-8 rounded-full object-cover">
                             </div>
                             <div class="flex-1 min-w-0">
                                 <h3 class="font-bold text-gray-900 group-hover:text-[#c1003b] transition text-xs md:text-base truncate">Khet Showbiz</h3>
@@ -2212,7 +1958,7 @@
                         </div>
                         <div class="flex items-center justify-between">
                             <span class="text-[#c1003b] font-bold text-sm md:text-lg">821K</span>
-                            <img src="media/page6/icon-tiktok.png" loading="lazy" decoding="async" class="w-12 h-12 md:w-16 md:h-16 rounded-full shadow-lg object-cover">
+                            <img src="media/page6/icon-tiktok.png" alt="logo" class="w-12 h-12 md:w-16 md:h-16 rounded-full shadow-lg object-cover">
                         </div>
                     </a>
                 </div>
@@ -2221,7 +1967,7 @@
                     <a href="https://www.tiktok.com/@khetnews" class="block">
                         <div class="flex items-center gap-2 md:gap-4 mb-2 md:mb-4">
                             <div class="w-14 h-14 flex items-center justify-center rounded-full bg-[#f8bfc9]/30 border border-[#c1003b]/20 shadow">
-                              <img alt="Khet News Logo - Kênh tin tức và giải trí hàng đầu" loading="lazy" decoding="async" loading="lazy" decoding="async" class="w-8 h-8 rounded-full object-cover">
+                              <img src="media/page4/khetnews.jpg" alt="logo" class="w-8 h-8 rounded-full object-cover">
                             </div>
                             <div class="flex-1 min-w-0">
                                 <h3 class="font-bold text-gray-900 group-hover:text-[#c1003b] transition text-xs md:text-base truncate">Khet News</h3>
@@ -2230,7 +1976,7 @@
                         </div>
                         <div class="flex items-center justify-between">
                             <span class="text-[#c1003b] font-bold text-sm md:text-lg">400K</span>
-                            <img src="media/page6/icon-tiktok.png" loading="lazy" decoding="async" class="w-12 h-12 md:w-16 md:h-16 rounded-full shadow-lg object-cover">
+                            <img src="media/page6/icon-tiktok.png" alt="logo" class="w-12 h-12 md:w-16 md:h-16 rounded-full shadow-lg object-cover">
                         </div>
                     </a>
                 </div>
@@ -2239,7 +1985,7 @@
                     <a href="https://www.tiktok.com/@canhbuomnews" class="block">
                         <div class="flex items-center gap-2 md:gap-4 mb-2 md:mb-4">
                             <div class="w-14 h-14 flex items-center justify-center rounded-full bg-[#f8bfc9]/30 border border-[#c1003b]/20 shadow">
-                              <img src="media/page4/kheteneter.jpg" loading="lazy" decoding="async" class="w-8 h-8 rounded-full object-cover">
+                              <img src="media/page4/kheteneter.jpg" alt="logo" class="w-8 h-8 rounded-full object-cover">
                             </div>
                             <div class="flex-1 min-w-0">
                                 <h3 class="font-bold text-gray-900 group-hover:text-[#c1003b] transition text-xs md:text-base truncate">Khet Entertainment</h3>
@@ -2248,7 +1994,7 @@
                         </div>
                         <div class="flex items-center justify-between">
                             <span class="text-[#c1003b] font-bold text-sm md:text-lg">101K</span>
-                            <img src="media/page6/icon-tiktok.png" loading="lazy" decoding="async" class="w-12 h-12 md:w-16 md:h-16 rounded-full shadow-lg object-cover">
+                            <img src="media/page6/icon-tiktok.png" alt="logo" class="w-12 h-12 md:w-16 md:h-16 rounded-full shadow-lg object-cover">
                         </div>
                     </a>
                 </div>
@@ -2258,7 +2004,7 @@
                     <a href="https://www.tiktok.com/@khetsobosobich" class="block">
                         <div class="flex items-center gap-2 md:gap-4 mb-2 md:mb-4">
                             <div class="w-14 h-14 flex items-center justify-center rounded-full bg-[#f8bfc9]/30 border border-[#c1003b]/20 shadow">
-                              <img src="media/page4/khetsobo.jpg" loading="lazy" decoding="async" class="w-8 h-8 rounded-full object-cover">
+                              <img src="media/page4/khetsobo.jpg" alt="logo" class="w-8 h-8 rounded-full object-cover">
                             </div>
                             <div class="flex-1 min-w-0">
                                 <h3 class="font-bold text-gray-900 group-hover:text-[#c1003b] transition text-xs md:text-base truncate">Khet Sô Bồ</h3>
@@ -2267,7 +2013,7 @@
                         </div>
                         <div class="flex items-center justify-between">
                             <span class="text-[#c1003b] font-bold text-sm md:text-lg">100K</span>
-                            <img src="media/page6/icon-tiktok.png" loading="lazy" decoding="async" class="w-12 h-12 md:w-16 md:h-16 rounded-full shadow-lg object-cover">
+                            <img src="media/page6/icon-tiktok.png" alt="logo" class="w-12 h-12 md:w-16 md:h-16 rounded-full shadow-lg object-cover">
                         </div>
                     </a>
                 </div>
@@ -2277,7 +2023,7 @@
                     <a href="https://www.tiktok.com/@khetmusic_" class="block">
                         <div class="flex items-center gap-2 md:gap-4 mb-2 md:mb-4">
                             <div class="w-14 h-14 flex items-center justify-center rounded-full bg-[#f8bfc9]/30 border border-[#c1003b]/20 shadow">
-                              <img alt="Khet Music Logo - Kênh nhạc số trending" loading="lazy" decoding="async" loading="lazy" decoding="async" class="w-8 h-8 rounded-full object-cover">
+                              <img src="media/page4/khetmusic.jpg" alt="logo" class="w-8 h-8 rounded-full object-cover">
                             </div>
                             <div class="flex-1 min-w-0">
                                 <h3 class="font-bold text-gray-900 group-hover:text-[#c1003b] transition text-xs md:text-base truncate">Khet Music</h3>
@@ -2286,7 +2032,7 @@
                         </div>
                         <div class="flex items-center justify-between">
                             <span class="text-[#c1003b] font-bold text-sm md:text-lg">100K</span>
-                            <img src="media/page6/icon-tiktok.png" loading="lazy" decoding="async" class="w-12 h-12 md:w-16 md:h-16 rounded-full shadow-lg object-cover">
+                            <img src="media/page6/icon-tiktok.png" alt="logo" class="w-12 h-12 md:w-16 md:h-16 rounded-full shadow-lg object-cover">
                         </div>
                     </a>
                 </div>
@@ -2296,7 +2042,7 @@
                     <a href="https://www.tiktok.com/@gapsaongoaidoi" class="block">
                         <div class="flex items-center gap-2 md:gap-4 mb-2 md:mb-4">
                             <div class="w-14 h-14 flex items-center justify-center rounded-full bg-[#f8bfc9]/30 border border-[#c1003b]/20 shadow">
-                              <img src="media/page4/gapsao.jpeg" loading="lazy" decoding="async" class="w-8 h-8 rounded-full object-cover">
+                              <img src="media/page4/gapsao.jpeg" alt="logo" class="w-8 h-8 rounded-full object-cover">
                             </div>
                             <div class="flex-1 min-w-0">
                                 <h3 class="font-bold text-gray-900 group-hover:text-[#c1003b] transition text-xs md:text-base truncate">Gặp Sao Ngoài Đời</h3>
@@ -2305,7 +2051,7 @@
                         </div>
                         <div class="flex items-center justify-between">
                             <span class="text-[#c1003b] font-bold text-sm md:text-lg">3K</span>
-                            <img src="media/page6/icon-tiktok.png" loading="lazy" decoding="async" class="w-12 h-12 md:w-16 md:h-16 rounded-full shadow-lg object-cover">
+                            <img src="media/page6/icon-tiktok.png" alt="logo" class="w-12 h-12 md:w-16 md:h-16 rounded-full shadow-lg object-cover">
                         </div>
                     </a>
                 </div>
@@ -2360,49 +2106,6 @@
                     </div>
                 </div>
             </div>
-            <style>
-                /* Mobile optimizations for Partners (Channel System) */
-                @media (max-width: 480px) {
-                    #partners .grid { /* switch to single column on very small phones */
-                        grid-template-columns: 1fr !important;
-                        gap: 10px !important;
-                    }
-                    #partners .p-6 { /* tile padding */
-                        padding: 0.875rem !important;
-                    }
-                    #partners .rounded-2xl {
-                        border-radius: 0.875rem !important;
-                    }
-                    #partners .w-14.h-14 { /* avatar circle */
-                        width: 2.5rem !important;
-                        height: 2.5rem !important;
-                    }
-                    #partners .w-16.h-16 { /* platform icon size */
-                        width: 2.75rem !important;
-                        height: 2.75rem !important;
-                    }
-                    #partners h3 { /* channel name */
-                        font-size: 0.95rem !important;
-                    }
-                    #partners p { /* subtitle */
-                        font-size: 0.8125rem !important;
-                    }
-                    #partners .text-lg { /* follower count */
-                        font-size: 1rem !important;
-                    }
-                }
-                @media (max-width: 640px) {
-                    #partners .grid { /* tighter spacing on small screens */
-                        gap: 12px !important;
-                    }
-                    #partners .beautiful-title {
-                        font-size: 1.375rem;
-                        line-height: 1.25;
-                        letter-spacing: -0.01em;
-                        text-align: center;
-                    }
-                }
-            </style>
         </div>
     </section>
     <!-- Partners Company Section -->
@@ -2423,7 +2126,7 @@
               <p class="text-gray-600 text-lg">Hợp tác lâu dài, phát triển bền vững</p>
             </div>
             <div class="flex justify-center">
-              <img src="media/doitac/ino.jpg" alt="Đối tác chiến lược Khet Entertainment" loading="lazy" decoding="async" class="w-full max-w-xs h-32 object-contain rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300" />
+              <img src="media/doitac/ino.jpg" alt="Đối tác chiến lược" class="w-full max-w-xs h-32 object-contain rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300" />
             </div>
           </div>
           
@@ -2450,9 +2153,41 @@
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-5xl mx-auto mb-12">
           <!-- Partner 1 -->
           <div class="bg-white rounded-xl shadow-sm p-4 flex flex-col items-center border border-gray-100 hover:shadow-md transition-shadow duration-300" data-aos="fade-up">
-            <img src="media/doitac/bright.jpg" alt="Đối tác Khet Entertainment" loading="lazy" decoding="async" class="w-12 h-12 object-contain mb-2">
+            <img src="media/doitac/bright.jpg" alt="Đối tác 1" class="w-12 h-12 object-contain mb-2">
             <p class="text-xs text-gray-600 text-center font-medium">Bright Waves</p>
           </div>
+          
+          <!-- Partner 2 -->
+          <div class="bg-white rounded-xl shadow-sm p-4 flex flex-col items-center border border-gray-100 hover:shadow-md transition-shadow duration-300" data-aos="fade-up" data-aos-delay="50">
+            <img src="media/doitac/2.png" alt="Đối tác 2" class="w-12 h-12 object-contain mb-2">
+            <p class="text-xs text-gray-600 text-center font-medium">Đối tác 2</p>
+          </div>
+          
+          <!-- Partner 3 -->
+          <div class="bg-white rounded-xl shadow-sm p-4 flex flex-col items-center border border-gray-100 hover:shadow-md transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
+            <img src="media/doitac/3.png" alt="Đối tác 3" class="w-12 h-12 object-contain mb-2">
+            <p class="text-xs text-gray-600 text-center font-medium">Đối tác 3</p>
+          </div>
+          
+          <!-- Partner 4 -->
+          <div class="bg-white rounded-xl shadow-sm p-4 flex flex-col items-center border border-gray-100 hover:shadow-md transition-shadow duration-300" data-aos="fade-up" data-aos-delay="150">
+            <img src="media/doitac/4.png" alt="Đối tác 4" class="w-12 h-12 object-contain mb-2">
+            <p class="text-xs text-gray-600 text-center font-medium">Đối tác 4</p>
+          </div>
+          
+          <!-- Partner 5 -->
+          <div class="bg-white rounded-xl shadow-sm p-4 flex flex-col items-center border border-gray-100 hover:shadow-md transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
+            <img src="media/doitac/5.png" alt="Đối tác 5" class="w-12 h-12 object-contain mb-2">
+            <p class="text-xs text-gray-600 text-center font-medium">Đối tác 5</p>
+          </div>
+          
+          <!-- Partner 6 -->
+          <div class="bg-white rounded-xl shadow-sm p-4 flex flex-col items-center border border-gray-100 hover:shadow-md transition-shadow duration-300" data-aos="fade-up" data-aos-delay="250">
+            <img src="media/doitac/6.png" alt="Đối tác 6" class="w-12 h-12 object-contain mb-2">
+            <p class="text-xs text-gray-600 text-center font-medium">Đối tác 6</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Projects Section (Slideshow) -->
@@ -2476,167 +2211,199 @@
         </div>
     </footer>
 
-    <!-- External Libraries -->
+    <!-- AOS JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <!-- Blog Loader JavaScript -->
     <script src="js/blog-loader.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Wait for AOS to be available
-            if (typeof AOS !== 'undefined') {
-                AOS.init({
-                    duration: 1000,
-                    once: true,
-                    mirror: false,
-                });
-            } else {
-                // Fallback if AOS is not loaded
-                console.warn('AOS library not loaded');
-            }
+        // Initialize AOS
+        AOS.init({
+            duration: 1000, /* Animation duration */
+            once: true,    /* Whether animation should happen only once - default */
+            mirror: false, /* Whether elements should animate out while scrolling past them */
+        });
 
-            // Typed.js for hero headline
-            if (typeof Typed !== 'undefined' && document.getElementById('typed-headline')) {
-                new Typed('#typed-headline', {
-                    strings: [
-                        "Khet Entertainment - Nền tảng truyền thông số", 
-                        "Giải trí, showbiz, âm nhạc, phim ảnh", 
-                        "Kết nối giới trẻ với xu hướng mới"
-                    ],
-                    typeSpeed: 60,
-                    backSpeed: 30,
-                    backDelay: 1500,
-                    loop: true
-                });
-            } else {
-                // Fallback if Typed.js is not loaded
-                console.warn('Typed.js library not loaded');
-            }
-
-            // Smooth scroll for navigation links
-            document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
+        // Optional: Smooth scroll for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
             });
+        });
 
-            // Header scroll effect
+        // Add a subtle shadow to the header on scroll
+        window.addEventListener('scroll', function() {
             const header = document.getElementById('main-header');
-            if (header) {
-                window.addEventListener('scroll', function() {
-                    if (window.scrollY > 100 && window.innerWidth >= 768) {
-                        header.classList.add('shrink');
-                    } else {
-                        header.classList.remove('shrink');
-                    }
-                });
-            }
-
-            // Mobile menu functionality
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const closeMobileMenu = document.getElementById('close-mobile-menu');
-            
-            // Ensure menu is hidden on page load
-            if (mobileMenu) {
-                mobileMenu.classList.add('translate-x-full');
-                mobileMenu.classList.remove('show');
-            }
-            
-            // Open mobile menu
-            if (mobileMenuBtn && mobileMenu) {
-                mobileMenuBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    mobileMenu.classList.remove('translate-x-full');
-                    mobileMenu.classList.add('show');
-                    document.body.style.overflow = 'hidden'; // Prevent body scroll
-                });
-            }
-            
-            // Close mobile menu
-            if (closeMobileMenu && mobileMenu) {
-                closeMobileMenu.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    mobileMenu.classList.add('translate-x-full');
-                    mobileMenu.classList.remove('show');
-                    document.body.style.overflow = ''; // Restore body scroll
-                });
-            }
-            
-            // Close menu when clicking outside
-            if (mobileMenu) {
-                mobileMenu.addEventListener('click', function(e) {
-                    if (e.target === mobileMenu) {
-                        mobileMenu.classList.add('translate-x-full');
-                        mobileMenu.classList.remove('show');
-                        document.body.style.overflow = ''; // Restore body scroll
-                    }
-                });
-            }
-            
-            // Close menu when clicking on navigation links
-            if (mobileMenu) {
-                const navLinks = mobileMenu.querySelectorAll('nav a');
-                navLinks.forEach(link => {
-                    link.addEventListener('click', function() {
-                        mobileMenu.classList.add('translate-x-full');
-                        mobileMenu.classList.remove('show');
-                        document.body.style.overflow = ''; // Restore body scroll
-                    });
-                });
-            }
-            
-            // Close menu on escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('show')) {
-                    mobileMenu.classList.add('translate-x-full');
-                    mobileMenu.classList.remove('show');
-                    document.body.style.overflow = ''; // Restore body scroll
-                }
-            });
-
-            // Particles.js initialization
-            if (typeof particlesJS !== 'undefined') {
-                particlesJS('particles-js', {
-                    "particles": {
-                        "number": {"value": 40, "density": {"enable": true, "value_area": 800}},
-                        "color": {"value": ["#f8bfc9", "#ffe0b2", "#c1003b"]},
-                        "shape": {"type": "circle"},
-                        "opacity": {"value": 0.15, "random": true},
-                        "size": {"value": 4, "random": true},
-                        "line_linked": {"enable": false},
-                        "move": {
-                            "enable": true, 
-                            "speed": 1, 
-                            "direction": "none", 
-                            "random": true, 
-                            "straight": false, 
-                            "out_mode": "out"
-                        }
-                    },
-                    "interactivity": {
-                        "detect_on": "canvas",
-                        "events": {
-                            "onhover": {"enable": true, "mode": "repulse"}, 
-                            "onclick": {"enable": true, "mode": "push"}
-                        },
-                        "modes": {
-                            "repulse": {"distance": 60, "duration": 0.4}, 
-                            "push": {"particles_nb": 3}
-                        }
-                    },
-                    "retina_detect": true
-                });
+            if (window.scrollY > 100 && window.innerWidth >= 768) {
+                header.classList.add('shrink');
+            } else {
+                header.classList.remove('shrink');
             }
         });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000, /* Animation duration */
+            once: true,    /* Whether animation should happen only once - default */
+            mirror: false, /* Whether elements should animate out while scrolling past them */
+        });
+
+        // Hiệu ứng chữ động cho headline
+        document.addEventListener('DOMContentLoaded', function() {
+          if (document.getElementById('typed-headline')) {
+            new Typed('#typed-headline', {
+              strings: [
+                "Khet Entertainment - Nền tảng truyền thông số", 
+                "Giải trí, showbiz, âm nhạc, phim ảnh", 
+                "Kết nối giới trẻ với xu hướng mới"
+              ],
+              typeSpeed: 60,
+              backSpeed: 30,
+              backDelay: 1500,
+              loop: true
+            });
+          }
+        });
+
+        // Optional: Smooth scroll for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add a subtle shadow to the header on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 100 && window.innerWidth >= 768) {
+                header.classList.add('shrink');
+            } else {
+                header.classList.remove('shrink');
+            }
+        });
+    </script>
+    <script>
+        // Hiệu ứng particles.js cho background động
+        particlesJS('particles-js', {
+          "particles": {
+            "number": {"value": 60, "density": {"enable": true, "value_area": 800}},
+            "color": {"value": ["#f8bfc9", "#ffe0b2", "#c1003b"]},
+            "shape": {"type": "circle"},
+            "opacity": {"value": 0.18, "random": true},
+            "size": {"value": 6, "random": true},
+            "line_linked": {"enable": false},
+            "move": {"enable": true, "speed": 1.2, "direction": "none", "random": true, "straight": false, "out_mode": "out"}
+          },
+          "interactivity": {
+            "detect_on": "canvas",
+            "events": {"onhover": {"enable": true, "mode": "repulse"}, "onclick": {"enable": true, "mode": "push"}},
+            "modes": {"repulse": {"distance": 80, "duration": 0.4}, "push": {"particles_nb": 4}}
+          },
+          "retina_detect": true
+        });
+    </script>
+    <script>
+      // Mobile menu functionality - Single script to avoid conflicts
+      document.addEventListener('DOMContentLoaded', function() {
+        var btn = document.getElementById('mobile-menu-btn');
+        var menu = document.getElementById('mobile-menu');
+        var closeBtn = document.getElementById('close-mobile-menu');
+        
+        // Ensure menu is hidden on page load
+        if (menu) {
+          menu.classList.add('translate-x-full');
+        }
+        
+        // Add click event for mobile menu button
+        if (btn && menu) {
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            menu.classList.remove('translate-x-full');
+            console.log('Mobile menu opened'); // Debug log
+          });
+        }
+        
+        // Add click event for close button
+        if (closeBtn && menu) {
+          closeBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            menu.classList.add('translate-x-full');
+            console.log('Mobile menu closed'); // Debug log
+          });
+        }
+        
+        // Close menu when clicking outside
+        if (menu) {
+          menu.addEventListener('click', function(e) {
+            if (e.target === menu) {
+              menu.classList.add('translate-x-full');
+            }
+          });
+        }
+      });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var btn = document.getElementById('show-more-projects-btn');
+        if (btn) {
+          btn.addEventListener('click', function() {
+            document.querySelectorAll('.extra-project').forEach(function(el) {
+              el.classList.remove('hidden');
+            });
+            btn.parentElement.style.display = 'none';
+          });
+        }
+      });
+    </script>
+    <script>
+      // Mobile dropdown menu logic
+      document.addEventListener('DOMContentLoaded', function() {
+        var btn = document.getElementById('mobile-menu-btn');
+        var nav = document.getElementById('mobile-dropdown');
+        var mobileHeader = document.querySelector('.mobile-header');
+        var searchBtn = document.querySelector('.search-btn');
+        
+        // Menu toggle
+        if (btn && nav) {
+          btn.addEventListener('click', function() {
+            nav.classList.toggle('hidden');
+            btn.classList.toggle('active');
+          });
+          // Ẩn menu khi chọn 1 mục
+          nav.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+              nav.classList.add('hidden');
+              btn.classList.remove('active');
+            });
+          });
+        }
+        
+        // Scroll effect
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 50) {
+            mobileHeader.classList.add('scrolled');
+          } else {
+            mobileHeader.classList.remove('scrolled');
+          }
+        });
+        
+        // Search functionality
+        if (searchBtn) {
+          searchBtn.addEventListener('click', function() {
+            // Có thể thêm modal search hoặc redirect đến trang search
+            alert('Tính năng tìm kiếm sẽ được phát triển sau!');
+          });
+        }
+      });
     </script>
 </body>
 </html>
