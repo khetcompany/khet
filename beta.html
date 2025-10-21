@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khet Entertainment - Giao diện Đồng Nhất</title>
+    <title>Khet Entertainment - Tối ưu Mobile</title>
 
     <!-- Meta Tags & SEO -->
     <meta name="description" content="Khet Entertainment - Nền tảng truyền thông số hàng đầu, kết nối giới trẻ với nghệ thuật, giải trí, showbiz, âm nhạc, phim ảnh.">
@@ -116,9 +116,9 @@
             padding-bottom: 50px;
         }
         #qlns .swiper-slide {
-            width: 80vw;
-            max-width: 720px; /* Max width for large screens */
-            aspect-ratio: 16 / 9; /* Enforce 16:9 */
+            width: 90vw; /* Adjusted for better mobile view */
+            max-width: 720px;
+            aspect-ratio: 16 / 9;
             box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4);
             border-radius: 1.25rem;
             overflow: hidden;
@@ -128,14 +128,22 @@
             transition: transform 0.5s ease;
         }
         #qlns .swiper-slide-active {
-            transform: scale(1.1);
+            transform: scale(1.05); /* Slightly reduced scale for mobile */
             z-index: 10;
+        }
+        @media (min-width: 1024px) {
+             #qlns .swiper-slide {
+                width: 80vw;
+            }
+            #qlns .swiper-slide-active {
+                transform: scale(1.1);
+            }
         }
         #qlns .swiper-slide img {
             display: block;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Cover to fill 16:9 frame perfectly */
+            object-fit: cover;
         }
         
         .cta-button {
@@ -157,7 +165,7 @@
     <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
             <a href="#" class="flex items-center gap-2">
-                <span class="text-2xl font-bold text-slate-800">Khet Entertainment</span>
+                <span class="text-xl md:text-2xl font-bold text-slate-800">Khet Entertainment</span>
             </a>
             <nav class="hidden lg:flex items-center gap-6">
                 <a href="#about" class="font-semibold text-slate-700 hover:text-blue-600 transition-colors">Giới Thiệu</a>
@@ -180,7 +188,7 @@
     </header>
     
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 bg-white/80 backdrop-blur-lg z-[60] flex flex-col items-center justify-center gap-8 text-xl font-bold transform translate-x-full transition-transform duration-300 lg:hidden">
+    <div id="mobile-menu" class="fixed inset-0 bg-white/90 backdrop-blur-lg z-[60] flex flex-col items-center justify-center gap-8 text-xl font-bold transform translate-x-full transition-transform duration-300 lg:hidden">
          <button id="close-mobile-menu" class="absolute top-6 right-6 text-3xl text-slate-600 p-2">
             <i class="fas fa-times"></i>
         </button>
@@ -190,10 +198,12 @@
         <a href="#channels" class="mobile-link text-slate-800">Hệ Thống Kênh</a>
         <a href="#team" class="mobile-link text-slate-800">Thành Viên</a>
         <a href="#partners" class="mobile-link text-slate-800">Đối Tác</a>
-        <a href="https://www.facebook.com/khetentertainment" class="mobile-link text-blue-600">Fanpage</a>
-        <a href="mailto:khetnews@gmail.com" class="mt-4 bg-gradient-action text-white font-bold py-3 px-8 rounded-lg">
-            Liên Hệ
-        </a>
+        <div class="mt-8 pt-8 border-t border-slate-200 w-4/5 text-center flex flex-col gap-6">
+            <a href="https://www.facebook.com/khetentertainment" class="mobile-link text-blue-600">Fanpage</a>
+            <a href="mailto:khetnews@gmail.com" class="bg-gradient-action text-white font-bold py-3 px-8 rounded-lg text-lg">
+                Liên Hệ
+            </a>
+        </div>
     </div>
 
     <main>
@@ -206,7 +216,7 @@
                 <p data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" class="mt-6 max-w-2xl mx-auto text-lg text-slate-600">
                     Khet Entertainment - Nơi kết nối giới trẻ với thế giới nghệ thuật, showbiz, âm nhạc và những xu hướng đỉnh cao.
                 </p>
-                <div data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000" class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-x-8 gap-y-3 text-slate-700 font-medium">
+                <div data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000" class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-x-8 gap-y-4 text-slate-700 font-medium">
                     <a href="mailto:khetnews@gmail.com" class="flex items-center gap-2 hover:text-blue-600 transition-colors">
                         <i class="fas fa-envelope"></i>
                         <span>khetnews@gmail.com</span>
@@ -236,7 +246,7 @@
                 </div>
                 <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                     <div data-aos="fade-right" data-aos-duration="1000">
-                        <img src="media/page2/thumnel-page2.png" alt="Khet Teamwork" class="rounded-2xl shadow-xl w-full lg:w-11/12 mx-auto">
+                        <img src="media/page2/thumnel-page2.png" alt="Khet Teamwork" class="rounded-2xl shadow-xl w-full md:w-10/12 mx-auto">
                     </div>
                     <div class="space-y-6" data-aos="fade-left" data-aos-duration="1000">
                         <div class="flex items-start gap-4 glass-card p-6">
@@ -268,7 +278,7 @@
         <!-- Artists Section -->
         <section id="qlns" class="py-20 lg:py-28">
             <div class="container mx-auto">
-                 <div class="text-center mb-4" data-aos="fade-up">
+                 <div class="text-center mb-4 px-4" data-aos="fade-up">
                     <h2 class="text-3xl md:text-4xl font-bold section-title">Quản Lý Nghệ Sĩ</h2>
                     <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">Đồng hành và phát triển cùng những tài năng Việt.</p>
                 </div>
@@ -348,47 +358,47 @@
                     <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">Hệ sinh thái nội dung đa dạng, phủ sóng trên nhiều nền tảng.</p>
                 </div>
                 
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                    <a href="https://www.facebook.com/khetnews" class="glass-card p-6 text-center" data-aos="fade-up">
-                        <img src="media/page4/khetnews.jpg" alt="Khet News" class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-white shadow-md">
-                        <h3 class="text-xl font-bold text-slate-800">Page Khet News</h3>
-                        <p class="text-sm text-slate-600">Tin tức & Giải trí</p>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
+                    <a href="https://www.facebook.com/khetnews" class="glass-card p-4 md:p-6 text-center" data-aos="fade-up">
+                        <img src="media/page4/khetnews.jpg" alt="Khet News" class="w-16 h-16 md:w-20 md:h-20 rounded-full mx-auto mb-4 border-4 border-white shadow-md">
+                        <h3 class="text-lg md:text-xl font-bold text-slate-800">Page Khet News</h3>
+                        <p class="text-xs md:text-sm text-slate-600">Tin tức & Giải trí</p>
                         <div class="mt-4 text-blue-600 font-bold">100K <span class="font-normal text-slate-500">theo dõi</span></div>
                     </a>
-                    <a href="https://www.tiktok.com/@tintucshowbiz_24h" class="glass-card p-6 text-center" data-aos="fade-up" data-aos-delay="100">
-                        <img src="media/page4/khetshowbiz.jpg" alt="Khet Showbiz" class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-white shadow-md">
-                        <h3 class="text-xl font-bold text-slate-800">Khet Showbiz</h3>
-                        <p class="text-sm text-slate-600">Showbiz & Ngôi sao</p>
+                    <a href="https://www.tiktok.com/@tintucshowbiz_24h" class="glass-card p-4 md:p-6 text-center" data-aos="fade-up" data-aos-delay="100">
+                        <img src="media/page4/khetshowbiz.jpg" alt="Khet Showbiz" class="w-16 h-16 md:w-20 md:h-20 rounded-full mx-auto mb-4 border-4 border-white shadow-md">
+                        <h3 class="text-lg md:text-xl font-bold text-slate-800">Khet Showbiz</h3>
+                        <p class="text-xs md:text-sm text-slate-600">Showbiz & Ngôi sao</p>
                         <div class="mt-4 text-blue-600 font-bold">821K <span class="font-normal text-slate-500">theo dõi</span></div>
                     </a>
-                    <a href="https://www.tiktok.com/@khetnews" class="glass-card p-6 text-center" data-aos="fade-up" data-aos-delay="200">
-                        <img src="media/page4/khetnews.jpg" alt="Khet News TikTok" class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-white shadow-md">
-                        <h3 class="text-xl font-bold text-slate-800">Khet News (TikTok)</h3>
-                         <p class="text-sm text-slate-600">Tin tức tổng hợp</p>
+                    <a href="https://www.tiktok.com/@khetnews" class="glass-card p-4 md:p-6 text-center" data-aos="fade-up" data-aos-delay="200">
+                        <img src="media/page4/khetnews.jpg" alt="Khet News TikTok" class="w-16 h-16 md:w-20 md:h-20 rounded-full mx-auto mb-4 border-4 border-white shadow-md">
+                        <h3 class="text-lg md:text-xl font-bold text-slate-800">Khet News (TikTok)</h3>
+                         <p class="text-xs md:text-sm text-slate-600">Tin tức tổng hợp</p>
                         <div class="mt-4 text-blue-600 font-bold">400K <span class="font-normal text-slate-500">theo dõi</span></div>
                     </a>
-                    <a href="#" class="glass-card p-6 text-center" data-aos="fade-up" data-aos-delay="300">
-                        <img src="media/page4/kheteneter.jpg" onerror="this.src='https://placehold.co/80x80/e2e8f0/64748b?text=Khet'" alt="Khet Entertainment TikTok" class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-white shadow-md">
-                        <h3 class="text-xl font-bold text-slate-800">Khet Entertainment</h3>
-                         <p class="text-sm text-slate-600">Giải trí & Phim ảnh</p>
+                    <a href="#" class="glass-card p-4 md:p-6 text-center" data-aos="fade-up" data-aos-delay="300">
+                        <img src="media/page4/kheteneter.jpg" onerror="this.src='https://placehold.co/80x80/e2e8f0/64748b?text=Khet'" alt="Khet Entertainment TikTok" class="w-16 h-16 md:w-20 md:h-20 rounded-full mx-auto mb-4 border-4 border-white shadow-md">
+                        <h3 class="text-lg md:text-xl font-bold text-slate-800">Khet Entertainment</h3>
+                         <p class="text-xs md:text-sm text-slate-600">Giải trí & Phim ảnh</p>
                         <div class="mt-4 text-blue-600 font-bold">101K <span class="font-normal text-slate-500">theo dõi</span></div>
                     </a>
-                    <a href="https://www.tiktok.com/@khetsobosobich" class="glass-card p-6 text-center" data-aos="fade-up" data-aos-delay="400">
-                        <img src="media/page4/khetsobo.jpg" onerror="this.src='https://placehold.co/80x80/e2e8f0/64748b?text=Khet'" alt="Khet Sô Bồ" class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-white shadow-md">
-                        <h3 class="text-xl font-bold text-slate-800">Khet Sô Bồ</h3>
-                        <p class="text-sm text-slate-600">Gossip & Tin hot</p>
+                    <a href="https://www.tiktok.com/@khetsobosobich" class="glass-card p-4 md:p-6 text-center" data-aos="fade-up" data-aos-delay="400">
+                        <img src="media/page4/khetsobo.jpg" onerror="this.src='https://placehold.co/80x80/e2e8f0/64748b?text=Khet'" alt="Khet Sô Bồ" class="w-16 h-16 md:w-20 md:h-20 rounded-full mx-auto mb-4 border-4 border-white shadow-md">
+                        <h3 class="text-lg md:text-xl font-bold text-slate-800">Khet Sô Bồ</h3>
+                        <p class="text-xs md:text-sm text-slate-600">Gossip & Tin hot</p>
                         <div class="mt-4 text-blue-600 font-bold">100K <span class="font-normal text-slate-500">theo dõi</span></div>
                     </a>
-                    <a href="https://www.tiktok.com/@khetmusic_" class="glass-card p-6 text-center" data-aos="fade-up" data-aos-delay="500">
-                        <img src="media/page4/khetmusic.jpg" alt="Khet Music" class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-white shadow-md">
-                        <h3 class="text-xl font-bold text-slate-800">Khet Music</h3>
-                        <p class="text-sm text-slate-600">Âm nhạc & Ca sĩ</p>
+                    <a href="https://www.tiktok.com/@khetmusic_" class="glass-card p-4 md:p-6 text-center" data-aos="fade-up" data-aos-delay="500">
+                        <img src="media/page4/khetmusic.jpg" alt="Khet Music" class="w-16 h-16 md:w-20 md:h-20 rounded-full mx-auto mb-4 border-4 border-white shadow-md">
+                        <h3 class="text-lg md:text-xl font-bold text-slate-800">Khet Music</h3>
+                        <p class="text-xs md:text-sm text-slate-600">Âm nhạc & Ca sĩ</p>
                         <div class="mt-4 text-blue-600 font-bold">100K <span class="font-normal text-slate-500">theo dõi</span></div>
                     </a>
-                    <a href="https://www.tiktok.com/@gapsaongoaidoi" class="glass-card p-6 text-center" data-aos="fade-up" data-aos-delay="600">
-                        <img src="media/page4/gapsao.jpeg" onerror="this.src='https://placehold.co/80x80/e2e8f0/64748b?text=Khet'" alt="Gặp Sao Ngoài Đời" class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-white shadow-md">
-                        <h3 class="text-xl font-bold text-slate-800">Gặp Sao Ngoài Đời</h3>
-                        <p class="text-sm text-slate-600">Gặp gỡ ngôi sao</p>
+                    <a href="https://www.tiktok.com/@gapsaongoaidoi" class="glass-card p-4 md:p-6 text-center" data-aos="fade-up" data-aos-delay="600">
+                        <img src="media/page4/gapsao.jpeg" onerror="this.src='https://placehold.co/80x80/e2e8f0/64748b?text=Khet'" alt="Gặp Sao Ngoài Đời" class="w-16 h-16 md:w-20 md:h-20 rounded-full mx-auto mb-4 border-4 border-white shadow-md">
+                        <h3 class="text-lg md:text-xl font-bold text-slate-800">Gặp Sao Ngoài Đời</h3>
+                        <p class="text-xs md:text-sm text-slate-600">Gặp gỡ ngôi sao</p>
                         <div class="mt-4 text-blue-600 font-bold">3K <span class="font-normal text-slate-500">theo dõi</span></div>
                     </a>
                 </div>
@@ -403,26 +413,26 @@
                     <h2 class="text-3xl md:text-4xl font-bold section-title">Team Khet Entertainment</h2>
                     <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">Những con người nhiệt huyết đứng sau thành công.</p>
                 </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                     <div class="glass-card p-6 text-center" data-aos="flip-left" data-aos-duration="1000">
-                        <img src="media/member/bui-van-tien.jpg" alt="Bùi Văn Tiến" class="w-24 h-24 sm:w-32 sm:h-32 rounded-full mx-auto mb-4 shadow-lg border-4 border-white">
-                        <h3 class="font-bold text-slate-800 text-lg">Bùi Văn Tiến</h3>
-                        <p class="text-slate-500">Nhà sáng lập</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+                     <div class="glass-card p-4 md:p-6 text-center" data-aos="flip-left" data-aos-duration="1000">
+                        <img src="media/member/bui-van-tien.jpg" alt="Bùi Văn Tiến" class="w-24 h-24 rounded-full mx-auto mb-4 shadow-lg border-4 border-white">
+                        <h3 class="font-bold text-slate-800 text-base md:text-lg">Bùi Văn Tiến</h3>
+                        <p class="text-slate-500 text-sm">Nhà sáng lập</p>
                     </div>
-                    <div class="glass-card p-6 text-center" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="100">
-                        <img src="media/member/do-khac-tam.jpg" alt="Đỗ Khắc Tâm" class="w-24 h-24 sm:w-32 sm:h-32 rounded-full mx-auto mb-4 shadow-lg border-4 border-white">
-                        <h3 class="font-bold text-slate-800 text-lg">Đỗ Khắc Tâm</h3>
-                        <p class="text-slate-500">Giám đốc</p>
+                    <div class="glass-card p-4 md:p-6 text-center" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="100">
+                        <img src="media/member/do-khac-tam.jpg" alt="Đỗ Khắc Tâm" class="w-24 h-24 rounded-full mx-auto mb-4 shadow-lg border-4 border-white">
+                        <h3 class="font-bold text-slate-800 text-base md:text-lg">Đỗ Khắc Tâm</h3>
+                        <p class="text-slate-500 text-sm">Giám đốc</p>
                     </div>
-                    <div class="glass-card p-6 text-center" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="200">
-                        <img src="media/member/hoang-duc.jpg" alt="Hoàng Đức" class="w-24 h-24 sm:w-32 sm:h-32 rounded-full mx-auto mb-4 shadow-lg border-4 border-white">
-                        <h3 class="font-bold text-slate-800 text-lg">Hoàng Đức</h3>
-                        <p class="text-slate-500">Giám Đốc Điều Hành</p>
+                    <div class="glass-card p-4 md:p-6 text-center" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="200">
+                        <img src="media/member/hoang-duc.jpg" alt="Hoàng Đức" class="w-24 h-24 rounded-full mx-auto mb-4 shadow-lg border-4 border-white">
+                        <h3 class="font-bold text-slate-800 text-base md:text-lg">Hoàng Đức</h3>
+                        <p class="text-slate-500 text-sm">Giám Đốc Điều Hành</p>
                     </div>
-                     <div class="glass-card p-6 text-center" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="300">
-                        <img src="https://placehold.co/128x128/e2e8f0/64748b?text=NA" alt="Nguyễn Văn A" class="w-24 h-24 sm:w-32 sm:h-32 rounded-full mx-auto mb-4 shadow-lg border-4 border-white">
-                        <h3 class="font-bold text-slate-800 text-lg">Nguyễn Văn A</h3>
-                        <p class="text-slate-500">Chức Vụ</p>
+                     <div class="glass-card p-4 md:p-6 text-center" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="300">
+                        <img src="https://placehold.co/128x128/e2e8f0/64748b?text=NA" alt="Nguyễn Văn A" class="w-24 h-24 rounded-full mx-auto mb-4 shadow-lg border-4 border-white">
+                        <h3 class="font-bold text-slate-800 text-base md:text-lg">Nguyễn Văn A</h3>
+                        <p class="text-slate-500 text-sm">Chức Vụ</p>
                     </div>
                 </div>
             </div>
@@ -439,22 +449,22 @@
                 <!-- Strategic Partner -->
                 <h3 class="text-2xl font-bold section-title text-center mb-10" data-aos="fade-up">Đối Tác Chiến Lược</h3>
                 <div class="flex justify-center mb-16" data-aos="fade-up">
-                    <div class="glass-card p-8 text-center max-w-sm">
-                        <img src="media/doitac/ino.jpg" alt="Ino Media" class="h-24 mx-auto mb-4">
-                        <h4 class="text-xl font-bold text-slate-800">Ino Media</h4>
-                        <p class="text-slate-600 mt-2">Hợp tác toàn diện trong lĩnh vực truyền thông và sản xuất nội dung số.</p>
+                    <div class="glass-card p-6 md:p-8 text-center max-w-sm">
+                        <img src="media/doitac/ino.jpg" alt="Ino Media" class="h-20 md:h-24 mx-auto mb-4">
+                        <h4 class="text-lg md:text-xl font-bold text-slate-800">Ino Media</h4>
+                        <p class="text-slate-600 mt-2 text-sm md:text-base">Hợp tác toàn diện trong lĩnh vực truyền thông và sản xuất nội dung số.</p>
                     </div>
                 </div>
 
                 <!-- Other Partners -->
                 <h3 class="text-2xl font-bold section-title text-center mb-10" data-aos="fade-up">Các Đối Tác Khác</h3>
-                <div class="flex flex-wrap justify-center items-center gap-10 lg:gap-16 grayscale opacity-60" data-aos="fade-up">
-                    <img src="media/doitac/bright.jpg" alt="Bright Waves" class="h-10 lg:h-12 transition hover:grayscale-0 hover:opacity-100 cursor-pointer">
-                    <img src="media/doitac/2.png" alt="Partner 2" class="h-10 lg:h-12 transition hover:grayscale-0 hover:opacity-100 cursor-pointer">
-                    <img src="media/doitac/3.png" alt="Partner 3" class="h-10 lg:h-12 transition hover:grayscale-0 hover:opacity-100 cursor-pointer">
-                    <img src="media/doitac/4.png" alt="Partner 4" class="h-10 lg:h-12 transition hover:grayscale-0 hover:opacity-100 cursor-pointer">
-                    <img src="media/doitac/5.png" alt="Partner 5" class="h-10 lg:h-12 transition hover:grayscale-0 hover:opacity-100 cursor-pointer">
-                    <img src="media/doitac/6.png" alt="Partner 6" class="h-10 lg:h-12 transition hover:grayscale-0 hover:opacity-100 cursor-pointer">
+                <div class="flex flex-wrap justify-center items-center gap-8 md:gap-10 lg:gap-16 grayscale opacity-60" data-aos="fade-up">
+                    <img src="media/doitac/bright.jpg" alt="Bright Waves" class="h-8 md:h-10 lg:h-12 transition hover:grayscale-0 hover:opacity-100 cursor-pointer">
+                    <img src="media/doitac/2.png" alt="Partner 2" class="h-8 md:h-10 lg:h-12 transition hover:grayscale-0 hover:opacity-100 cursor-pointer">
+                    <img src="media/doitac/3.png" alt="Partner 3" class="h-8 md:h-10 lg:h-12 transition hover:grayscale-0 hover:opacity-100 cursor-pointer">
+                    <img src="media/doitac/4.png" alt="Partner 4" class="h-8 md:h-10 lg:h-12 transition hover:grayscale-0 hover:opacity-100 cursor-pointer">
+                    <img src="media/doitac/5.png" alt="Partner 5" class="h-8 md:h-10 lg:h-12 transition hover:grayscale-0 hover:opacity-100 cursor-pointer">
+                    <img src="media/doitac/6.png" alt="Partner 6" class="h-8 md:h-10 lg:h-12 transition hover:grayscale-0 hover:opacity-100 cursor-pointer">
                 </div>
             </div>
         </section>
@@ -463,9 +473,9 @@
         <!-- CTA Section -->
         <section class="py-20 lg:py-28">
              <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-gradient-action rounded-2xl p-10 lg:p-16 text-center text-white" data-aos="zoom-in-up">
-                    <h2 class="text-3xl md:text-4xl font-bold">Trở Thành Đối Tác Của Chúng Tôi</h2>
-                    <p class="mt-4 max-w-2xl mx-auto text-lg opacity-90">Hãy liên hệ với Khet Entertainment để cùng nhau tạo nên những dự án truyền thông bùng nổ và lan tỏa giá trị tích cực đến cộng đồng.</p>
+                <div class="bg-gradient-action rounded-2xl p-8 md:p-10 lg:p-16 text-center text-white" data-aos="zoom-in-up">
+                    <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold">Trở Thành Đối Tác Của Chúng Tôi</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-base md:text-lg opacity-90">Hãy liên hệ với Khet Entertainment để cùng nhau tạo nên những dự án truyền thông bùng nổ và lan tỏa giá trị tích cực đến cộng đồng.</p>
                     <a href="mailto:khetnews@gmail.com" class="cta-button mt-8 inline-block bg-white text-blue-600 font-bold py-3 px-8 rounded-lg">
                         Liên Hệ Ngay
                     </a>
@@ -559,8 +569,9 @@
 
         const projectSwiper = new Swiper('.project-swiper', {
             loop: true,
-            slidesPerView: 1,
+            slidesPerView: 1.5, // Show 1.5 slides on mobile
             spaceBetween: 16,
+            centeredSlides: true,
             autoplay: {
                 delay: 3500,
             },
